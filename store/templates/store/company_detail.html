@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+{% extends 'index.html' %}  
+{% block body%} 
   <head>
     <title>{{ company.company_name }} Location</title>
     <!-- Load the Google Maps JavaScript API -->
@@ -42,4 +44,7 @@
       }
     </script>
   </body>
+
+{% endblock %}
+
 </html>
