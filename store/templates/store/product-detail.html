@@ -1,0 +1,94 @@
+{% extends 'base.html' %} 
+
+{% block body%} 
+<section class="section-content padding-y bg">
+      <div class="container">
+        <!-- ============================ COMPONENT 1 ================================= -->
+        <div class="card">
+          <div class="row no-gutters">
+            <aside class="col-md-6">
+              <article class="gallery-wrap">
+                <div class="img-big-wrap">
+                  <a href="#"><img src="{{product.image.url}}" /></a>
+                </div>
+                <!-- img-big-wrap.// -->
+              </article>
+              <!-- gallery-wrap .end// -->
+            </aside>
+            <main class="col-md-6 border-left">
+              <article class="content-body">
+                <h2 class="title">{{product.Produc_name}}</h2>
+
+                <div class="mb-3">
+                  <var class="price h4">Only {{product.price}} Taka</var>
+                </div>
+
+                <p>
+                  {{product.description}}
+                </p>
+
+                <hr />
+                <p>
+                  In Stock : <b>{{product.stock}}</b>
+                </p>
+                <hr />
+                <form method="post">
+                  {% csrf_token %}
+                  <a href="{% url 'add_cart' product.id %}" class="btn btn-primary">                  
+                    <span class="text">Add to cart</span>
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                </form>
+              </article>
+              <!-- product-info-aside .// -->
+            </main>
+            <!-- col.// -->
+          </div>
+          <!-- row.// -->
+        </div>
+        <!-- card.// -->
+        <!-- ============================ COMPONENT 1 END .// ================================= -->
+
+        <br />
+
+        <div class="row">
+          <div class="col-md-9">
+            <header class="section-heading">
+              <h3>Product details of New 2024 With Stay Best Quality in Your Berget </h3>
+            </header>
+
+            <article class="box mb-3">
+              <div class="icontext w-100">
+                <img
+                  src="{{product.image.url}}"
+                  class="img-xs icon rounded-circle"
+                />
+                <div class="text">
+                  <span class="date text-muted float-md-right"
+                    >Stock Empty Tomorrow .
+                  </span>
+                  <h6 class="mb-1">Brands Product</h6>
+                </div>
+              </div>
+              <!-- icontext.// -->
+              <div class="mt-3">
+                <p>
+                    Product Type: Very Stylish Sunglasses
+                    Main Material: high quality metal frame
+                    Gender: Men
+                    Color: Black
+                    Standard size and 400 uv protection
+                    Occasion Trendy lifestyle and regular fashion
+                </p>
+              </div>
+            </article>
+          </div>
+          <!-- col.// -->
+        </div>
+        <!-- row.// -->
+      </div>
+      <!-- container .//  -->
+    </section>
+
+{% endblock %}
+

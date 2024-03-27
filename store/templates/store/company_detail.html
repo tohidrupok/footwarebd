@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ company.company_name }} Location</title>
+    <!-- Load the Google Maps JavaScript API -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHFgwTMwnzHTfS56RtIXB_H8r2jkaVMHc&callback=initMap"
+      async
+      defer
+    ></script>
+    <style>
+      /* Set the size of the map */
+      #map {
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>{{ company.company_name }} Location</h1>
+    <!-- Display the map -->
+    <div id="map"></div>
+    <script>
+      // Initialize and display the map
+      function initMap() {
+          // Get the latitude and longitude of the company
+          var latitude = {{ company.latitude }};
+          var longitude = {{ company.longitude }};
+          // Create a LatLng object
+          var companyLocation = { lat: latitude, lng: longitude };
+          // Create a map object and specify the DOM element for display
+          var map = new google.maps.Map(document.getElementById('map'), {
+              center: companyLocation,
+              zoom: 15
+          });
+          // Create a marker and set its position
+          var marker = new google.maps.Marker({
+              position: companyLocation,
+              map: map,
+              title: '{{ company.company_name }}'
+          });
+      }
+    </script>
+  </body>
+</html>

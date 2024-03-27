@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company List</title>
+</head>
+<body>
+    <h1>List of Companies</h1>
+    <ul>
+        {% for company in companies %}
+            <li>{{ company.company_name }}</li>
+            	<a href="{% url 'company_detail' company.slug %}" class="title">{{company.company_name}}</a>
+            <!-- Replace "name" with the field name containing the company's name -->
+        {% endfor %} 
+    <div class="row">
+	{%for company in companies %}
+	<div class="col-md-4">
+		<figure class="card card-product-grid">
+			<div class="img-wrap"> 
+				
+				<img src="{{company.image.url}}">
+				
+			</div> <!-- img-wrap.// -->
+			<figcaption class="info-wrap">
+				<div class="fix-height">
+					<a href="{% url 'company_detail' company.slug %}" class="title">{{company.company_name}}</a>
+					
+				</div>
+				<a href="" class="btn btn-block btn-success">Added to cart </a>  
+			</figcaption>
+		</figure>
+	</div> <!-- col.// -->
+
+	{%endfor%}
+
+</div> 
+
+
+
+
+    </ul>
+</body>
+</html>
