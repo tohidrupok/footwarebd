@@ -1,34 +1,74 @@
 <!DOCTYPE html>
-{% extends 'index.html' %}
- {% block body%} 
 <html lang="en">
+  {% extends 'index.html' %} {% block body%} {% load static %}
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Company List</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <style>
+      /* Additional Custom CSS */
+      body {
+        background-color: #f8f9fa; /* Light gray background */
+      }
+      .company-card {
+        margin-bottom: 30px;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        background: #ffffff; /* White background */
+      }
+      .company-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+      .company-logo {
+        height: 200px; /* Adjust the height of the logo/image */
+        object-fit: cover;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+      }
+      .company-details {
+        padding: 20px;
+        background-color: #f0f0f0; /* Light gray background */
+      }
+      .company-name {
+        font-size: 20px;
+        color: #007bff; /* Blue color for company names */
+      }
+    </style>
   </head>
   <body>
-    <h1>List of Companies</h1>
-    <ul>
-      <div class="row">
-        {%for company in companies %}
+  <div class="container">
+    <h2 class="mt-5 mb-4 text-center">List of Companies</h2>
+    <div class="row">
+        {% for company in companies %}
         <div class="col-md-3">
-          <figure class="card card-product-grid">
-            <div class="img-wrap">
-            <a href="{% url 'company_detail' company.slug %}"> <img src="{{company.logo.url}}"/></a> 
-            <h2>{{company.company_name}}</h2>
-            </div>
-            <!-- img-wrap.// -->
-          </figure>
+            <a href="{% url 'company_detail' company.slug %}" class="company-link">
+                <div class="company-card">
+                    <img src="{{ company.logo.url }}" class="company-logo card-img-top" alt="Company Logo" />
+                    <div class="company-details">
+                        <h4 class="company-name">{{ company.company_name }}</h4>
+                        <!-- You can add more details about the company here if needed -->
+                    </div>
+                </div>
+            </a>
         </div>
-        <!-- col.// -->
+        {% endfor %}
+    </div>
+</div>
 
-        {%endfor%}
-      </div>
-    </ul>
+
+    <!-- Bootstrap JS and jQuery (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </body>
-
   {% endblock %}
-
-
 </html>
