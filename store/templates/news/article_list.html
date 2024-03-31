@@ -1,0 +1,21 @@
+<!-- article_list.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News Portal</title>
+</head>
+<body>
+    <h1>Latest News</h1>
+    <ul>
+    {% for article in articles %}
+        <li>
+            <a href="{% url 'article_detail' article.pk %}">{{ article.title }}</a>
+            {% if article.image %}
+                <img src="{{ article.image.url }}" alt="{{ article.title }} Image" width="100">
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

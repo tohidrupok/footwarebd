@@ -23,4 +23,18 @@ class Company(models.Model):
         if self.latitude is not None and self.longitude is not None:
             return f"https://www.google.com/maps?q={self.latitude},{self.longitude}"
         else:
-            return None
+            return None 
+
+
+
+class NewsArticle(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    publication_date = models.DateTimeField(auto_now_add=True)
+    author = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='photos/news_images/', null=True, blank=True)
+    is_availble = models.BooleanField(default = True)
+    reference_link = models.URLField(max_length = 200, blank=True, null=True)  
+
+    def __str__(self):
+        return self.title

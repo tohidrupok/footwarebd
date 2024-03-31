@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Company
+from .models import Company, NewsArticle
 
 def company_list(request):
     companies = Company.objects.filter(is_availble=True)
@@ -12,4 +12,10 @@ def company_detail(request, company_slug):
         'company': company,
         'map_url': map_url
     }
-    return render(request, 'store/company_detail.html', context)
+    return render(request, 'store/company_detail.html', context) 
+
+
+def news_article_list(request):
+    articles = NewsArticle.objects.all()
+    return render(request, 'news/article_list.html', {'articles': articles})
+
