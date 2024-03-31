@@ -16,6 +16,9 @@ def company_detail(request, company_slug):
 
 
 def news_article_list(request):
-    articles = NewsArticle.objects.all()
-    return render(request, 'news/article_list.html', {'articles': articles})
+    articles = NewsArticle.objects.order_by('-publication_date')[:1]
+    latest_news = NewsArticle.objects.order_by('-publication_date')[:6]
+
+    context = {'articles': articles, 'latest_news': latest_news}
+    return render(request, 'news/article_list.html', context)
 
