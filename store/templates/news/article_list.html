@@ -1,171 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News</title>
     <style>
-      /* Inline CSS */
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-      }
+        /* Inline CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
 
-      .container {
-        max-width: 1200px;
-        margin: 20px auto;
-        padding: 0 20px;
-        display: flex;
-        gap: 20px;
-      }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 20px;
+        }
 
-      .main-column {
-        flex: 2; /* Larger column */
-        background-color: #fff;
-        border-radius: 5px;
-        padding: 20px;
-      }
+        .main-column {
+            flex: 2; /* Larger column */
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+        }
 
-      .latest-column {
-        flex: 1; /* Smaller column */
-        background-color: #fff;
-        border-radius: 5px;
-        padding: 20px;
-      }
+        .latest-column {
+            flex: 1; /* Smaller column */
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+        }
 
-      .main-column h2,
-      .latest-column h2 {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom: 20px;
-      }
+        .main-column h2,
+        .latest-column h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
 
-      .news-container {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
+        .news-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
 
-      .news-item {
-        background-color: #f9f9f9;
-        padding: 20px;
-        border-radius: 5px;
-      }
+        .news-item {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+        }
 
-      .news-item img {
-        width: 100%;
-        border-radius: 5px;
-        margin-bottom: 10px;
-      }
+        .news-item img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
 
-      .news-item h3 {
-        font-size: 20px;
-        margin-bottom: 10px;
-      }
+        .news-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
 
-      .news-item .date {
-        font-style: italic;
-        color: #666;
-        margin-bottom: 10px;
-      }
+        .news-item .date {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 10px;
+        }
 
-      .news-item p {
-        margin-bottom: 10px;
-      }
+        .news-item p {
+            margin-bottom: 10px;
+        }
 
-      .read-more {
-        color: blue;
-        text-decoration: none;
-      }
+        .read-more {
+            color: blue;
+            text-decoration: none;
+        }
 
-      .read-more:hover {
-        text-decoration: underline;
-      }
+        .read-more:hover {
+            text-decoration: underline;
+        }
 
-      /* Style to display the image in a circle */
-      .latest-column .news-item img {
-        border-radius: 50%; /* Make the image circular */
-        width: 100px; /* Adjust the width as needed */
-        height: 100px; /* Adjust the height as needed */
-        object-fit: cover; /* Maintain aspect ratio */
-        margin-right: 20px; /* Add some space to the right of the image */
-      }
-      .latest-column .news-item {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-      }
-      .latest-column .news-item {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
+        /* Style to display the image in a circle */
+        .latest-column .news-item img {
+            border-radius: 50%; /* Make the image circular */
+            width: 100px; /* Adjust the width as needed */
+            height: 100px; /* Adjust the height as needed */
+            object-fit: cover; /* Maintain aspect ratio */
+            margin-right: 20px; /* Add some space to the right of the image */
+        }
 
-      .latest-column .news-item img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-right: 20px;
-      }
+        .latest-column .news-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
 
-      .latest-column .news-details {
-        flex: 1;
-      }
+        .latest-column .news-item img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
 
-      .latest-column .news-details h5 {
-        font-size: 20px;
-        margin-bottom: 5px;
-      }
+        .latest-column .news-details {
+            flex: 1;
+        }
 
-      .latest-column .news-details .date {
-        font-style: italic;
-        color: #666;
-        margin-bottom: 5px;
-      }
+        .latest-column .news-details h5 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .latest-column .news-details .date {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        /* Pagination styles */
+        .pagination {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+
+        .pagination li {
+            margin: 0 5px;
+        }
+
+        .pagination li a {
+            color: #007bff;
+            text-decoration: none;
+            border: 1px solid #007bff;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .pagination li.disabled a {
+            color: #777;
+            border-color: #777;
+            cursor: not-allowed;
+        }
+
+        .pagination li.active a {
+            background-color: #007bff;
+            color: #fff;
+            border-color: #007bff;
+        }
     </style>
-  </head>
-  <body>
-    <div class="container">
-      <!-- Main News Column -->
-      <div class="main-column">
+</head>
+<body>
+<div class="container">
+    <!-- Main News Column -->
+    <div class="main-column">
         <h2>Main News</h2>
         <div class="news-container">
-          <!-- Iterate over your main news articles -->
-          {% for article in articles %}
-          <div class="news-item">
-            <img src="{{ article.image.url }}" alt="{{ article.title }}" />
-            <h3>{{ article.title }}</h3>
-            <p class="date">{{ article.publication_date }}</p>
-            <p>{{ article.content|truncatewords:30 }}</p>
-            <a href="{{ article.url }}" class="read-more">Read more</a>
-          </div>
-          {% endfor %}
+            <!-- Iterate over your main news articles -->
+            {% for article in articles %}
+            <div class="news-item">
+                <img src="{{ article.image.url }}" alt="{{ article.title }}" />
+                <h3>{{ article.title }}</h3>
+                <p class="date">{{ article.publication_date }}</p>
+                <p>{{ article.content|truncatewords:30 }}</p>
+                <a href="{{ article.url }}" class="read-more">Read more</a>
+            </div>
+            {% endfor %}
         </div>
-      </div>
+    </div>
 
-      <!-- Latest News Column -->
-      <div class="latest-column">
+    <!-- Latest News Column -->
+    <div class="latest-column">
         <h2>Latest News</h2>
         <div class="news-container">
-          <!-- Iterate over your latest news articles -->
-          {% for article in latest_news %}
-          <div class="news-item">
-            <img src="{{ article.image.url }}" alt="{{ article.title }}" />
-            <div class="news-details">
-              <p>{{ article.title }}</p>
-              <small class="date">{{ article.publication_date }}</small>
+            <!-- Iterate over your latest news articles -->
+            {% for article in latest_news %}
+            <div class="news-item">
+                <img src="{{ article.image.url }}" alt="{{ article.title }}" />
+                <div class="news-details">
+                    <p>{{ article.title }}</p>
+                    <small class="date">{{ article.publication_date }}</small>
+                </div>
             </div>
-          </div>
-          {% endfor %}
+            {% endfor %}
         </div>
     </div>
+</div>
+
+<div class="container">
+    <!-- General News Column -->
+    <div class="latest-column">
+        <h2>General News</h2>
+        <div class="news-container">
+            <!-- Iterate over your general news articles -->
+            {% for article in general_news %}
+            <div class="news-item">
+                <img src="{{ article.image.url }}" alt="{{ article.title }}" />
+                <div class="news-details">
+                    <h3>{{ article.title }}</h3>
+                    <p class="date">{{ article.publication_date }}</p>
+                    <p>{{ article.content|truncatewords:20 }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+      <!-- Pagination for General News -->
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if general_news.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page=1" tabindex="-1">First</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ general_news.previous_page_number }}">Previous</a>
+        </li>
+        {% endif %}
+        
+        <li class="page-item disabled">
+            <span class="page-link">Page {{ general_news.number }} of {{ general_news.paginator.num_pages }}</span>
+        </li>
+        
+        {% if general_news.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ general_news.next_page_number }}">Next</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ general_news.paginator.num_pages }}">Last</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+<!-- End Pagination -->
+
     </div>
-    <div class="container">
-    <h1> hellow</h1>
-    </div>
-   
-  </body>
+</div>
+
+
+</body>
 </html>
