@@ -7,7 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Company List</title>
     <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <!-- Custom CSS -->
     <style>
       /* Additional Custom CSS */
@@ -39,53 +42,233 @@
         font-size: 20px;
         color: #007bff; /* Blue color for company names */
       }
+
+      /* Add this CSS to your stylesheet */
+      #spinner {
+        display: none; /* Hide the spinner */
+      }
+
+      /* Ensure the navbar remains fixed at the top */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000; /* Ensure the navbar is on top of other elements */
+      }
+
+      /* Adjust padding/margins as needed */
+      .container-fluid {
+        padding-top: 56px; /* Adjust based on the height of your navbar */
+      }
+
+      /* Remove background from the modal content */
+      .modal-content {
+        background: transparent; /* Remove any background */
+      }
     </style>
   </head>
   <body>
-  <div class="container">
-    <h2 class="mt-5 mb-4 text-center">List of Companies</h2>
-    <div class="row">
-        {% for company in companies %}
-        <div class="col-md-3">
-            <a href="{% url 'company_detail' company.slug %}" class="company-link">
-                <div class="company-card">
-                    <img src="{{ company.logo.url }}" class="company-logo card-img-top" alt="Company Logo" />
-                    <div class="company-details">
-                        <h4 class="company-name">{{ company.company_name }}</h4>
-                        <!-- You can add more details about the company here if needed -->
-                    </div>
-                </div>
-            </a>
-        </div>
-        {% endfor %}
+    <!-- Spinner Start -->
+    <div
+      id="spinner"
+      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+    >
+      <div class="spinner"></div>
     </div>
-    <!-- Pagination -->
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if companies.has_previous %}
-            <li class="page-item">
-                <a class="page-link" href="?page=1" tabindex="-1">First</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="?page={{ companies.previous_page_number }}">Previous</a>
-            </li>
-            {% endif %}
-            <li class="page-item disabled">
-                <span class="page-link">Page {{ companies.number }} of {{ companies.paginator.num_pages }}</span>
-            </li>
-            {% if companies.has_next %}
-            <li class="page-item">
-                <a class="page-link" href="?page={{ companies.next_page_number }}">Next</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="?page={{ companies.paginator.num_pages }}">Last</a>
-            </li>
-            {% endif %}
-        </ul>
-    </nav>
-    <!-- End Pagination -->
+    <!-- Spinner End -->
+
+    <!-- Navbar & Carousel Start -->
+    <div class="container-fluid position-relative p-0">
+      <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+        <a href="{% url 'home' %}" class="navbar-brand p-0">
+          <h1 class="m-0">
+            <!--<i class="fa fa-user-tie me-2"></i>-->
+            <img
+              class="w-100"
+              src="{% static 'img/logo/footware_logo.png' %}"
+              height="100px"
+              width="200px"
+              alt="Image"
+            />
+          </h1>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+        >
+          <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav ms-auto py-0">
+            <a href="{% url 'about'  %}" class="nav-item nav-link active"
+              >About</a
+            >
+            <a href="{% url 'company_list'  %}" class="nav-item nav-link"
+              >Directory of Factories</a
+            >
+            <div class="nav-item dropdown">
+              <a
+                href="#"
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                >Service</a
+              >
+              <div class="dropdown-menu m-0">
+                <a href="service.php" class="dropdown-item">Resource Library</a>
+                <a href="service.php" class="dropdown-item"
+                  >Certifications and Standards</a
+                >
+                <a href="service.php" class="dropdown-item"
+                  >Supply Chain Information</a
+                >
+                <a href="service.php" class="dropdown-item">Interactive Maps</a>
+              </div>
+            </div>
+            <div class="nav-item dropdown">
+              <a
+                href="#"
+                class="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+                >KCC</a
+              >
+              <div class="dropdown-menu m-0">
+                <a href="{% url 'news_all'  %}" class="dropdown-item"
+                  >Newsletter Subscription</a
+                >
+                <a href="{% url 'news_all'  %}" class="dropdown-item"
+                  >Industry News and Events</a
+                >
+              </div>
+            </div>
+            <a href="team.php" class="nav-item nav-link">Industry Leader</a>
+            <a href="jobportal.php" class="nav-item nav-link"> Job Portal</a>
+            <a href="blog.php" class="nav-item nav-link">Blog</a>
+            <a href="{% url 'contact'  %}" class="nav-item nav-link">Contact</a>
+          </div>
+          <!--
+   <butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
+               <a href="https://htmlcodex.com/startup-company-website-template" class="btn btn-primary py-2 px-4 ms-3">Download Pro Version</a>
+   -->
+        </div>
+      </nav>
+
+      <div
+        id="header-carousel"
+        class="carousel slide carousel-fade"
+        data-bs-ride="carousel"
+      >
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#header-carousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#header-carousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <!-- Navbar & Carousel End -->
+
+    <!-- Full Screen Search Start -->
+    <div class="modal fade" id="searchModal" tabindex="-1">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content" style="background: rgba(9, 30, 62, 0.7)">
+          <div class="modal-header border-0">
+            <button
+              type="button"
+              class="btn bg-white btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div
+            class="modal-body d-flex align-items-center justify-content-center"
+          >
+            <div class="input-group" style="max-width: 600px">
+              <input
+                type="text"
+                class="form-control bg-transparent border-primary p-3"
+                placeholder="Type search keyword"
+              />
+              <button class="btn btn-primary px-4">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Full Screen Search End -->
+
+    <div class="container">
+      <h2 class="mt-5 mb-4 text-center">List of Companies</h2>
+      <div class="row">
+  {% for company in companies %}
+  <div class="col-md-3">
+    <a href="{% url 'company_detail' company.slug %}" class="company-link">
+      <div class="company-card">
+        <img src="{{ company.logo.url }}" class="company-logo card-img-top" alt="Company Logo" />
+        <div class="company-details">
+          <h4 class="company-name">{{ company.company_name }}</h4>
+          <!-- You can add more details about the company here if needed -->
+        </div>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
 </div>
 
+      <!-- Pagination -->
+      <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+          {% if companies.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page=1" tabindex="-1">First</a>
+          </li>
+          <li class="page-item">
+            <a
+              class="page-link"
+              href="?page={{ companies.previous_page_number }}"
+              >Previous</a
+            >
+          </li>
+          {% endif %}
+          <li class="page-item disabled">
+            <span class="page-link"
+              >Page {{ companies.number }} of {{ companies.paginator.num_pages}}</span
+            >
+          </li>
+          {% if companies.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ companies.next_page_number }}"
+              >Next</a
+            >
+          </li>
+          <li class="page-item">
+            <a
+              class="page-link"
+              href="?page={{ companies.paginator.num_pages }}"
+              >Last</a
+            >
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+      <!-- End Pagination -->
+    </div>
 
     <!-- Bootstrap JS and jQuery (optional) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

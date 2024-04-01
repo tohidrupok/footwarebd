@@ -5,7 +5,7 @@ from .models import Company, NewsArticle
 def company_list(request):
     all_companies = Company.objects.filter(is_availble=True)
 
-    paginator = Paginator(all_companies, 2)  # 10 companies per page
+    paginator = Paginator(all_companies, 5)  # 10 companies per page
     page = request.GET.get('page')
 
     try:
@@ -29,22 +29,28 @@ def company_detail(request, company_slug):
     return render(request, 'store/company_detail.html', context) 
 
 def news_article_list(request):
-    general_news = NewsArticle.objects.filter(is_availble=True)
+    all_news = NewsArticle.objects.filter(is_availble=True).order_by('-publication_date')
     
-    paginator = Paginator(general_news, 1)  # 10 articles per page
-    page = request.GET.get('page')
+    # Pagination for all news
+    paginator = Paginator(all_news, 10)  # Assuming you want 10 news per page
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
-    try:
-        general_news = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        general_news = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        general_news = paginator.page(paginator.num_pages)
+    # Splitting the news data into two parts
+    num_news = len(all_news)
+    mid_index = num_news // 2
+    news_column1 = all_news[:mid_index]
+    news_column2 = all_news[mid_index:]
+
     articles = NewsArticle.objects.filter(is_availble=True).order_by('-publication_date')[:1]
-    latest_news = NewsArticle.objects.filter(is_availble=True).order_by('-publication_date')[:6]  # Latest news won't be paginated
+    latest_news = NewsArticle.objects.filter(is_availble=True).order_by('-publication_date')[:3]  # Latest news won't be paginated
 
-    context = {'articles': articles, 'latest_news': latest_news,'general_news': general_news }
+    context = {
+        'news_column1': news_column1,
+        'news_column2': news_column2,
+        'page_obj': page_obj,
+        'articles': articles,
+        'latest_news': latest_news,
+    }
+
     return render(request, 'news/article_list.html', context)
-
