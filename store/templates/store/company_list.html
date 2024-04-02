@@ -65,7 +65,21 @@
       /* Remove background from the modal content */
       .modal-content {
         background: transparent; /* Remove any background */
-      }
+      } 
+/* Container */
+.company-logo-container {
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center horizontally */
+}
+
+/* Image */
+.company-logo {
+  width: 130px; /* Adjust the width as per your requirement */
+  height: 110px; /* To maintain the aspect ratio */
+}
+
+
+
     </style>
   </head>
   <body>
@@ -220,7 +234,9 @@
   <div class="col-md-3">
     <a href="{% url 'company_detail' company.slug %}" class="company-link">
       <div class="company-card">
+        <div class="company-logo-container">
         <img src="{{ company.logo.url }}" class="company-logo card-img-top" alt="Company Logo" />
+      </div>
         <div class="company-details">
           <h4 class="company-name">{{ company.company_name }}</h4>
           <!-- You can add more details about the company here if needed -->

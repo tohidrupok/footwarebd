@@ -5,7 +5,7 @@ from .models import Company, NewsArticle
 def company_list(request):
     all_companies = Company.objects.filter(is_availble=True)
 
-    paginator = Paginator(all_companies, 5)  # 10 companies per page
+    paginator = Paginator(all_companies, 12)  # 10 companies per page
     page = request.GET.get('page')
 
     try:
