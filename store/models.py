@@ -39,3 +39,28 @@ class NewsArticle(models.Model):
 
     def __str__(self):
         return self.title
+   
+
+class Leaders(models.Model):
+    name = models.CharField(max_length=100)
+    slug = models.SlugField(unique=True, blank=True, null=True)
+    title = models.CharField(max_length=100)
+    birth_date = models.DateField(blank=True, null=True)
+    nationality = models.CharField(max_length=100)
+    education = models.TextField()
+    description = models.TextField()
+    professional_history = models.TextField(blank=True, null=True)
+    business_history = models.TextField(blank=True, null=True)
+    achievement = models.TextField(blank=True, null=True)
+    awards = models.TextField(blank=True, null=True)
+    certifications = models.TextField(blank=True, null=True)
+    role_in_industries = models.TextField(blank=True, null=True)
+    image = models.ImageField(upload_to='leader_images/', blank=True, null=True)
+    facebook = models.CharField(max_length=200, blank=True, null=True)  
+    linkedin = models.CharField(max_length=200, blank=True, null=True)  
+    website = models.URLField(max_length=200, blank=True, null=True) 
+      
+      
+    def __str__(self):
+        return self.name
+

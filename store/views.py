@@ -1,6 +1,6 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
-from .models import Company, NewsArticle
+from .models import Company, NewsArticle, Leaders
 
 def company_list(request):
     all_companies = Company.objects.filter(is_availble=True)
@@ -54,3 +54,7 @@ def news_article_list(request):
     }
 
     return render(request, 'news/article_list.html', context)
+
+def leaders(request):
+    leaders = Leaders.objects.all()
+    return render(request, 'leader/leader.html', {'leaders': leaders})

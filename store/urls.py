@@ -6,5 +6,6 @@ urlpatterns = [
     # path('product_detail/<slug:product_slug>/', views.product_detail ,name='product_detail'),
     path('company/<slug:company_slug>/', views.company_detail ,name='company_detail'),
     path('news/', views.news_article_list ,name='news_all'),
+    path('leaders/', views.leaders ,name='leaders'),
     
 ]
