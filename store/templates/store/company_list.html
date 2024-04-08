@@ -77,12 +77,10 @@
   width: 130px; /* Adjust the width as per your requirement */
   height: 110px; /* To maintain the aspect ratio */
 }
+</style>
 
-
-
-    </style>
-  </head>
-  <body>
+</head>
+<body>
     <!-- Spinner Start -->
     <div
       id="spinner"
@@ -131,14 +129,14 @@
                 >Service</a
               >
               <div class="dropdown-menu m-0">
-                <a href="service.php" class="dropdown-item">Resource Library</a>
-                <a href="service.php" class="dropdown-item"
+                <a href="" class="dropdown-item">Resource Library</a>
+                <a href="" class="dropdown-item"
                   >Certifications and Standards</a
                 >
-                <a href="service.php" class="dropdown-item"
+                <a href="#" class="dropdown-item"
                   >Supply Chain Information</a
                 >
-                <a href="service.php" class="dropdown-item">Interactive Maps</a>
+                <a href="#" class="dropdown-item">Interactive Maps</a>
               </div>
             </div>
             <div class="nav-item dropdown">
@@ -157,9 +155,9 @@
                 >
               </div>
             </div>
-            <a href="team.php" class="nav-item nav-link">Industry Leader</a>
-            <a href="jobportal.php" class="nav-item nav-link"> Job Portal</a>
-            <a href="blog.php" class="nav-item nav-link">Blog</a>
+            <a href="{% url 'leaders'  %}" class="nav-item nav-link">Industry Leader</a>
+            <a href="" class="nav-item nav-link"> Job Portal</a>
+            <a href="" class="nav-item nav-link">Blog</a>
             <a href="{% url 'contact'  %}" class="nav-item nav-link">Contact</a>
           </div>
           <!--
