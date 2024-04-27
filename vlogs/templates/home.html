@@ -40,7 +40,7 @@
           <a href="{% url 'company_list'  %}" class="nav-item nav-link"
             >Directory of Factories</a
           >
-          <div class="nav-item dropdown"> 
+          <div class="nav-item dropdown">
             <a
               href="#"
               class="nav-link dropdown-toggle"
@@ -48,13 +48,9 @@
               >Service</a
             >
             <div class="dropdown-menu m-0">
-              <a href="#" class="dropdown-item">Resource Library</a>
-              <a href="#" class="dropdown-item"
-                >Certifications and Standards</a
-              >
-              <a href="#" class="dropdown-item"
-                >Supply Chain Information</a
-              >
+              <a href="{% url 'resource_library'  %}" class="dropdown-item">Resource Library</a>
+              <a href="{% url 'company_list'  %}" class="dropdown-item">Certifications and Standards</a>
+              <a href="#" class="dropdown-item">Supply Chain Information</a>
               <a href="#" class="dropdown-item">Interactive Maps</a>
             </div>
           </div>
@@ -74,7 +70,9 @@
               >
             </div>
           </div>
-          <a href="{% url 'leaders'  %}" class="nav-item nav-link">Industry Leader</a>
+          <a href="{% url 'leaders'  %}" class="nav-item nav-link"
+            >Industry Leader</a
+          >
           <a href="" class="nav-item nav-link"> Job Portal</a>
           <a href="" class="nav-item nav-link">Blog</a>
           <a href="{% url 'contact'  %}" class="nav-item nav-link">Contact</a>
@@ -233,13 +231,13 @@
             class="d-flex align-items-center mb-4 wow fadeIn"
             data-wow-delay="0.6s"
           >
-        <div>
-            <a
+            <div>
+              <a
                 href="{% url 'about'  %}"
                 class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
-                >See More</a>
-        </div>
-
+                >See More</a
+              >
+            </div>
           </div>
         </div>
         <div class="col-lg-5" style="min-height: 400px">
@@ -432,7 +430,8 @@
           >
             <h3 class="text-white mb-3">Call Us For Quote</h3>
             <p class="text-white mb-3">
-          Get in touch with us for a personalized quote tailored to your requirements.
+              Get in touch with us for a personalized quote tailored to your
+              requirements.
             </p>
             <h2 class="text-white mb-0">+8801671166809</h2>
           </div>
@@ -448,10 +447,10 @@
       <div class="row g-5">
         <div class="col-lg-7">
           <div class="section-title position-relative pb-3 mb-5">
-            <h5 class="fw-bold text-primary text-uppercase">Request A Message</h5>
-            <h1 class="mb-0">
-              Please Feel Free to Contact Us
-            </h1>
+            <h5 class="fw-bold text-primary text-uppercase">
+              Request A Message
+            </h5>
+            <h1 class="mb-0">Please Feel Free to Contact Us</h1>
           </div>
           <div class="row gx-3">
             <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
@@ -468,7 +467,12 @@
             </div>
           </div>
           <p class="mb-4">
-           Welcome to our website! We are dedicated to providing excellent service and support to our customers. Whether you have questions about our services or need assistance, feel free to reach out to us. Our team is here to help you.
+            Welcome to our website! We are dedicated to providing excellent
+            service and support to our customers. Whether you have questions
+            about our services or need assistance, feel free to reach out to us.
+            Our team is here to help you.
+          </p>
+
           <div
             class="d-flex align-items-center mt-2 wow zoomIn"
             data-wow-delay="0.6s"
