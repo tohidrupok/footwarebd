@@ -1,32 +1,35 @@
-{% extends 'index.html' %} {% block body%} {% load static %}
- <style> 
-.cart {
-    max-height: 400px; /* Adjust the max-height as needed */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+{% extends 'index.html' %} 
+{% block body%} 
+{% load static %}
 
-.cart .p-3 {
-    padding: 1rem;
-}
+<style> 
+      .cart {
+          max-height: 400px; /* Adjust the max-height as needed */
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+      }
 
-.cart .img-fluid {
-    max-height: 200px; /* Adjust the max-height as needed */
-    max-width: 100%; /* Ensure the image doesn't exceed the cart's width */
-    object-fit: contain; /* Maintain aspect ratio and fit within the container */
-}
+      .cart .p-3 {
+          padding: 1rem;
+      }
 
-.buttons {
-    margin-top: 10px; /* Adjust the margin as needed */
-}
+      .cart .img-fluid {
+          max-height: 200px; /* Adjust the max-height as needed */
+          max-width: 100%; /* Ensure the image doesn't exceed the cart's width */
+          object-fit: contain; /* Maintain aspect ratio and fit within the container */
+      }
 
-.buttons .btn {
-    margin-right: 5px; /* Adjust the margin between buttons as needed */
-}
+      .buttons {
+          margin-top: 10px; /* Adjust the margin as needed */
+      }
 
- </style>
+      .buttons .btn {
+          margin-right: 5px; /* Adjust the margin between buttons as needed */
+      }
+
+</style>
 <body>
 
   <!-- Spinner Start -->
@@ -195,10 +198,6 @@
   <!-- Navbar & Carousel End -->
 
 
-
-
-
-
   <!-- Blog Start -->
   <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container py-5">
@@ -235,11 +234,11 @@
             <div class="w-100 d-none d-md-block"></div> <!-- Add a spacer for mobile responsiveness -->
         {% endif %}
     {% endfor %}
-</div>
+       </div>
                                            
-    </div>
+       </div>
   </div>
   <!-- Blog Start -->
 
-  {% endblock %}
+{% endblock %}
 </body>

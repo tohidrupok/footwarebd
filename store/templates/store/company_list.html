@@ -1,24 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-  {% extends 'index.html' %} {% block body%} {% load static %}
+{% extends 'index.html' %} 
+{% block body%} 
+{% load static %}
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Company List</title>
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <!-- Custom CSS -->
-    <style>
+<style> 
+        <style>
       /* Additional Custom CSS */
       body {
         background-color: #f8f9fa; /* Light gray background */
       }
       .company-card {
-        margin-bottom: 30px;
+        margin-bottom: 40px;
         border-radius: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         overflow: hidden;
@@ -43,189 +34,168 @@
         color: #007bff; /* Blue color for company names */
       }
 
-      /* Add this CSS to your stylesheet */
-      #spinner {
-        display: none; /* Hide the spinner */
-      }
-
-      /* Ensure the navbar remains fixed at the top */
-      .navbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000; /* Ensure the navbar is on top of other elements */
-      }
-
-      /* Adjust padding/margins as needed */
-      .container-fluid {
-        padding-top: 56px; /* Adjust based on the height of your navbar */
-      }
-
       /* Remove background from the modal content */
       .modal-content {
         background: transparent; /* Remove any background */
       } 
-/* Container */
-.company-logo-container {
-  display: flex; /* Use flexbox */
-  justify-content: center; /* Center horizontally */
-}
+      /* Container */
+      .company-logo-container {
+        display: flex; /* Use flexbox */
+        justify-content: center; /* Center horizontally */
+      }
 
-/* Image */
-.company-logo {
-  width: 130px; /* Adjust the width as per your requirement */
-  height: 110px; /* To maintain the aspect ratio */
-}
+      /* Image */
+      .company-logo {
+        width: 130px; /* Adjust the width as per your requirement */
+        height: 110px; /* To maintain the aspect ratio */
+        }
 </style>
 
-</head>
 <body>
-    <!-- Spinner Start -->
-    <div
-      id="spinner"
-      class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
-    >
-      <div class="spinner"></div>
-    </div>
-    <!-- Spinner End -->
 
-    <!-- Navbar & Carousel Start -->
-    <div class="container-fluid position-relative p-0">
-      <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
-        <a href="{% url 'home' %}" class="navbar-brand p-0">
-          <h1 class="m-0">
-            <!--<i class="fa fa-user-tie me-2"></i>-->
-            <img
-              class="w-100"
-              src="{% static 'img/logo/footware_logo.png' %}"
-              height="100px"
-              width="200px"
-              alt="Image"
-            />
-          </h1>
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarCollapse"
-        >
-          <span class="fa fa-bars"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <div class="navbar-nav ms-auto py-0">
-            <a href="{% url 'about'  %}" class="nav-item nav-link active"
-              >About</a
-            >
-            <a href="{% url 'company_list'  %}" class="nav-item nav-link"
-              >Directory of Factories</a
-            >
-            <div class="nav-item dropdown">
-              <a
-                href="#"
-                class="nav-link dropdown-toggle"
-                data-bs-toggle="dropdown"
-                >Service</a
-              >
-              <div class="dropdown-menu m-0">
-                <a href="{% url 'resource_library'  %}" class="dropdown-item">Resource Library</a>
-                <a href="" class="dropdown-item"
-                  >Certifications and Standards</a
-                >
-                <a href="#" class="dropdown-item"
-                  >Supply Chain Information</a
-                >
-                <a href="#" class="dropdown-item">Interactive Maps</a>
-              </div>
-            </div>
-            <div class="nav-item dropdown">
-              <a
-                href="#"
-                class="nav-link dropdown-toggle"
-                data-bs-toggle="dropdown"
-                >KCC</a
-              >
-              <div class="dropdown-menu m-0">
-                <a href="{% url 'news_all'  %}" class="dropdown-item"
-                  >Newsletter Subscription</a
-                >
-                <a href="{% url 'news_all'  %}" class="dropdown-item"
-                  >Industry News and Events</a
-                >
-              </div>
-            </div>
-            <a href="{% url 'leaders'  %}" class="nav-item nav-link">Industry Leader</a>
-            <a href="" class="nav-item nav-link"> Job Portal</a>
-            <a href="" class="nav-item nav-link">Blog</a>
-            <a href="{% url 'contact'  %}" class="nav-item nav-link">Contact</a>
-          </div>
-          <!--
-   <butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
-               <a href="https://htmlcodex.com/startup-company-website-template" class="btn btn-primary py-2 px-4 ms-3">Download Pro Version</a>
-   -->
-        </div>
-      </nav>
+  <!-- Spinner Start -->
+  <div
+    id="spinner"
+    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+  >
+    <div class="spinner"></div>
+  </div>
+  <!-- Spinner End -->
 
-      <div
-        id="header-carousel"
-        class="carousel slide carousel-fade"
-        data-bs-ride="carousel"
+  <!-- Navbar & Carousel Start -->
+  <div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+      <a href="{% url 'home' %}" class="navbar-brand p-0">
+        <h1 class="m-0">
+          <!--<i class="fa fa-user-tie me-2"></i>-->
+          <img
+            class="w-100"
+            src="{% static 'img/logo/footware_logo.png' %}"
+            height="100px"
+            width="200px"
+            alt="Image"
+          />
+        </h1>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse"
       >
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#header-carousel"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#header-carousel"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
-    <!-- Navbar & Carousel End -->
-
-    <!-- Full Screen Search Start -->
-    <div class="modal fade" id="searchModal" tabindex="-1">
-      <div class="modal-dialog modal-fullscreen">
-        <div class="modal-content" style="background: rgba(9, 30, 62, 0.7)">
-          <div class="modal-header border-0">
-            <button
-              type="button"
-              class="btn bg-white btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div
-            class="modal-body d-flex align-items-center justify-content-center"
+        <span class="fa fa-bars"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto py-0">
+          <a href="{% url 'about'  %}" class="nav-item nav-link active"
+            >About</a
           >
-            <div class="input-group" style="max-width: 600px">
-              <input
-                type="text"
-                class="form-control bg-transparent border-primary p-3"
-                placeholder="Type search keyword"
-              />
-              <button class="btn btn-primary px-4">
-                <i class="bi bi-search"></i>
-              </button>
+          <a href="{% url 'company_list'  %}" class="nav-item nav-link"
+            >Directory of Factories</a
+          >
+          <div class="nav-item dropdown"> 
+            <a
+              href="#"
+              class="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+              >Service</a
+            >
+            <div class="dropdown-menu m-0">
+              <a href="#" class="dropdown-item">Resource Library</a>
+              <a href="#" class="dropdown-item"
+                >Certifications and Standards</a
+              >
+              <a href="#" class="dropdown-item"
+                >Supply Chain Information</a
+              >
+              <a href="#" class="dropdown-item">Interactive Maps</a>
+            </div>
+          </div>
+          <div class="nav-item dropdown">
+            <a
+              href="#"
+              class="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+              >KCC</a
+            >
+            <div class="dropdown-menu m-0">
+              <a href="{% url 'news_all'  %}" class="dropdown-item"
+                >Newsletter Subscription</a
+              >
+              <a href="{% url 'news_all'  %}" class="dropdown-item"
+                >Industry News and Events</a
+              >
+            </div>
+          </div>
+          <a href="{% url 'leaders'  %}" class="nav-item nav-link">Industry Leader</a>
+          <a href="" class="nav-item nav-link"> Job Portal</a>
+          <a href="" class="nav-item nav-link">Blog</a>
+          <a href="{% url 'contact'  %}" class="nav-item nav-link">Contact</a>
+        </div>
+        <!--
+				<butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
+                <a href="https://htmlcodex.com/startup-company-website-template" class="btn btn-primary py-2 px-4 ms-3">Download Pro Version</a>
+				-->
+      </div>
+    </nav>
+
+    <div
+      id="header-carousel"
+      class="carousel slide carousel-fade"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="w-100" src="{% static 'img/apu.jpg'%}" alt="Image" />
+          <div
+            class="carousel-caption d-flex flex-column align-items-center justify-content-center"
+          >
+            <div class="p-3" style="max-width: 900px">
+
+              <h1 class="display-1 text-white mb-md-4 animated zoomIn">
+               Factories streamline production, efficiency.
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="w-100" src="{% static 'img/jutaPro.jpeg'%}" alt="Image" />
+          <div
+            class="carousel-caption d-flex flex-column align-items-center justify-content-center"
+          >
+            <div class="p-3" style="max-width: 900px">
+              <h1 class="display-1 text-white mb-md-4 animated zoomIn">
+                Factories streamline production, efficiency.
+              </h1>
             </div>
           </div>
         </div>
       </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#header-carousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#header-carousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-    <!-- Full Screen Search End -->
+  </div>
+  <!-- Navbar & Carousel End -->
 
-    <div class="container">
+
+<!-- Company list-->
+<div class="container">
       <h2 class="mt-5 mb-4 text-center">List of Factories </h2>
       <div class="row">
   {% for company in companies %}
@@ -243,7 +213,7 @@
     </a>
   </div>
   {% endfor %}
-</div>
+  </div>
 
       <!-- Pagination -->
       <nav aria-label="Page navigation">
@@ -282,12 +252,8 @@
         </ul>
       </nav>
       <!-- End Pagination -->
-    </div>
+</div>
+<!-- Company list  end-->
 
-    <!-- Bootstrap JS and jQuery (optional) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  </body>
-  {% endblock %}
-</html>
+{% endblock %}
+</body>
