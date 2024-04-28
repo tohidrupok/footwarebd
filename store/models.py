@@ -3,11 +3,11 @@ from django.db import models
 class Company(models.Model):
     company_name = models.CharField( max_length=100 )
     slug = models.SlugField(max_length=200, unique=True)
-    description = models.TextField(max_length=500, unique = True)
+    description = models.TextField(max_length=500)
     head_office_address = models.CharField(max_length=255)
     factory_addresses = models.TextField()  
     email_addresses = models.TextField() 
-    phone_number = models.CharField(max_length=20, unique=True)
+    phone_number = models.CharField(max_length=100, unique=True)
     managing_director_name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='photos/products', blank=True, null=True )
     logo = models.ImageField(upload_to='photos/logos',  default='photos/default.png')
