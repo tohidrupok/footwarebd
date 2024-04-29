@@ -201,7 +201,7 @@
   {% for company in companies %}
   <div class="col-md-3">
     <a href="{% url 'company_detail' company.slug %}" class="company-link">
-      <div class="company-card">
+      <div class="company-card"> 
         <div class="company-logo-container">
         <img src="{{ company.logo.url }}" class="company-logo card-img-top" alt="Company Logo" />
       </div>
@@ -211,7 +211,7 @@
         </div>
       </div>
     </a>
-  </div>
+  </div> 
   {% endfor %}
   </div>
 

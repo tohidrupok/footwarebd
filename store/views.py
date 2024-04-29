@@ -58,3 +58,8 @@ def news_article_list(request):
 def leaders(request):
     leaders = Leaders.objects.all()
     return render(request, 'leader/leader.html', {'leaders': leaders})
+
+
+def persion_detail(request, person_slug):
+    leader = Leaders.objects.get(slug=person_slug)
+    return render(request, 'leader/biography.html', {'leader': leader})

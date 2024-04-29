@@ -168,7 +168,8 @@
         <div class="row g-5">
             {% for leader in leaders %}
             <div class="col-lg-4 wow slideInUp" data-wow-delay="{% cycle '0.3s' '0.6s' '0.9s' %}">
-                <div class="team-item bg-light rounded overflow-hidden">
+                <div class="team-item bg-light rounded overflow-hidden"> 
+                  <a href="{% url 'person_detail' leader.slug %}" class="company-link">
                     <div class="team-img position-relative overflow-hidden">
                         <img class="img-fluid w-100" src="{{ leader.image.url }}" alt="{{ leader.name }}">
                         <!-- If you have social media links for each leader, you can add them here -->
@@ -182,9 +183,10 @@
                         </div>
                     </div>
                     <div class="text-center py-4">
-                        <h4 class="text-primary">{{ leader.name }}</h4>
+                        <h4  class="text-primary"><a href="{% url 'person_detail' leader.slug %}">{{ leader.name }}</a></h4>
                         <p class="text-uppercase m-0">{{ leader.title }}</p>
-                    </div>
+                    </div> 
+                  </a>
                 </div>
             </div>
             {% endfor %}

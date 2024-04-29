@@ -1,0 +1,281 @@
+{% extends 'index.html' %} 
+{% block body%} 
+{% load static %}
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #444;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+        }
+        .leader-profile {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+            padding: 40px;
+        }
+        .leader-profile img {
+            max-width: 350px;
+            height: auto;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 20px;
+            box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
+        }
+        .leader-name {
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+        .leader-title {
+            font-size: 24px;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .leader-info h3 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+        .leader-info p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .social-links {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .social-links a {
+            display: inline-block;
+            color: #007bff;
+            margin: 0 15px;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+        .social-links a:hover {
+            color: #0056b3;
+        }
+    </style>
+<body>
+
+  <!-- Spinner Start -->
+  <div
+    id="spinner"
+    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+  >
+    <div class="spinner"></div>
+  </div>
+  <!-- Spinner End -->
+
+  <!-- Navbar & Carousel Start -->
+  <div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+      <a href="{% url 'home' %}" class="navbar-brand p-0">
+        <h1 class="m-0">
+          <!--<i class="fa fa-user-tie me-2"></i>-->
+          <img
+            class="w-100"
+            src="{% static 'img/logo/footware_logo.png' %}"
+            height="100px"
+            width="200px"
+            alt="Image"
+          />
+        </h1>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse"
+      >
+        <span class="fa fa-bars"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto py-0">
+          <a href="{% url 'about'  %}" class="nav-item nav-link active"
+            >About</a
+          >
+          <a href="{% url 'company_list'  %}" class="nav-item nav-link"
+            >Directory of Factories</a
+          >
+          <div class="nav-item dropdown"> 
+            <a
+              href="#"
+              class="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+              >Service</a
+            >
+            <div class="dropdown-menu m-0">
+              <a href="{% url 'resource_library'  %}" class="dropdown-item">Resource Library</a>
+              <a href="#" class="dropdown-item"
+                >Certifications and Standards</a
+              >
+              <a href="#" class="dropdown-item"
+                >Supply Chain Information</a
+              >
+              <a href="#" class="dropdown-item">Interactive Maps</a>
+            </div>
+          </div>
+          <div class="nav-item dropdown">
+            <a
+              href="#"
+              class="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+              >KCC</a
+            >
+            <div class="dropdown-menu m-0">
+              <a href="{% url 'news_all'  %}" class="dropdown-item"
+                >Newsletter Subscription</a
+              >
+              <a href="{% url 'news_all'  %}" class="dropdown-item"
+                >Industry News and Events</a
+              >
+            </div>
+          </div>
+          <a href="{% url 'leaders'  %}" class="nav-item nav-link">Industry Leader</a>
+          <a href="" class="nav-item nav-link"> Job Portal</a>
+          <a href="" class="nav-item nav-link">Blog</a>
+          <a href="{% url 'contact'  %}" class="nav-item nav-link">Contact</a>
+        </div>
+        <!--
+				<butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
+                <a href="https://htmlcodex.com/startup-company-website-template" class="btn btn-primary py-2 px-4 ms-3">Download Pro Version</a>
+				-->
+      </div>
+    </nav>
+ 
+    <div
+      id="header-carousel"
+      class="carousel slide carousel-fade"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="w-100" src="{% static 'img/apex.jpg'%}" alt="Image" />
+          <div
+            class="carousel-caption d-flex flex-column align-items-center justify-content-center" >            
+          </div>
+        </div>
+        {% comment %} <div class="carousel-item">
+          <img class="w-100" src="{% static 'img/home2.jpg'%}" alt="Image" />
+          <div
+            class="carousel-caption d-flex flex-column align-items-center justify-content-center"
+          >
+            <div class="p-3" style="max-width: 900px">
+              <h5 class="text-white text-uppercase mb-3 animated slideInDown">
+                Creative & Innovative
+              </h5>
+              <h1 class="display-1 text-white mb-md-4 animated zoomIn">
+                Creative & Innovative Digital Solution
+              </h1>
+              <a
+                href=""
+                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
+                >Free Quote</a
+              >
+              <a
+                href="{% url 'contact'  %}"
+                class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight"
+                >Contact Us</a
+              >
+            </div>
+          </div>
+        </div> {% endcomment %}
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#header-carousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#header-carousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <!-- Navbar & Carousel End -->
+
+
+
+
+    <div class="container">
+        <div class="leader-profile">
+            <img src="{{ leader.image.url }}" alt="{{ leader.name }}">
+            <h2 class="leader-name">{{ leader.name }}</h2>
+            <p class="leader-title">{{ leader.title }}</p>
+            <div class="leader-info">
+                <h3>Basic Information</h3>
+                <p><strong>Birth Date:</strong> {{ leader.birth_date }}</p>
+                <p><strong>Nationality:</strong> {{ leader.nationality }}</p>
+            </div>
+            <div class="leader-info">
+                <h3>Education</h3>
+                <p>{{ leader.education }}</p>
+            </div>
+            <div class="leader-info">
+                <h3>Description</h3>
+                <p>{{ leader.description }}</p>
+            </div>
+            {% if leader.professional_history %}
+            <div class="leader-info">
+                <h3>Professional History</h3>
+                <p>{{ leader.professional_history }}</p>
+            </div>
+            {% endif %}
+            {% if leader.business_history %}
+            <div class="leader-info">
+                <h3>Business History</h3>
+                <p>{{ leader.business_history }}</p>
+            </div>
+            {% endif %}
+            {% if leader.achievement %}
+            <div class="leader-info">
+                <h3>Achievements</h3>
+                <p>{{ leader.achievement }}</p>
+            </div>
+            {% endif %}
+            {% if leader.awards %}
+            <div class="leader-info">
+                <h3>Awards</h3>
+                <p>{{ leader.awards }}</p>
+            </div>
+            {% endif %}
+            {% if leader.certifications %}
+            <div class="leader-info">
+                <h3>Certifications</h3>
+                <p>{{ leader.certifications }}</p>
+            </div>
+            {% endif %}
+            {% if leader.role_in_industries %}
+            <div class="leader-info">
+                <h3>Role in Industries</h3>
+                <p>{{ leader.role_in_industries }}</p>
+            </div>
+            {% endif %}
+            <div class="social-links">
+                <a href="{{ leader.facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="{{ leader.linkedin }}" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="{{ leader.website }}" target="_blank"><i class="fas fa-globe"></i></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
