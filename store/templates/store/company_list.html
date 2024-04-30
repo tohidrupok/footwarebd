@@ -32,6 +32,7 @@
       .company-name {
         font-size: 20px;
         color: #007bff; /* Blue color for company names */
+        white-space: nowrap;
       }
 
       /* Remove background from the modal content */
@@ -206,7 +207,7 @@
         <img src="{{ company.logo.url }}" class="company-logo card-img-top" alt="Company Logo" />
       </div>
         <div class="company-details">
-          <h4 class="company-name">{{ company.company_name }}</h4>
+         <h4 class="company-name" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ company.company_name }}</h4>
           <!-- You can add more details about the company here if needed -->
         </div>
       </div>

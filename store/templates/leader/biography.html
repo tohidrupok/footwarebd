@@ -8,8 +8,8 @@
             background-color: #f9f9f9;
             color: #444;
         }
-        .container {
-            max-width: 800px;
+        .Container {
+            max-width: 900px;
             margin: 50px auto;
         }
         .leader-profile {
@@ -44,11 +44,13 @@
             font-weight: bold;
             color: #007bff;
             margin-bottom: 15px;
+           
         }
         .leader-info p {
             font-size: 18px;
             line-height: 1.6;
             margin-bottom: 20px;
+            text-align: justify;
         }
         .social-links {
             text-align: center;
@@ -191,24 +193,6 @@
           </div>
         </div> {% endcomment %}
       </div>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#header-carousel"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#header-carousel"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
   </div>
   <!-- Navbar & Carousel End -->
@@ -216,7 +200,7 @@
 
 
 
-    <div class="container">
+    <div class="Container">
         <div class="leader-profile">
             <img src="{{ leader.image.url }}" alt="{{ leader.name }}">
             <h2 class="leader-name">{{ leader.name }}</h2>

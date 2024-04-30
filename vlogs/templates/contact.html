@@ -1,4 +1,5 @@
 {% extends 'index.html' %} {% block body%} {% load static %}
+
 <body>
   <!-- Spinner Start -->
   <div
@@ -11,7 +12,7 @@
 
   <!-- Navbar Start -->
   <div class="container-fluid position-relative p-0">
-    <nav class=ontact Us"navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+    <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
       <a href="{% url 'home' %}" class="navbar-brand p-0">
         <h1 class="m-0">
           <!--<i class="fa fa-user-tie me-2"></i>-->
@@ -24,7 +25,6 @@
           />
         </h1>
       </a>
-
       <button
         class="navbar-toggler"
         type="button"
@@ -33,7 +33,6 @@
       >
         <span class="fa fa-bars"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-0">
           <a href="{% url 'about'  %}" class="nav-item nav-link active"
@@ -50,12 +49,14 @@
               >Service</a
             >
             <div class="dropdown-menu m-0">
-              <a href="{% url 'resource_library'  %}" class="dropdown-item"
-                >Resource Library</a
+              <a href="service.php" class="dropdown-item">Resource Library</a>
+              <a href="service.php" class="dropdown-item"
+                >Certifications and Standards</a
               >
-              <a href="#" class="dropdown-item">Certifications and Standards</a>
-              <a href="#" class="dropdown-item">Supply Chain Information</a>
-              <a href="#" class="dropdown-item">Interactive Maps</a>
+              <a href="service.php" class="dropdown-item"
+                >Supply Chain Information</a
+              >
+              <a href="service.php" class="dropdown-item">Interactive Maps</a>
             </div>
           </div>
           <div class="nav-item dropdown">
@@ -66,8 +67,12 @@
               >KCC</a
             >
             <div class="dropdown-menu m-0">
-              <a href="" class="dropdown-item">Newsletter Subscription</a>
-              <a href="" class="dropdown-item">Industry News and Events</a>
+              <a href="price.php" class="dropdown-item"
+                >Newsletter Subscription</a
+              >
+              <a href="feature.php" class="dropdown-item"
+                >Industry News and Events</a
+              >
             </div>
           </div>
           <a href="team.php" class="nav-item nav-link">Industry Leader</a>
@@ -89,7 +94,7 @@
       <div class="row py-5">
         <div class="col-12 pt-lg-5 mt-lg-5 text-center">
           <h1 class="display-4 text-white animated zoomIn">Contact Us</h1>
-          <a href="{% url 'home' %}" class="h5 text-white">Home</a>
+          <a href="" class="h5 text-white">Home</a>
           <i class="far fa-circle text-white px-2"></i>
           <a href="" class="h5 text-white">Contact</a>
         </div>
@@ -153,7 +158,7 @@
             </div>
             <div class="ps-4">
               <h5 class="mb-2">Call to ask any question</h5>
-              <h4 class="text-primary mb-0">+8801671166809</h4>
+              <h4 class="text-primary mb-0">+012 345 6789</h4>
             </div>
           </div>
         </div>
@@ -170,7 +175,7 @@
             </div>
             <div class="ps-4">
               <h5 class="mb-2">Email to get free quote</h5>
-              <h4 class="text-primary mb-0">footweartoday@gmail.com</h4>
+              <h4 class="text-primary mb-0">info@example.com</h4>
             </div>
           </div>
         </div>
@@ -187,7 +192,7 @@
             </div>
             <div class="ps-4">
               <h5 class="mb-2">Visit our office</h5>
-              <h4 class="text-primary mb-0">Dhaka, Bangladesh</h4>
+              <h4 class="text-primary mb-0">123 Street, NY, USA</h4>
             </div>
           </div>
         </div>
@@ -250,6 +255,26 @@
     </div>
   </div>
   <!-- Contact End -->
+
+  <!-- Vendor Start -->
+  <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container py-5 mb-5">
+      <div class="bg-white">
+        <div class="owl-carousel vendor-carousel">
+          <img src="{% static 'img/vendor-1.jpg' %}" alt="" />
+          <img src="{% static 'img/vendor-2.jpg' %}" alt="" />
+          <img src="{% static 'img/vendor-3.jpg' %}" alt="" />
+          <img src="{% static 'img/vendor-4.jpg' %}" alt="" />
+          <img src="{% static 'img/vendor-5.jpg' %}" alt="" />
+          <img src="{% static 'img/vendor-6.jpg' %}" alt="" />
+          <img src="{% static 'img/vendor-7.jpg' %}" alt="" />
+          <img src="{% static 'img/vendor-8.jpg' %}" alt="" />
+          <img src="{% static 'img/vendor-9.jpg' %}" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Vendor End -->
 
   {% endblock %}
 </body>

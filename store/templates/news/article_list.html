@@ -11,7 +11,7 @@
         background-color: #f4f4f4;
       }
 
-      .container {
+      .Container {
         max-width: 1600px;
         margin: 20px auto;
         padding: 0 20px;
@@ -259,14 +259,14 @@
     >
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="w-100" src="{% static 'img/news.jpg'%}" alt="Image" />
+          <img class="w-100" src="{% static 'img/Pronews.jpg'%}" alt="Image" />
           <div
             class="carousel-caption d-flex flex-column align-items-center justify-content-center"
           >
             <div class="p-3" style="max-width: 900px">
 
               <h1 class="display-1 text-white mb-md-4 animated zoomIn">
-                Driven by visionaries we excel
+                Stay informed with the latest news
               </h1>
              
             </div>
@@ -322,10 +322,11 @@
 
 
 
-    <div class="container">
+    <div class="Container">
       <!-- Main News Column -->
       <div class="main-column">
-        <h2>Hot News</h2>
+      <h2 style="text-align: center;">Update News</h2>
+
         <div class="news-container">
           <!-- Iterate over your main news articles -->
           {% for article in articles %}
@@ -357,7 +358,7 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="Container">
       <div class="row">
         <div class="col-lg-6 wow slideInUp" data-wow-delay="0.3s">
           {% for article in news_column1 %}
