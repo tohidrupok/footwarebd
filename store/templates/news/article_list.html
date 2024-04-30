@@ -319,8 +319,7 @@
   </div>
   <!-- Navbar & Carousel End -->
 
-
-
+  
     <div class="Container">
       <!-- Main News Column -->
       <div class="main-column">
@@ -353,7 +352,10 @@
               <small class="date">{{ article.publication_date }}</small>
             </div>
           </div>
-          {% endfor %}
+          {% endfor %} 
+            {% comment %} {% for article in latest_news %}
+    <li>{{ article.title }}</li>
+  {% endfor %} {% endcomment %}
         </div>
       </div>
     </div>
