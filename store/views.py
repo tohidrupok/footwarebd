@@ -42,14 +42,14 @@ def news_article_list(request):
     news_column1 = all_news[:mid_index]
     news_column2 = all_news[mid_index:]
 
-    articles = NewsArticle.objects.filter(is_availble=True).order_by('-publication_date')[:1]
+    update_news = NewsArticle.objects.filter(is_availble=True).order_by('-publication_date')[:1]
     latest_news = NewsArticle.objects.filter(is_availble=True).order_by('-publication_date')[:3]  # Latest news won't be paginated
 
     context = {
         'news_column1': news_column1,
         'news_column2': news_column2,
         'page_obj': page_obj,
-        'articles': articles,
+        'articles': update_news,
         'latest_news': latest_news,
     }
 
