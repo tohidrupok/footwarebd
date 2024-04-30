@@ -22,7 +22,7 @@ class Category(models.Model):
     
 
 class Company(models.Model):
-    serial_no = models.IntegerField(unique=True)
+    serial_no = models.IntegerField(unique=True)  #delet this fields
     title = models.ForeignKey(Category, on_delete=models.CASCADE)
     company_name = models.CharField(max_length=100)
     contact = models.CharField(max_length=100)

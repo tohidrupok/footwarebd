@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Publication
+from .models import Publication , Category
 
 import fitz  # PyMuPDF
 import tempfile
@@ -25,6 +25,12 @@ def publications_list(request):
 
     return render(request, 'resource_library.html', {'publications': publications})
 
+def supply_chain(request):
+    categories = Category.objects.all()
+
+    return render(request, 'supply_chain_info.html', {'categories': categories})
+
+
 
 
 
@@ -49,3 +55,6 @@ def download_pdf(request, publication_id):
             return response
     else:
         return HttpResponse("PDF file not found", status=404)
+    
+
+#Ser
