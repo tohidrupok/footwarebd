@@ -16,14 +16,12 @@ class Category(models.Model):
         return self.category_name 
     
 class Company(models.Model):
-    serial_no = models.IntegerField(unique=True)  #delet this fields
     title = models.ForeignKey(Category, on_delete=models.CASCADE)
     company_name = models.CharField(max_length=100)
     contact = models.CharField(max_length=100)
     address = models.CharField(max_length=200)
     email = models.EmailField(max_length=100)
     remark = models.TextField()
-    extra = models.CharField(max_length=100, null= True, blank= True)
 
     def __str__(self):
         return self.title.category_name + ' - ' + self.company_name

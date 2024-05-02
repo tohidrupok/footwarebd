@@ -1,10 +1,12 @@
-from django.shortcuts import render
-from .models import Publication , Category
-
+import os
+from .models import Publication , Category, Company
 import fitz  # PyMuPDF
 import tempfile
-import os
 from django.conf import settings
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
+from django.shortcuts import render
+
 
 def publications_list(request):
     publications = Publication.objects.all()
@@ -25,25 +27,6 @@ def publications_list(request):
 
     return render(request, 'resource_library.html', {'publications': publications})
 
-def supply_chain(request):
-    categories = Category.objects.all()
-
-    return render(request, 'supply_chain_info.html', {'categories': categories})
-
-
-
-
-
-
-
-
-
-
-
-from django.http import HttpResponse
-from django.shortcuts import get_object_or_404
-from django.conf import settings
-import os
 
 def download_pdf(request, publication_id):
     publication = get_object_or_404(Publication, pk=publication_id)
@@ -56,5 +39,16 @@ def download_pdf(request, publication_id):
     else:
         return HttpResponse("PDF file not found", status=404)
     
+    
+def supply_chain(request):
+    categories = Category.objects.all()
+    return render(request, 'supply_chain_info.html', {'categories': categories})
+    
 
-#Ser
+def category(request, category_slug=None):
+
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        companys = Company.objects.filter(title=category)
+    print(companys)
+    return render(request, 'compnay_list_info.html',  {'companys': companys})
