@@ -3,6 +3,7 @@
 {% load static %}
 
 <style> 
+ 
       .cart {
           max-height: 400px; /* Adjust the max-height as needed */
           display: flex;
@@ -41,7 +42,7 @@
   <div
     id="spinner"
     class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
-  >
+   >
     <div class="spinner"></div>
   </div>
   <!-- Spinner End -->
@@ -86,13 +87,13 @@
             >
             <div class="dropdown-menu m-0">
               <a href="{% url 'resource_library'  %}" class="dropdown-item">Resource Library</a>
-              <a href="#" class="dropdown-item"
+              <a href="{% url 'requirement_list'  %}" class="dropdown-item"
                 >Certifications and Standards</a
               >
               <a href="{% url 'supply_chain'  %}" class="dropdown-item"
                 >Supply Chain Information</a
               >
-              <a href="#" class="dropdown-item">Interactive Maps</a>
+              <a href="{% url 'company_list'  %}" class="dropdown-item">Interactive Maps</a>
             </div>
           </div>
           <div class="nav-item dropdown">
@@ -130,11 +131,18 @@
     >
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="w-100" src="{% static 'img/SupplyChain.jpg'%}" alt="Image" />
+          <img class="w-100" src="{% static 'img/document.jpg'%}" alt="Image" />
           <div
             class="carousel-caption d-flex flex-column align-items-center justify-content-center"
           >
-            <div class="p-3" style="max-width: 900px">             
+            <div class="p-3" style="max-width: 900px">        
+             <h1 class="display-1 text-white mb-md-4 animated zoomIn">
+                Certifications and Standards 
+              </h1>
+              <h6 class="text-white text-uppercase mb-3 animated slideInDown">               
+                Footware Today
+              </h6> 
+     
             </div>
           </div>
         </div>
@@ -194,22 +202,15 @@
         class="section-title text-center position-relative pb-3 mb-5 mx-auto"
         style="max-width: 1600px"
       >
-        <h5 class="fw-bold text-primary text-uppercase">Supply chain information:</h5>
+        <h5 class="fw-bold text-primary text-uppercase">Certifications and Standards of Footware Today</h5>
         <h6 class="text-justify">
-       Explore the intricate web of Bangladesh's footwear industry with our comprehensive supply chain directory. From raw materials to the final product, delve into the ecosystem that drives the local and international footwear market. Connect with key players, gather insights, and forge partnerships for a thriving industry. 
-       Raw Material Suppliers: Discover a curated list of backward-linked suppliers providing essential materials like synthetic materials, insole, outsole, non-leather, leather, machinery, rubber, fabric, adhesives, and more. 
-       Manufacturers: Gain access to a database of footwear manufacturers, ranging from small-scale workshops to large factories, specializing in various types of footwear production supply chain operations.
-       Industry Associations: Access information about industry associations and organizations working to support and promote the growth of Bangladesh's footwear sector.
-       Market Insights: Stay updated with the latest market trends, consumer preferences, and industry reports to make informed decisions and stay ahead of the competition.
-       Regulatory Guidelines: Get insights into regulatory frameworks, compliance standards, and certifications required for operating within the footwear industry in Bangladesh.
-       Networking Opportunities: Engage in networking events, trade shows, and forums aimed at fostering collaboration and business development within the footwear industry.
-       Investment Opportunities: Explore investment opportunities within Bangladesh's footwear sector, including potential partnerships, joint ventures, and funding avenues for aspiring entrepreneurs and investors
-       This section will serve as a valuable resource hub for anyone involved in or interested in the footwear industry in Bangladesh, facilitating connections, knowledge sharing, and business growth.
+       Embark on a journey through the labyrinth of certifications and industry standards within Bangladesh's vibrant footwear sector. Our platform equips you with the tools to ensure compliance, guarantee quality, and champion sustainability. Discover the array of certifications essential for footwear exports, meeting buyer expectations, and aligning with regulatory mandates. From BSCI status to ISO certifications, from safety standards to ethical sourcing guidelines, we provide a comprehensive guide to empower your business. Stay ahead in the competitive marketplace by mastering global benchmarks and leveraging our expertise.
+       This section offers a treasure trove of insights into various industry certifications and product certifications vital for footwear exports. Dive into the world of BSCI, SEDEX, ISO, and other quality assurance standards. Explore safety norms, environmental certifications, and ethical sourcing practices. Navigate through product testing requirements, trade compliance regulations, and certification bodies. Elevate your knowledge with training programs and stay updated with the latest news and developments.
         </h6>
 
-  </div>
+     </div>
       <div class="row g-5">
-        {% for category in categories %}
+        {% for category in requirements %}
         <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
           <div
             class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center"
@@ -217,11 +218,11 @@
             <div class="service-icon">
               <i class="fa fa-shield-alt text-white"></i>
             </div>
-            <h5 class="mb-3">{{ category.category_name }}</h5>
+            <h5 class="mb-3">{{ category.title }}</h5>
             <p class="m-0">
-              Supply Chain Info Of Footware Today
+              Certifications and Standards of Footware Today
             </p>
-            <a class="btn btn-lg btn-primary rounded" href="{% url 'category_list' category_slug=category.slug %}">
+            <a class="btn btn-lg btn-primary rounded" href="{% url 'requirement' requirement_slug=category.slug %}">
               <i class="bi bi-arrow-right"></i>
             </a>
           </div>

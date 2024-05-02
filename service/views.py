@@ -1,5 +1,5 @@
 import os
-from .models import Publication , Category, Company
+from .models import Publication , Category, Company, Requirement
 import fitz  # PyMuPDF
 import tempfile
 from django.conf import settings
@@ -25,30 +25,32 @@ def publications_list(request):
         except Exception as e:
             print(f"Error processing PDF: {e}")
 
-    return render(request, 'resource_library.html', {'publications': publications})
-
-
-def download_pdf(request, publication_id):
-    publication = get_object_or_404(Publication, pk=publication_id)
-    pdf_path = os.path.join(settings.MEDIA_ROOT, str(publication.pdf_file))
-    if os.path.exists(pdf_path):
-        with open(pdf_path, 'rb') as pdf_file:
-            response = HttpResponse(pdf_file.read(), content_type='application/pdf')
-            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(pdf_path)
-            return response
-    else:
-        return HttpResponse("PDF file not found", status=404)
+    return render(request, 'resource/resource_library.html', {'publications': publications})
     
-    
+#Supply Chain Info Start  
 def supply_chain(request):
     categories = Category.objects.all()
-    return render(request, 'supply_chain_info.html', {'categories': categories})
+    return render(request, 'chain/supply_chain_info.html', {'categories': categories})
     
-
 def category(request, category_slug=None):
 
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         companys = Company.objects.filter(title=category)
-    print(companys)
-    return render(request, 'compnay_list_info.html',  {'companys': companys})
+   
+    return render(request, 'chain/compnay_list_info.html',  {'companys': companys})
+#Supply Chain Info End
+
+#Certifications and Standards  Start
+def certifications_requirement_list(request):
+    all_requirement = Requirement.objects.all()
+
+    return render(request, 'certificate/certifications_standards.html', {'requirements': all_requirement})
+
+
+def requirements_detail(request, requirement_slug):
+    requirement = Requirement.objects.get(slug=requirement_slug)
+
+    return render(request, 'certificate/requirement_detail.html', {'requirement': requirement}) 
+
+#Certifications and Standards End

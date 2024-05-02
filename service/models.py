@@ -7,7 +7,7 @@ class Publication(models.Model):
 
     def __str__(self):
         return self.name
-#supply chain
+#Supply Chain Info
 class Category(models.Model):
     category_name = models.CharField(max_length = 50, unique = True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -25,3 +25,15 @@ class Company(models.Model):
 
     def __str__(self):
         return self.title.category_name + ' - ' + self.company_name
+
+#Certifications and Standards 
+
+class Requirement(models.Model):
+    title = models.CharField(max_length = 50, unique = True)
+    slug = models.SlugField(max_length=200, unique=True)
+    icon = models.ImageField(upload_to='icon/', blank=True, null=True)
+    contant = models.TextField()
+    pdf_file = models.FileField(upload_to='certificates_category/', null=True, blank=True)
+
+    def __str__(self):
+        return self.title

@@ -85,13 +85,13 @@
             >
             <div class="dropdown-menu m-0">
               <a href="{% url 'resource_library'  %}" class="dropdown-item">Resource Library</a>
-              <a href="#" class="dropdown-item"
+              <a href="{% url 'requirement_list'  %}" class="dropdown-item"
                 >Certifications and Standards</a
               >
               <a href="{% url 'supply_chain' %}" class="dropdown-item"
                 >Supply Chain Information</a
               >
-              <a href="#" class="dropdown-item">Interactive Maps</a>
+              <a href="{% url 'company_list'  %}" class="dropdown-item">Interactive Maps</a>
             </div>
           </div>
           <div class="nav-item dropdown">
@@ -225,7 +225,7 @@
                     <h5 class="mb-2">{{ publication.name }}</h5>
                     <div class="buttons">
                         <a href="{{ publication.pdf_file.url }}" target="_blank" class="btn btn-sm btn-primary">View PDF</a>
-                        <a href="{% url 'download_pdf' publication.id %}" class="btn btn-sm btn-secondary">Download PDF</a>
+                        <a href="{{ publication.pdf_file.url }}" class="btn btn-sm btn-secondary"  download >Download PDF</a>
                     </div>
                 </div>
             </div>

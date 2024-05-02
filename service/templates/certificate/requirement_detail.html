@@ -2,78 +2,47 @@
 {% block body%} 
 {% load static %}
 
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f9f9f9;
-            color: #444;
-        }
-        .Container {
-            max-width: 900px;
-            margin: 50px auto;
-        }
-        .leader-profile {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
-            padding: 40px;
-        }
-        .leader-profile img {
-            max-width: 350px;
-            height: auto;
-            border-radius: 50%;
-            display: block;
-            margin: 0 auto 20px;
-            box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
-        }
-        .leader-name {
-            font-size: 32px;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 10px;
-            color: #007bff;
-        }
-        .leader-title {
-            font-size: 24px;
-            font-weight: 500;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .leader-info h3 {
-            font-size: 24px;
-            font-weight: bold;
-            color: #007bff;
-            margin-bottom: 15px;
-           
-        }
-        .leader-info p {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            text-align: justify;
-        }
-        .social-links {
-            text-align: center;
-            margin-top: 30px;
-        }
-        .social-links a {
-            display: inline-block;
-            color: #007bff;
-            margin: 0 15px;
-            font-size: 24px;
-            transition: color 0.3s ease;
-        }
-        .social-links a:hover {
-            color: #0056b3;
-        }
-    </style>
+<style> 
+   
+      .cart {
+          max-height: 400px; /* Adjust the max-height as needed */
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+      }
+
+      .cart .p-3 {
+          padding: 1rem;
+      }
+
+      .cart .img-fluid {
+          max-height: 200px; /* Adjust the max-height as needed */
+          max-width: 100%; /* Ensure the image doesn't exceed the cart's width */
+          object-fit: contain; /* Maintain aspect ratio and fit within the container */
+      }
+
+      .buttons {
+          margin-top: 10px; /* Adjust the margin as needed */
+      }
+
+      .buttons .btn {
+          margin-right: 5px; /* Adjust the margin between buttons as needed */
+      }
+      .text-justify {
+      text-align: justify;
+    }
+
+      
+
+</style>
 <body>
 
   <!-- Spinner Start -->
   <div
     id="spinner"
     class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
-  >
+   >
     <div class="spinner"></div>
   </div>
   <!-- Spinner End -->
@@ -162,9 +131,19 @@
     >
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="w-100" src="{% static 'img/apex.jpg'%}" alt="Image" />
+          <img class="w-100" src="{% static 'img/info.png'%}" alt="Image" />
           <div
-            class="carousel-caption d-flex flex-column align-items-center justify-content-center" >            
+            class="carousel-caption d-flex flex-column align-items-center justify-content-center"
+          >
+            <div class="p-3" style="max-width: 900px">        
+             <h1 class="display-1 text-white mb-md-4 animated zoomIn">
+                Requirement and Informations
+              </h1>
+              <h6 class="text-white text-uppercase mb-3 animated slideInDown">               
+                Footware Today
+              </h6> 
+     
+            </div>
           </div>
         </div>
         {% comment %} <div class="carousel-item">
@@ -193,73 +172,38 @@
           </div>
         </div> {% endcomment %}
       </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#header-carousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#header-carousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
   </div>
   <!-- Navbar & Carousel End -->
 
 
-
-
-    <div class="Container">
-        <div class="leader-profile">
-            <img src="{{ leader.image.url }}" alt="{{ leader.name }}">
-            <h2 class="leader-name">{{ leader.name }}</h2>
-            <p class="leader-title">{{ leader.title }}</p>
-            <div class="leader-info">
-                <h3>Basic Information</h3>
-                <p><strong>Birth Date:</strong> {{ leader.birth_date }}</p>
-                <p><strong>Nationality:</strong> {{ leader.nationality }}</p>
-            </div>
-            <div class="leader-info">
-                <h3>Education</h3>
-                <p>{{ leader.education }}</p>
-            </div>
-            <div class="leader-info">
-                <h3>Description</h3>
-                <p>{{ leader.description }}</p>
-            </div>
-            {% if leader.professional_history %}
-            <div class="leader-info">
-                <h3>Professional History</h3>
-                <p>{{ leader.professional_history }}</p>
-            </div>
-            {% endif %}
-            {% if leader.business_history %}
-            <div class="leader-info">
-                <h3>Business History</h3>
-                <p>{{ leader.business_history }}</p>
-            </div>
-            {% endif %}
-            {% if leader.achievement %}
-            <div class="leader-info">
-                <h3>Achievements</h3>
-                <p>{{ leader.achievement }}</p>
-            </div>
-            {% endif %}
-            {% if leader.awards %}
-            <div class="leader-info">
-                <h3>Awards</h3>
-                <p>{{ leader.awards }}</p>
-            </div>
-            {% endif %}
-            {% if leader.certifications %}
-            <div class="leader-info">
-                <h3>Certifications</h3>
-                <p>{{ leader.certifications }}</p>
-            </div>
-            {% endif %}
-            {% if leader.role_in_industries %}
-            <div class="leader-info">
-                <h3>Role in Industries</h3>
-                <p>{{ leader.role_in_industries }}</p>
-            </div>
-            {% endif %}
-            <div class="social-links">
-                <a href="{{ leader.facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="{{ leader.linkedin }}" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="{{ leader.website }}" target="_blank"><i class="fas fa-globe"></i></a>
-            </div>
-        </div>
+  <!-- Requirementl Start -->
+    <div class="container">
+      <h1>{{ requirement.title }}</h1>
+      <p>{{ requirement.contant }}</p>
+      {% if requirement.pdf_file %}
+      <a href="{{ requirement.pdf_file.url }}" target="_blank"  class="btn btn-sm btn-primary" >View PDF</a>
+      <a href="{{ requirement.pdf_file.url }}" class="btn btn-sm btn-secondary" download>Download PDF</a>
+      {% endif %}
     </div>
+  <!-- Requirementl End -->
 {% endblock %}
 </body>
