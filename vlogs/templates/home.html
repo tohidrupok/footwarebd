@@ -259,7 +259,9 @@
               onmouseout="this.start();"
             >
               {% for article in latest_news %}
+              <a href="{% url 'news_detail' article.slug %}" class="company-link">
               <li> {{ article.title }}</li>
+              </a>
               {% endfor %}
             </marquee>
           </div>

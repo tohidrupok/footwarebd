@@ -55,6 +55,12 @@ def news_article_list(request):
 
     return render(request, 'news/article_list.html', context)
 
+def news_detail(request, news_slug):
+    news = NewsArticle.objects.get(slug=news_slug)
+    print(news)
+    return render(request, 'news/news_details.html', {'news': news}) 
+
+
 def leaders(request):
     leaders = Leaders.objects.all()
     return render(request, 'leader/leader.html', {'leaders': leaders})
