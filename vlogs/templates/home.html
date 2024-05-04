@@ -51,11 +51,15 @@
               <a href="{% url 'resource_library'  %}" class="dropdown-item"
                 >Resource Library</a
               >
-              <a href="{% url 'requirement_list'  %}" class="dropdown-item">Certifications and Standards</a>
+              <a href="{% url 'requirement_list'  %}" class="dropdown-item"
+                >Certifications and Standards</a
+              >
               <a href="{% url 'supply_chain'  %}" class="dropdown-item"
                 >Supply Chain Information</a
               >
-              <a href="{% url 'company_list'  %}" class="dropdown-item">Interactive Maps</a>
+              <a href="{% url 'company_list'  %}" class="dropdown-item"
+                >Interactive Maps</a
+              >
             </div>
           </div>
           <div class="nav-item dropdown">
@@ -204,14 +208,11 @@
       <div class="row g-5">
         <div class="col-lg-7">
           <div class="section-title position-relative pb-3 mb-5">
-            <h5 class="fw-bold text-primary text-uppercase">About Us</h5>
-            <h1 class="mb-0">Comprehensive Industry News</h1>
+            <h5 class="fw-bold text-primary text-uppercase">WELCOME TO FOOTWARE TODAY!</h5>
+            <h1 class="mb-0">Add a Video in this section</h1>
           </div>
           <p class="mb-4" style="text-align: justify">
-            At Footwear Today (FT), we offer an extensive platform that
-            encompasses all facets of footwear, leather, and allied industries.
-            From sourcing to manufacturing and promotion, we provide
-            comprehensive insights into every aspect of the business.
+
           </p>
           <div class="row g-0 mb-3">
             <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
@@ -244,14 +245,23 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-5" style="min-height: 400px">
-          <div class="position-relative h-100">
-            <img
-              class="position-absolute w-100 h-100 rounded wow zoomIn"
-              data-wow-delay="0.9s"
-              src="{% static 'img/personal.jpg' %}"
-              style="object-fit: cover"
-            />
+        <div
+          class="col-lg-5"
+          style="min-height: 400px; background-color: #9fe2bf"
+        >
+          <h2>Latest News</h2>
+          <div class="news-container">
+            <!-- Iterate over your latest news articles -->
+            <marquee
+              behavior="scroll"
+              direction="up"
+              onmouseover="this.stop();"
+              onmouseout="this.start();"
+            >
+              {% for article in latest_news %}
+              <li> {{ article.title }}</li>
+              {% endfor %}
+            </marquee>
           </div>
         </div>
       </div>
@@ -453,7 +463,10 @@
               Amet justo dolor lorem kasd amet magna sea stet eos vero lorem
               ipsum dolore sed
             </p>
-            <a class="btn btn-lg btn-primary rounded" href="{% url 'requirement_list'  %}">
+            <a
+              class="btn btn-lg btn-primary rounded"
+              href="{% url 'requirement_list'  %}"
+            >
               <i class="bi bi-arrow-right"></i>
             </a>
           </div>
@@ -470,7 +483,10 @@
               Amet justo dolor lorem kasd amet magna sea stet eos vero lorem
               ipsum dolore sed
             </p>
-            <a class="btn btn-lg btn-primary rounded" href="{% url 'supply_chain'  %}">
+            <a
+              class="btn btn-lg btn-primary rounded"
+              href="{% url 'supply_chain'  %}"
+            >
               <i class="bi bi-arrow-right"></i>
             </a>
           </div>
@@ -487,7 +503,10 @@
               Amet justo dolor lorem kasd amet magna sea stet eos vero lorem
               ipsum dolore sed
             </p>
-            <a class="btn btn-lg btn-primary rounded" href="{% url 'company_list'  %}">
+            <a
+              class="btn btn-lg btn-primary rounded"
+              href="{% url 'company_list'  %}"
+            >
               <i class="bi bi-arrow-right"></i>
             </a>
           </div>

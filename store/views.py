@@ -32,7 +32,7 @@ def news_article_list(request):
     all_news = NewsArticle.objects.filter(is_availble=True).order_by('-publication_date')
     
     # Pagination for all news
-    paginator = Paginator(all_news, 10)  # Assuming you want 10 news per page
+    paginator = Paginator(all_news, 10)  # Assuming you want 10 news per page 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
