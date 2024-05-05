@@ -15,21 +15,18 @@
         margin: 20px auto;
         padding: 0 20px;
         display: flex;
+        flex-wrap: wrap; /* Allow items to wrap */
+        justify-content: center; /* Center items horizontally */
         gap: 20px;
       }
 
-      .main-column {
-        flex: 2; /* Larger column */
-        background-color: #fff;
-        border-radius: 5px;
-        padding: 20px;
-      }
-
+      .main-column,
       .latest-column {
-        flex: 1; /* Smaller column */
+        flex: 1; /* Full width on mobile */
         background-color: #fff;
         border-radius: 5px;
         padding: 20px;
+        margin-bottom: 20px; /* Add some space between columns */
       }
 
       .main-column h2,
@@ -37,6 +34,7 @@
         font-size: 24px;
         font-weight: bold;
         margin-bottom: 20px;
+        text-align: center; /* Center headings */
       }
 
       .news-container {
@@ -157,19 +155,30 @@
         display: none; /* Hide the spinner */
       }
 
-
       /* Remove background from the modal content */
       .modal-content {
         background: transparent; /* Remove any background */
       }
 
+      /* Media Query for Mobile Responsive */
+      @media screen and (max-width: 768px) {
+        .main-column,
+        .latest-column {
+          flex: 100%; /* Full width on mobile */
+        }
+
+        .latest-column .news-item img {
+          width: 80px; /* Adjust image size for mobile */
+          height: 80px; /* Adjust image size for mobile */
+        }
+      }
     </style>
 <body>
   <!-- Spinner Start -->
   <div
     id="spinner"
     class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
-  >
+    >
     <div class="spinner"></div>
   </div>
   <!-- Spinner End -->
@@ -330,10 +339,12 @@
           {% for article in articles %}
           <div class="news-item">
             <img src="{{ article.image.url }}" alt="{{ article.title }}" />
+            <a href="{% url 'news_detail' article.slug %}" class="read-more">
             <h3>{{ article.title }}</h3>
+            </a>
             <p class="date">{{ article.publication_date }}</p>
             <p>{{ article.content|truncatewords:30 }}</p>
-            <a href="{{ article.url }}" class="read-more">Read more</a>
+            <a href="{% url 'news_detail' article.slug %}" class="read-more">Read more</a>
           </div>
           {% endfor %}
         </div>
@@ -348,14 +359,13 @@
           <div class="news-item">
             <img src="{{ article.image.url }}" alt="{{ article.title }}" />
             <div class="news-details">
+              <a href="{% url 'news_detail' article.slug %}" class="read-more">
               <p>{{ article.title }}</p>
+              </a>
               <small class="date">{{ article.publication_date }}</small>
             </div>
           </div>
           {% endfor %} 
-            {% comment %} {% for article in latest_news %}
-    <li>{{ article.title }}</li>
-  {% endfor %} {% endcomment %}
         </div>
       </div>
     </div>
@@ -366,17 +376,18 @@
           <div class="news-item">
             <div class="row">
               <div class="col-md-6">
+                <a href="{% url 'news_detail' article.slug %}" class="read-more"> 
                 <img
                   src="{{ article.image.url }}"
                   alt="{{ article.title }}"
                   class="img-fluid"
-                />
+                />  </a>
               </div>
               <div class="col-md-6">
                 <h3>{{ article.title }}</h3>
                 <p class="date">{{ article.publication_date }}</p>
                 <p>{{ article.content|truncatewords:20 }}</p>
-                <a href="{{ article.url }}" class="read-more">Read more</a>
+                <a href="{% url 'news_detail' article.slug %}" class="read-more">Read more</a> 
               </div>
             </div>
           </div>
@@ -387,17 +398,19 @@
           <div class="news-item">
             <div class="row">
               <div class="col-md-6">
+                <a href="{% url 'news_detail' article.slug %}" class="read-more"> 
                 <img
                   src="{{ article.image.url }}"
                   alt="{{ article.title }}"
                   class="img-fluid"
                 />
+                </a>
               </div>
               <div class="col-md-6">
                 <h3>{{ article.title }}</h3>
                 <p class="date">{{ article.publication_date }}</p>
                 <p>{{ article.content|truncatewords:10 }}</p>
-                <a href="{{ article.url }}" class="read-more">Read more</a>
+                <a href="{% url 'news_detail' article.slug %}" class="read-more">Read more</a>
               </div>
             </div>
           </div>

@@ -247,24 +247,26 @@
         </div>
         <div
           class="col-lg-5"
-          style="min-height: 400px; background-color: #9fe2bf"
+          style="min-height: 400px; background-color: #C8B6A9;"
         >
-          <h2>Latest News</h2>
-          <div class="news-container">
+        <h2>Latest News</h2>
+        <div class="news-container">
             <!-- Iterate over your latest news articles -->
             <marquee
-              behavior="scroll"
-              direction="up"
-              onmouseover="this.stop();"
-              onmouseout="this.start();"
+                direction="up"
+                onmouseover="this.stop();"
+                onmouseout="this.start();"
+                scrollamount="2"
+                loop="1000" 
             >
-              {% for article in latest_news %}
-              <a href="{% url 'news_detail' article.slug %}" class="company-link">
-              <li> {{ article.title }}</li>
-              </a>
-              {% endfor %}
+                {% for article in latest_news %}
+                <a href="{% url 'news_detail' article.slug %}" class="company-link">
+                    <li style="color: black; margin-bottom: 20px;">{{ article.title }}</li>
+                </a>
+                {% endfor %}
             </marquee>
-          </div>
+        </div>
+
         </div>
       </div>
     </div>
