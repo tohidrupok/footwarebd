@@ -12,8 +12,10 @@ def submit_resume(request, job_id):
         form = ResumeForm(request.POST, request.FILES)
         if form.is_valid():
             # Save the resume to the job
-            job.resumes.create(resume=request.FILES['resume'])
-            return render(request, 'job_portal/resume_submitted.html')
+             resume_instance = form.save(commit=False)
+             resume_instance.job = job  # Associate the resume with the job
+             resume_instance.save()
+             return render(request, 'job_portal/resume_submitted.html')
     else:
         form = ResumeForm()
     return render(request, 'job_portal/submit_resume.html', {'form': form, 'job': job})

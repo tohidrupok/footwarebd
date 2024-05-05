@@ -1,16 +1,296 @@
-<!DOCTYPE html>
-<html>
+{% extends 'index.html' %} 
+{% block body%} 
+{% load static %}
 <head>
     <title>Submit Resume</title>
-</head>
+</head> 
+
 <body>
-    
-    <h1>Submit Your Resume for {{ job.title }}</h1>
-    <h4>{{job.description}} </h4>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
-</body>
-</html>
+  <!-- Spinner Start -->
+  <div
+    id="spinner"
+    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+   >
+    <div class="spinner"></div>
+  </div>
+  <!-- Spinner End -->
+
+  <!-- Navbar & Carousel Start -->
+  <div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+      <a href="{% url 'home' %}" class="navbar-brand p-0">
+        <h1 class="m-0">
+          <!--<i class="fa fa-user-tie me-2"></i>-->
+          <img
+            class="w-100"
+            src="{% static 'img/logo/up_logo.png' %}"
+            height="100px"
+            width="200px"
+            alt="Image"
+          />
+        </h1>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse"
+      >
+        <span class="fa fa-bars"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto py-0">
+          <a href="{% url 'about'  %}" class="nav-item nav-link active"
+            >About</a
+          >
+          <a href="{% url 'company_list'  %}" class="nav-item nav-link"
+            >Directory of Factories</a
+          >
+          <div class="nav-item dropdown"> 
+            <a
+              href="#"
+              class="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+              >Service</a
+            >
+            <div class="dropdown-menu m-0">
+              <a href="{% url 'resource_library'  %}" class="dropdown-item">Resource Library</a>
+              <a href="{% url 'requirement_list'  %}" class="dropdown-item"
+                >Certifications and Standards</a
+              >
+              <a href="{% url 'supply_chain'  %}" class="dropdown-item"
+                >Supply Chain Information</a
+              >
+              <a href="{% url 'company_list'  %}" class="dropdown-item">Interactive Maps</a>
+            </div>
+          </div>
+          <div class="nav-item dropdown">
+            <a
+              href="#"
+              class="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+              >KCC</a
+            >
+            <div class="dropdown-menu m-0">
+              <a href="{% url 'news_all'  %}" class="dropdown-item"
+                >Newsletter Subscription</a
+              >
+              <a href="{% url 'news_all'  %}" class="dropdown-item"
+                >Industry News and Events</a
+              >
+            </div>
+          </div>
+          <a href="{% url 'leaders'  %}" class="nav-item nav-link">Industry Leader</a>
+          <a href="{% url 'job_list'  %}" class="nav-item nav-link"> Job Portal</a>
+          <a href="" class="nav-item nav-link">Blog</a>
+          <a href="{% url 'contact'  %}" class="nav-item nav-link">Contact</a>
+        </div>
+        <!--
+				<butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
+                <a href="https://htmlcodex.com/startup-company-website-template" class="btn btn-primary py-2 px-4 ms-3">Download Pro Version</a>
+				-->
+      </div>
+    </nav>
+ 
+    <div
+      id="header-carousel"
+      class="carousel slide carousel-fade"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="w-100" src="{% static 'img/job.jpeg'%}" alt="Image" />
+          <div
+            class="carousel-caption d-flex flex-column align-items-center justify-content-center"
+          >
+            
+          </div>
+        </div>
+        {% comment %} <div class="carousel-item">
+          <img class="w-100" src="{% static 'img/home2.jpg'%}" alt="Image" />
+          <div
+            class="carousel-caption d-flex flex-column align-items-center justify-content-center"
+          >
+            <div class="p-3" style="max-width: 900px">
+              <h5 class="text-white text-uppercase mb-3 animated slideInDown">
+                Creative & Innovative
+              </h5>
+              <h1 class="display-1 text-white mb-md-4 animated zoomIn">
+                Creative & Innovative Digital Solution
+              </h1>
+              <a
+                href=""
+                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
+                >Free Quote</a
+              >
+              <a
+                href="{% url 'contact'  %}"
+                class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight"
+                >Contact Us</a
+              >
+            </div>
+          </div>
+        </div> {% endcomment %}
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#header-carousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#header-carousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <!-- Navbar & Carousel End -->
+
+
+
+ <div class="container mt-5">
+      <h1>{{ job.title }}</h1>
+      <h5>{{ job.description }}</h5>
+      <ul>
+          {% if job.company %}
+          <li><strong>Company:</strong> {{ job.company }}</li>
+          {% endif %}
+          {% if job.deadline %}
+          <li><strong>Deadline:</strong> {{ job.deadline }}</li>
+          {% endif %}
+          {% if job.experience %}
+          <li><strong>Experience:</strong> {{ job.experience }}</li>
+          {% endif %}
+          
+          {% if job.responsibility %}
+          <li><strong>Responsibility:</strong> {{ job.responsibility }}</li>
+          {% endif %}
+
+          {% if job.place %}
+          <li><strong>Place:</strong> {{ job.place }}</li>
+          {% endif %}
+
+         
+          {% if job.duration %}
+          <li><strong>Duration:</strong> {{ job.duration }}</li>
+          {% endif %} 
+
+           {% if job.skills_required %}
+          <li><strong>Skills Required:</strong> {{ job.skills_required }}</li>
+          {% endif %} 
+
+           {% if job.salary %}
+          <li><strong>Salary:</strong> {{ job.salary }}</li>
+          {% endif %} 
+
+          {% if job.others_facility %}
+          <li><strong>Others Facility:</strong> {{ job.others_facility }}</li>
+          {% endif %}
+      </ul>
+     {% if job.title == "Post Resume" %}  
+     <h1> Please complete the form and upload your resume.</h1> 
+      <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name">
+        </div> 
+
+        <div class="form-group">
+            <label for="position">Position:</label>
+            <input type="text" class="form-control" id="position" name="position">
+        </div>
+
+        <div class="form-group">
+            <label for="experience">Experience:</label>
+            <input type="number" class="form-control" id="experience" name="experience">
+        </div>
+
+        <div class="form-group">
+            <label for="contact">Contact:</label>
+            <input type="text" class="form-control" id="contact" name="contact">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email">
+        </div>
+
+        <div class="form-group">
+            <label for="expected_salary">Expected Salary:</label>
+            <input type="text" class="form-control" id="expected_salary" name="expected_salary">
+        </div>
+
+        <div class="form-group">
+            <label for="remark">Remark:</label>
+            <textarea class="form-control" id="remark" name="remark"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="resume">Upload Resume:</label>
+            <input type="file" class="form-control-file" id="resume" name="resume">
+        </div>
+
+        <button type="submit" class="btn btn-secondary" style="height: 50px; width: 100px; margin: auto; display: block; margin-top: 20px;">Submit</button>
+      </form>
+ 
+      
+      {% else %} 
+      <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name">
+        </div>
+
+        <div class="form-group">
+            <label for="experience">Experience:</label>
+            <input type="number" class="form-control" id="experience" name="experience">
+        </div>
+
+        <div class="form-group">
+            <label for="contact">Contact:</label>
+            <input type="text" class="form-control" id="contact" name="contact">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email">
+        </div>
+
+        <div class="form-group">
+            <label for="expected_salary">Expected Salary:</label>
+            <input type="text" class="form-control" id="expected_salary" name="expected_salary">
+        </div>
+
+        <div class="form-group">
+            <label for="remark">Remark:</label>
+            <textarea class="form-control" id="remark" name="remark"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="resume">Upload Resume:</label>
+            <input type="file" class="form-control-file" id="resume" name="resume">
+        </div>
+
+        <button type="submit" class="btn btn-secondary" style="height: 50px; width: 100px; margin: auto; display: block; margin-top: 20px;">Submit</button>
+      </form>
+ 
+            
+
+     {% endif %} 
+    </div> 
+
+
+{% endblock %}
+</body> 
