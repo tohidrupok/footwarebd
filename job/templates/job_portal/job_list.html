@@ -1,48 +1,65 @@
-{% extends 'index.html' %} 
-{% block body%} 
-{% load static %}
+{% extends 'index.html' %} {% block body%} {% load static %}
 
-<style> 
-   
-      .cart {
-          max-height: 400px; /* Adjust the max-height as needed */
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-      }
+<style>
+  /* Custom styles for job list */
+  .job-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
 
-      .cart .p-3 {
-          padding: 1rem;
-      }
+  .job-item {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
 
-      .cart .img-fluid {
-          max-height: 200px; /* Adjust the max-height as needed */
-          max-width: 100%; /* Ensure the image doesn't exceed the cart's width */
-          object-fit: contain; /* Maintain aspect ratio and fit within the container */
-      }
+  .job-title {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
 
-      .buttons {
-          margin-top: 10px; /* Adjust the margin as needed */
-      }
+  .job-company {
+    color: #777;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
 
-      .buttons .btn {
-          margin-right: 5px; /* Adjust the margin between buttons as needed */
-      }
-      .text-justify {
-      text-align: justify;
-    }
+  .job-deadline {
+    color: #777;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
 
-      
+  .job-description {
+    color: #555;
+    margin-bottom: 10px;
+  }
 
+  .cta-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background-color: #0056b3;
+  }
 </style>
-<body>
 
+<body>
+  <title>Job Portal</title>
   <!-- Spinner Start -->
   <div
     id="spinner"
     class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
-   >
+  >
     <div class="spinner"></div>
   </div>
   <!-- Spinner End -->
@@ -78,7 +95,7 @@
           <a href="{% url 'company_list'  %}" class="nav-item nav-link"
             >Directory of Factories</a
           >
-          <div class="nav-item dropdown"> 
+          <div class="nav-item dropdown">
             <a
               href="#"
               class="nav-link dropdown-toggle"
@@ -86,14 +103,18 @@
               >Service</a
             >
             <div class="dropdown-menu m-0">
-              <a href="{% url 'resource_library'  %}" class="dropdown-item">Resource Library</a>
+              <a href="{% url 'resource_library'  %}" class="dropdown-item"
+                >Resource Library</a
+              >
               <a href="{% url 'requirement_list'  %}" class="dropdown-item"
                 >Certifications and Standards</a
               >
-              <a href="{% url 'supply_chain'  %}" class="dropdown-item"
+              <a href="{% url 'supply_chain' %}" class="dropdown-item"
                 >Supply Chain Information</a
               >
-              <a href="{% url 'company_list'  %}" class="dropdown-item">Interactive Maps</a>
+              <a href="{% url 'company_list'  %}" class="dropdown-item"
+                >Interactive Maps</a
+              >
             </div>
           </div>
           <div class="nav-item dropdown">
@@ -112,8 +133,10 @@
               >
             </div>
           </div>
-          <a href="{% url 'leaders'  %}" class="nav-item nav-link">Industry Leader</a>
-          <a href="{% url 'job_list'  %}" class="nav-item nav-link"> Job Portal</a>
+          <a href="{% url 'leaders'  %}" class="nav-item nav-link"
+            >Industry Leader</a
+          >
+          <a href="" class="nav-item nav-link"> Job Portal</a>
           <a href="" class="nav-item nav-link">Blog</a>
           <a href="{% url 'contact'  %}" class="nav-item nav-link">Contact</a>
         </div>
@@ -123,7 +146,7 @@
 				-->
       </div>
     </nav>
- 
+
     <div
       id="header-carousel"
       class="carousel slide carousel-fade"
@@ -131,22 +154,15 @@
     >
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="w-100" src="{% static 'img/infoo.png'%}" alt="Image" />
+          <img class="w-100" src="{% static 'img/job.jpeg'%}" alt="Image" />
           <div
             class="carousel-caption d-flex flex-column align-items-center justify-content-center"
           >
-            <div class="p-3" style="max-width: 900px">        
-             <h1 class="display-1 text-white mb-md-4 animated zoomIn">
-                Requirement and Informations
-              </h1>
-              <h6 class="text-white text-uppercase mb-3 animated slideInDown">               
-                Footware Today
-              </h6> 
-     
-            </div>
+    
           </div>
         </div>
-        {% comment %} <div class="carousel-item">
+        {% comment %}
+        <div class="carousel-item">
           <img class="w-100" src="{% static 'img/home2.jpg'%}" alt="Image" />
           <div
             class="carousel-caption d-flex flex-column align-items-center justify-content-center"
@@ -170,7 +186,8 @@
               >
             </div>
           </div>
-        </div> {% endcomment %}
+        </div>
+        {% endcomment %}
       </div>
       <button
         class="carousel-control-prev"
@@ -194,16 +211,31 @@
   </div>
   <!-- Navbar & Carousel End -->
 
-
-  <!-- Requirementl Start -->
-    <div class="container">
-      <h1>{{ requirement.title }}</h1>
-      <p>{{ requirement.contant }}</p>
-      {% if requirement.pdf_file %}
-      <a href="{{ requirement.pdf_file.url }}" target="_blank"  class="btn btn-sm btn-primary" >View PDF</a>
-      <a href="{{ requirement.pdf_file.url }}" class="btn btn-sm btn-secondary" download>Download PDF</a>
-      {% endif %}
+  <h1 class="text-center my-5">Available Jobs</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2" >
+        <ul class="job-list">
+          {% for job in jobs %}
+          <li class="job-item" style="background-color: #F9EBEA ;">
+            <div class="row">
+              <div class="col-md-6">
+                <h2 class="job-title">{{ job.title }}</h2>
+                <p class="job-company">Company: {{ job.company }}</p>
+              </div>
+              <div class="col-md-6">
+                <p class="job-deadline">Deadline: {{ job.deadline }}</p>
+                <a href="{% url 'submit_resume' job.id %}" class="cta-button"
+                  >Details</a
+                >
+              </div>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
     </div>
-  <!-- Requirementl End -->
-{% endblock %}
+  </div>
+
+  {% endblock %}
 </body>

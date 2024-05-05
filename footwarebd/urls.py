@@ -9,6 +9,6 @@ urlpatterns = [
     path('', include('vlogs.urls') ),
     path('', include('store.urls') ),
     path('', include('service.urls') ),
-
+    path('', include('job.urls') ),
 ] + static(settings.MEDIA_URL , document_root = settings.MEDIA_ROOT)
  
