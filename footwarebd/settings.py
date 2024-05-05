@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'vlogs',
     'store', 
     'service',
+   
 ]
 
 MIDDLEWARE = [

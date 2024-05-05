@@ -1,5 +1,4 @@
 {% extends 'index.html' %} {% block body%} {% load static %}
-
 <body>
   <!-- Spinner Start -->
   <div
@@ -67,15 +66,15 @@
               >KCC</a
             >
             <div class="dropdown-menu m-0">
-              <a href="price.php" class="dropdown-item"
+              <a href="{% url 'news_all'  %}" class="dropdown-item"
                 >Newsletter Subscription</a
               >
-              <a href="feature.php" class="dropdown-item"
+              <a href="{% url 'news_all'  %}" class="dropdown-item"
                 >Industry News and Events</a
               >
             </div>
           </div>
-          <a href="team.php" class="nav-item nav-link">Industry Leader</a>
+          <a href="{% url 'leaders'  %}" class="nav-item nav-link">Industry Leader</a>
           <a href="jobportal.php" class="nav-item nav-link"> Job Portal</a>
           <a href="blog.php" class="nav-item nav-link">Blog</a>
           <a href="{% url 'contact'  %}" class="nav-item nav-link">Contact</a>
@@ -158,7 +157,7 @@
             </div>
             <div class="ps-4">
               <h5 class="mb-2">Call to ask any question</h5>
-              <h4 class="text-primary mb-0">+012 345 6789</h4>
+              <h4 class="text-primary mb-0">+8801671166809</h4>
             </div>
           </div>
         </div>
@@ -175,7 +174,7 @@
             </div>
             <div class="ps-4">
               <h5 class="mb-2">Email to get free quote</h5>
-              <h4 class="text-primary mb-0">info@example.com</h4>
+              <h4 class="text-primary mb-0">footware@gmail.com</h4>
             </div>
           </div>
         </div>
@@ -192,7 +191,7 @@
             </div>
             <div class="ps-4">
               <h5 class="mb-2">Visit our office</h5>
-              <h4 class="text-primary mb-0">123 Street, NY, USA</h4>
+              <h4 class="text-primary mb-0">Dhaka, Bangladesh</h4>
             </div>
           </div>
         </div>
