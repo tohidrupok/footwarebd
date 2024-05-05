@@ -1,4 +1,16 @@
 {% extends 'index.html' %} {% block body%} {% load static %}
+<style>
+  @media screen and (max-width: 992px) {
+    #video {
+      max-width: 100%;
+      height: auto;
+    }
+    .video-section {
+      margin-left: 0; /* Reset margin left for smaller screens */
+    }
+  }
+</style> 
+
 <body>
   <!-- Spinner Start -->
   <div
@@ -205,70 +217,40 @@
   <!-- News Start -->
   <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container py-5">
-      <div class="row g-5">
-        <div class="col-lg-7">
-          <div class="section-title position-relative pb-3 mb-5">
-            <h5 class="fw-bold text-primary text-uppercase">WELCOME TO FOOTWARE TODAY!</h5>
-            <h1 class="mb-0">Add a Video in this section</h1>
-          </div>
-          <p class="mb-4" style="text-align: justify">
+     <div class="row g-5">
+  <!-- Video Section -->
+  <div class="col-lg-8">
+    <div class="video-section" style="margin-left: -90px;">
+      <video id="video" width="100%" height="auto" autoplay muted>
+        <source src="{% static 'img/demo.mp4' %}" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
 
-          </p>
-          <div class="row g-0 mb-3">
-            <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
-              <h5 class="mb-3">
-                <i class="fa fa-check text-primary me-3"></i>Award Winning
-              </h5>
-              <h5 class="mb-3">
-                <i class="fa fa-check text-primary me-3"></i>Professional Staff
-              </h5>
-            </div>
-            <div class="col-sm-6 wow zoomIn" data-wow-delay="0.4s">
-              <h5 class="mb-3">
-                <i class="fa fa-check text-primary me-3"></i>24/7 Support
-              </h5>
-              <h5 class="mb-3">
-                <i class="fa fa-check text-primary me-3"></i>Fair Prices
-              </h5>
-            </div>
-          </div>
-          <div
-            class="d-flex align-items-center mb-4 wow fadeIn"
-            data-wow-delay="0.6s"
-          >
-            <div>
-              <a
-                href="{% url 'about'  %}"
-                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
-                >See More</a
-              >
-            </div>
-          </div>
-        </div>
-        <div
-          class="col-lg-5"
-          style="min-height: 400px; background-color: #C8B6A9;"
+  <!-- Latest News Section -->
+  <div class="col-lg-4">
+    <div style="background-color: #c8b6a9; padding: 20px;">
+      <h2>Latest News</h2>
+      <div class="news-container">
+        <!-- Iterate over your latest news articles -->
+        <marquee
+          direction="up"
+          onmouseover="this.stop();"
+          onmouseout="this.start();"
+          scrollamount="2"
+          loop="1000"
         >
-        <h2>Latest News</h2>
-        <div class="news-container">
-            <!-- Iterate over your latest news articles -->
-            <marquee
-                direction="up"
-                onmouseover="this.stop();"
-                onmouseout="this.start();"
-                scrollamount="2"
-                loop="1000" 
-            >
-                {% for article in latest_news %}
-                <a href="{% url 'news_detail' article.slug %}" class="company-link">
-                    <li style="color: black; margin-bottom: 20px;">{{ article.title }}</li>
-                </a>
-                {% endfor %}
-            </marquee>
-        </div>
-
-        </div>
+          {% for article in latest_news %}
+          <a href="{% url 'news_detail' article.slug %}" class="company-link">
+            <li style="color: black; margin-bottom: 20px">{{ article.title }}</li>
+          </a>
+          {% endfor %}
+        </marquee>
       </div>
+    </div>
+  </div>
+</div>
     </div>
   </div>
   <!-- News End -->
