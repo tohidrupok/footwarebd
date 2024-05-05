@@ -10,6 +10,24 @@
     }
   }
 </style> 
+<script>
+  // Function to initialize the carousel and set an interval to switch slides every 3 seconds
+  document.addEventListener('DOMContentLoaded', function () {
+    // Initialize the carousel
+    var carouselElement = document.querySelector('#header-carousel');
+    var carousel = new bootstrap.Carousel(carouselElement, {
+      interval: false // Disable the default interval
+    });
+
+    // Function to switch to the next slide
+    function switchToNextSlide() {
+      carousel.next();
+    }
+
+    // Set an interval to switch slides every 3 seconds
+    setInterval(switchToNextSlide, 3000);
+  });
+</script>
 
 <body>
   <!-- Spinner Start -->
