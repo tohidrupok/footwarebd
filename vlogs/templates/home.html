@@ -9,14 +9,14 @@
       margin-left: 0; /* Reset margin left for smaller screens */
     }
   }
-</style> 
+</style>
 <script>
   // Function to initialize the carousel and set an interval to switch slides every 3 seconds
-  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener("DOMContentLoaded", function () {
     // Initialize the carousel
-    var carouselElement = document.querySelector('#header-carousel');
+    var carouselElement = document.querySelector("#header-carousel");
     var carousel = new bootstrap.Carousel(carouselElement, {
-      interval: false // Disable the default interval
+      interval: false, // Disable the default interval
     });
 
     // Function to switch to the next slide
@@ -111,7 +111,9 @@
           <a href="{% url 'leaders'  %}" class="nav-item nav-link"
             >Industry Leader</a
           >
-          <a href="{% url 'job_list'  %}" class="nav-item nav-link"> Job Portal</a>
+          <a href="{% url 'job_list'  %}" class="nav-item nav-link">
+            Job Portal</a
+          >
           <a href="" class="nav-item nav-link">Blog</a>
           <a href="{% url 'contact'  %}" class="nav-item nav-link">Contact</a>
         </div>
@@ -129,7 +131,7 @@
     >
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="w-100" src="{% static 'img/home.jpg'%}" alt="Image" />
+          <img class="w-100" src="{% static 'img/index.jpg'%}" alt="Image" />
           <div
             class="carousel-caption d-flex flex-column align-items-center justify-content-center"
           >
@@ -235,40 +237,44 @@
   <!-- News Start -->
   <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container py-5">
-     <div class="row g-5">
-  <!-- Video Section -->
-  <div class="col-lg-8">
-    <div class="video-section" style="margin-left: -90px;">
-      <video id="video" width="100%" height="auto" autoplay muted>
-        <source src="{% static 'img/demo.mp4' %}" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
-  </div>
+      <div class="row g-5">
+        <!-- Video Section -->
+        <div class="col-lg-8">
+          <div class="video-section" style="margin-left: -90px">
+            <video id="video" width="105%" height="auto" autoplay muted >
+              <source src="{% static 'img/demo1.mp4' %}" type="video/mp4" />
+            </video>
+          </div>
+        </div>
 
-  <!-- Latest News Section -->
-  <div class="col-lg-4">
-    <div style="background-color: #c8b6a9; padding: 20px;">
-      <h2>Latest News</h2>
-      <div class="news-container">
-        <!-- Iterate over your latest news articles -->
-        <marquee
-          direction="up"
-          onmouseover="this.stop();"
-          onmouseout="this.start();"
-          scrollamount="2"
-          loop="1000"
-        >
-          {% for article in latest_news %}
-          <a href="{% url 'news_detail' article.slug %}" class="company-link">
-            <li style="color: black; margin-bottom: 20px">{{ article.title }}</li>
-          </a>
-          {% endfor %}
-        </marquee>
+        <!-- Latest News Section -->
+        <div class="col-lg-4">
+          <div style="background-color: #c8b6a9; padding: 20px">
+            <h2>Latest News</h2>
+            <div class="news-container">
+              <!-- Iterate over your latest news articles -->
+              <marquee
+                direction="up"
+                onmouseover="this.stop();"
+                onmouseout="this.start();"
+                scrollamount="2"
+                loop="1000"
+              >
+                {% for article in latest_news %}
+                <a
+                  href="{% url 'news_detail' article.slug %}"
+                  class="company-link"
+                >
+                  <li style="color: black; margin-bottom: 20px">
+                    {{ article.title }}
+                  </li>
+                </a>
+                {% endfor %}
+              </marquee>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
     </div>
   </div>
   <!-- News End -->
