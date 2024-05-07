@@ -130,7 +130,7 @@
           </div>
           <a href="{% url 'leaders'  %}" class="nav-item nav-link">Industry Leader</a>
           <a href="{% url 'job_list'  %}" class="nav-item nav-link"> Job Portal</a>
-          <a href="" class="nav-item nav-link">Blog</a>
+          <a href="{% url 'blog'  %}" class="nav-item nav-link">Blog</a>
           <a href="{% url 'contact'  %}" class="nav-item nav-link">Contact</a>
         </div>
         <!--
@@ -196,8 +196,35 @@
 
 
 <!-- Company list-->
-<div class="container">
-      <h2 class="mt-5 mb-4 text-center">List of Factories </h2>
+<div class="container  py-5 "> 
+   <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 1600px">
+    <h5 class="fw-bold text-primary text-uppercase" style="text-align: left;">INDUSTRY OVERVIEW :</h5>
+    <h6 style="text-align: justify;">
+        USD 5 billion annual export by next few years. Leather industry is the second highest donor to national exports after
+        apparel. There has been a steady progress of the leather sector which has attained 11.93% growth in the first half of
+        current fiscal year (2016-2017). This sector exceeded the export target by 9.64%, fetching $628 million from exports
+        against the target of $572 million during July - December period. Bangladesh earned $560 million from leather and
+        leather products exports in the same period of FY 2015-16. The annual Target for the current fiscal year set at $1.22 billion
+        which is expected to exceed by June 2017. Bangladesh exported leather and leather goods worth $1.13 billion and
+        $1.16 billion respectively in FY 2014-15 and FY 2015-16.
+    </h6> 
+    <h6 style="text-align: justify;">
+        At this time, 220 tanneries, 2500 footwear manufacturing units, and 100+ large firms are involved in the leather and leather
+        goods sector. This sector is contributing 4% to the country's total export income by exporting items to more than 50
+        countries. The LFMEAB report said Japan and Germany are now the biggest markets for Bangladeshi footwear which
+        is also exported to Italy, the UK, France, Belgium, the USA, Sweden, Spain, Saudi Arabia, Taiwan, Hong Kong, Canada, and
+        Korea. Footwear exports record impressive growth During the fiscal year 2014-2015, Bangladesh exported footwear
+        worth $128.18 million to Germany, $95.22 million to Japan, $82.64 million to the USA, $57.39 million to Spain, $37.16
+        million Italy, $24.31 million to France, $14.94 million to the UK, and $7.58 million to the UAE. International brands like
+        Adidas, Aldo, Timberland, Marks & Spencer, Clarks, Espirit, ABC Mart, Nike, Wal-Mart, K-Mart Sears, and Nine West,
+        Gucci, Reebok, Michael Kors, Picard, Sportcraft, Max & Co and R.M. Williams are sourcing from Bangladesh for quality
+        and price.
+    </h6>
+    <h2 class="mt-5 mb-4 text-center">List of Factories</h2>
+</div>
+
+     
+     
       <div class="row">
   {% for company in companies %}
   <div class="col-md-3">
