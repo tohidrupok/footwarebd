@@ -3,8 +3,11 @@ from .models import Job
 from .forms import ResumeForm
 
 def job_list(request):
-    jobs = Job.objects.all()
-    return render(request, 'job_portal/job_list.html', {'jobs': jobs})
+    jobs = Job.objects.exclude(title="Post Resume")
+    post_resume = Job.objects.filter(title="Post Resume")    # must be add upload resume model's title is:  "Post Resume"
+    print(post_resume)
+    context = {'jobs': jobs , 'post_resume':post_resume }
+    return render(request, 'job_portal/job_list.html', context)
 
 def submit_resume(request, job_id):
     job = Job.objects.get(id=job_id)

@@ -1,6 +1,37 @@
 {% extends 'index.html' %} {% block body%} {% load static %}
 
-<style>
+<style> 
+
+
+
+  .job-item {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.job-box {
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  padding: 20px;
+  text-align: center;
+}
+
+.job-title {
+  margin-top: 0;
+}
+
+.job-company {
+  margin-bottom: 15px;
+}
+
+.button-container {
+  text-align: center;
+}
+ 
+
+
+
+
   /* Custom styles for job list */
   .job-list {
     list-style-type: none;
@@ -210,6 +241,33 @@
     </div>
   </div>
   <!-- Navbar & Carousel End -->
+  <!-- psot resume start -->
+ <h1 class="text-center my-5">Post Your Resume on Footware Today Box</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <ul class="job-list">
+        {% for job in post_resume %}
+        <li class="job-item">
+          <div class="job-box">
+            <h2 class="job-title">{{ job.title }}</h2>
+            <p class="job-company"> Must be Mention Your Position</p>
+            <div class="button-container">
+              <a href="{% url 'submit_resume' job.id %}" class="cta-button btn btn-primary">Upload Your Resume</a>
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- psot resume End -->
+<!-- all job start -->
 
   <h1 class="text-center my-5">Available Jobs</h1>
   <div class="container">
