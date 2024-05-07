@@ -1,6 +1,14 @@
 {% extends 'index.html' %} 
 {% block body%} 
 {% load static %}
+<style>
+
+  .icon {
+    width: 30px; /* Adjust the width as needed */
+    height: 30px; /* Adjust the height as needed */
+}
+
+</style>
 <head>
     <title>Submit Resume</title>
 </head> 
@@ -53,15 +61,19 @@
               data-bs-toggle="dropdown"
               >Service</a
             >
-            <div class="dropdown-menu m-0">
-              <a href="{% url 'resource_library'  %}" class="dropdown-item">Resource Library</a>
-              <a href="{% url 'requirement_list'  %}" class="dropdown-item"
-                >Certifications and Standards</a
-              >
-              <a href="{% url 'supply_chain'  %}" class="dropdown-item"
-                >Supply Chain Information</a
-              >
-              <a href="{% url 'company_list'  %}" class="dropdown-item">Interactive Maps</a>
+                <div class="dropdown-menu m-0">
+                <a href="{% url 'resource_library' %}" class="dropdown-item">
+                    <img src="{% static 'img\icon.png' %}" alt="Resource Library Icon" class="icon"> Resource Library
+                </a>
+                <a href="{% url 'requirement_list' %}" class="dropdown-item">
+                    <img src="{% static 'img\hm.png' %}" alt="Certifications and Standards Icon" class="icon"> Certifications and Standards
+                </a>
+                <a href="{% url 'supply_chain' %}" class="dropdown-item">
+                    <img src="{% static 'img\hand.jpg' %}" alt="Supply Chain Information Icon" class="icon"> Supply Chain Information
+                </a>
+                <a href="{% url 'company_list' %}" class="dropdown-item">
+                    <img src="{% static 'img\map.jpg' %}" alt="Interactive Maps Icon" class="icon"> Interactive Maps
+                </a>
             </div>
           </div>
           <div class="nav-item dropdown">

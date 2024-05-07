@@ -8,7 +8,12 @@
     .video-section {
       margin-left: 0; /* Reset margin left for smaller screens */
     }
-  }
+  } 
+  .icon {
+    width: 30px; /* Adjust the width as needed */
+    height: 30px; /* Adjust the height as needed */
+}
+
 </style>
 <script>
   // Function to initialize the carousel and set an interval to switch slides every 3 seconds
@@ -78,18 +83,18 @@
               >Service</a
             >
             <div class="dropdown-menu m-0">
-              <a href="{% url 'resource_library'  %}" class="dropdown-item"
-                >Resource Library</a
-              >
-              <a href="{% url 'requirement_list'  %}" class="dropdown-item"
-                >Certifications and Standards</a
-              >
-              <a href="{% url 'supply_chain'  %}" class="dropdown-item"
-                >Supply Chain Information</a
-              >
-              <a href="{% url 'company_list'  %}" class="dropdown-item"
-                >Interactive Maps</a
-              >
+                <a href="{% url 'resource_library' %}" class="dropdown-item">
+                    <img src="{% static 'img\icon.png' %}" alt="Resource Library Icon" class="icon"> Resource Library
+                </a>
+                <a href="{% url 'requirement_list' %}" class="dropdown-item">
+                    <img src="{% static 'img\hm.png' %}" alt="Certifications and Standards Icon" class="icon"> Certifications and Standards
+                </a>
+                <a href="{% url 'supply_chain' %}" class="dropdown-item">
+                    <img src="{% static 'img\hand.jpg' %}" alt="Supply Chain Information Icon" class="icon"> Supply Chain Information
+                </a>
+                <a href="{% url 'company_list' %}" class="dropdown-item">
+                    <img src="{% static 'img\map.jpg' %}" alt="Interactive Maps Icon" class="icon"> Interactive Maps
+                </a>
             </div>
           </div>
           <div class="nav-item dropdown">
@@ -100,13 +105,15 @@
               >KCC</a
             >
             <div class="dropdown-menu m-0">
-              <a href="{% url 'news_all'  %}" class="dropdown-item"
-                >Newsletter Subscription</a
-              >
-              <a href="{% url 'news_all'  %}" class="dropdown-item"
-                >Industry News and Events</a
-              >
+                <a href="{% url 'news_all' %}" class="dropdown-item">
+                    <img src="{% static 'img/Cloud.png' %}" alt="Newsletter Subscription Icon" class="icon"> Newsletter Subscription
+                </a>
+                <a href="{% url 'news_all' %}" class="dropdown-item">
+                    <img src="{% static 'img/ZH.png' %}" alt="Industry News and Events Icon" class="icon"> Industry News and Events
+                </a>
             </div>
+
+
           </div>
           <a href="{% url 'leaders'  %}" class="nav-item nav-link"
             >Industry Leader</a
@@ -245,11 +252,11 @@
                 {% for article in latest_news %}
                 <a
                   href="{% url 'news_detail' article.slug %}"
-                  class="company-link"
+                  class="company-link "
                 >
-                  <li style="color: black; margin-bottom: 20px">
+                  <p class="bi-arrow-right" style="color: black; margin-bottom: 20px">
                     {{ article.title }}
-                  </li>
+                  </p>
                 </a>
                 {% endfor %}
               </marquee>
@@ -529,112 +536,41 @@
         <h5 class="fw-bold text-primary text-uppercase">Latest Blog</h5>
         <h1 class="mb-0">Read The Latest Articles from Our Blog Post</h1>
       </div>
-      <div class="row g-5">
+      <div class="row g-5"> 
+
+      {% for blog in blogs  %}
         <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
           <div class="blog-item bg-light rounded overflow-hidden">
             <div class="blog-img position-relative overflow-hidden">
               <img
                 class="img-fluid"
-                src="{% static 'img/blog-3.jpg' %}"
+                src="{{ blog.image.url }}"
                 alt=""
               />
               <a
                 class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4"
                 href=""
-                >Web Design</a
+                >Latest Blog</a
               >
             </div>
             <div class="p-4">
               <div class="d-flex mb-3">
                 <small class="me-3"
-                  ><i class="far fa-user text-primary me-2"></i>John Doe</small
+                  ><i class="far fa-user text-primary me-2"></i>{{blog.author}}</small
                 >
                 <small
-                  ><i class="far fa-calendar-alt text-primary me-2"></i>01 Jan,
-                  2045</small
+                  ><i class="far fa-calendar-alt text-primary me-2"></i>{{blog.publication_date}}</small
                 >
-              </div>
-              <h4 class="mb-3">How to build a website</h4>
-              <p>
-                Dolor et eos labore stet justo sed est sed sed sed dolor stet
-                amet
-              </p>
-              <a class="text-uppercase" href=""
-                >Read More <i class="bi bi-arrow-right"></i
-              ></a>
+              </div> 
+              <a href="{% url 'blog_details' blog.slug %}" class="read-more bi "> 
+                  <h4 class="mb-3">{{blog.title}}</h4>
+              </a>               
+              <p>{{ blog.content|truncatewords:18 }}</p>            
+               <a href="{% url 'blog_details' blog.slug %}" class="read-more bi bi-arrow-right ">Read more</a>  
             </div>
           </div>
         </div>
-        <div class="col-lg-4 wow slideInUp" data-wow-delay="0.6s">
-          <div class="blog-item bg-light rounded overflow-hidden">
-            <div class="blog-img position-relative overflow-hidden">
-              <img
-                class="img-fluid"
-                src="{% static 'img/blog-2.jpg' %}"
-                alt=""
-              />
-              <a
-                class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4"
-                href=""
-                >Web Design</a
-              >
-            </div>
-            <div class="p-4">
-              <div class="d-flex mb-3">
-                <small class="me-3"
-                  ><i class="far fa-user text-primary me-2"></i>John Doe</small
-                >
-                <small
-                  ><i class="far fa-calendar-alt text-primary me-2"></i>01 Jan,
-                  2045</small
-                >
-              </div>
-              <h4 class="mb-3">How to build a website</h4>
-              <p>
-                Dolor et eos labore stet justo sed est sed sed sed dolor stet
-                amet
-              </p>
-              <a class="text-uppercase" href=""
-                >Read More <i class="bi bi-arrow-right"></i
-              ></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 wow slideInUp" data-wow-delay="0.9s">
-          <div class="blog-item bg-light rounded overflow-hidden">
-            <div class="blog-img position-relative overflow-hidden">
-              <img
-                class="img-fluid"
-                src="{% static 'img/blog-3.jpg' %}"
-                alt=""
-              />
-              <a
-                class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4"
-                href=""
-                >Web Design</a
-              >
-            </div>
-            <div class="p-4">
-              <div class="d-flex mb-3">
-                <small class="me-3"
-                  ><i class="far fa-user text-primary me-2"></i>John Doe</small
-                >
-                <small
-                  ><i class="far fa-calendar-alt text-primary me-2"></i>01 Jan,
-                  2045</small
-                >
-              </div>
-              <h4 class="mb-3">How to build a website</h4>
-              <p>
-                Dolor et eos labore stet justo sed est sed sed sed dolor stet
-                amet
-              </p>
-              <a class="text-uppercase" href=""
-                >Read More <i class="bi bi-arrow-right"></i
-              ></a>
-            </div>
-          </div>
-        </div>
+     {% endfor %}
       </div>
     </div>
   </div>
