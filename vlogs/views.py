@@ -25,5 +25,5 @@ def blog(request):
     return render(request, 'blog.html', {'blogs': blogs}) 
 
 def blog_detail(request, blog_slug):
-    blog = NewsArticle.objects.get(slug=blog_slug)
+    blog = Blog.objects.get(slug=blog_slug)
     return render(request, 'blog_details.html', {'blog': blog}) 

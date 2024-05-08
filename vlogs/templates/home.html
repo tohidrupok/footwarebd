@@ -654,7 +654,7 @@
                 >
               </div>
               <a href="{% url 'blog_details' blog.slug %}" class="read-more bi">
-                <h4 class="mb-3">{{blog.title}}</h4>
+                <h4 class="mb-3">{{blog.title|truncatewords:5}}</h4>
               </a>
               <p>{{ blog.content|truncatewords:18 }}</p>
               <a
