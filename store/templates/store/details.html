@@ -3,35 +3,41 @@
 {% load static %}
 
 <style> 
-   
-      .cart {
-          max-height: 400px; /* Adjust the max-height as needed */
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
+    body {
+        background-color: #f8f9fa; /* Light gray background */
+      } 
+       .company-details {
+        padding: 20px;
+        margin: 20px auto;
+        border: 1px solid #007bff; /* Blue border */
+        border-radius: 10px;
+        background-color: #ffffff; /* White background */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
       }
-
-      .cart .p-3 {
-          padding: 1rem;
+      .company-details h2 {
+        color: #007bff; /* Blue color for headings */
+        text-align: center;
       }
-
-      .cart .img-fluid {
-          max-height: 200px; /* Adjust the max-height as needed */
-          max-width: 100%; /* Ensure the image doesn't exceed the cart's width */
-          object-fit: contain; /* Maintain aspect ratio and fit within the container */
+      .company-logo-container {
+        text-align: center; /* Center-align the content */
       }
-
-      .buttons {
-          margin-top: 10px; /* Adjust the margin as needed */
+      .company-logo {
+        max-width: 200px; /* Set the maximum width of the logo */
+        height: auto;
+        margin-bottom: 20px;
+        border-radius: 50%; /* Round the corners of the logo */
+        border: 4px solid #007bff; /* Blue border around the logo */
+      } 
+      .company-info p {
+        color: #333333; /* Dark gray color for text */
+         text-align: justify;
       }
-
-      .buttons .btn {
-          margin-right: 5px; /* Adjust the margin between buttons as needed */
+      .map-container {
+        width: 100%;
+        height: 300px; /* Adjust height as needed */
+        margin-top: 20px;
       }
-      .text-justify {
-      text-align: justify;
-    } 
+    
       .icon {
         width: 30px; /* Adjust the width as needed */
         height: 30px; /* Adjust the height as needed */
@@ -173,7 +179,66 @@
       </button>
     </div>
   </div>
-  <!-- Navbar & Carousel End -->
+  <!-- Navbar & Carousel End --> 
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <div class="company-details">
+            <div class="company-logo-container">
+              <img
+                src="{{ company.logo.url }}"
+                alt="{{ company.company_name }} Logo"
+                class="company-logo"
+              />
+              <h2>{{ company.company_name }}</h2>
+            </div>
+            <div class="company-info">
+              <p><strong>Description:</strong> {{ company.description }}</p>
+              <p>
+                <strong>Head Office Address:</strong>
+                 {{ company.head_office_address }}
+              </p>
+              <p>
+                <strong>Factory Addresses:</strong> 
+                {{ company.factory_addresses}}
+              </p>
+              <p>
+                <strong>Email Addresses:</strong> {{ company.email_addresses }}
+              </p>
+              <p><strong>Phone Number:</strong> {{ company.phone_number }}</p>
+              <p><strong>Website:</strong> <a href="{{ company.website }}">{{ company.website }}</a></p>
+              <p>
+                <strong>Managing Director Name:</strong> 
+                {{company.managing_director_name }}
+              </p>
+            </div>
+            <!-- Add more details here -->
+
+            {% if company.latitude and company.longitude %}
+            <div class="map-container">
+              <iframe
+                width="100%"
+                height="100%"
+                frameborder="0"
+                style="border: 0"
+                src="{{ company.generate_map_url }}"
+                allowfullscreen
+              ></iframe>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Your custom JavaScript -->
+    <script>
+      // Add your custom JavaScript here (if needed)
+    </script>
+
 
 {% endblock %}
 </body> 

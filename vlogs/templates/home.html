@@ -8,12 +8,61 @@
     .video-section {
       margin-left: 0; /* Reset margin left for smaller screens */
     }
-  } 
+  }
   .icon {
     width: 30px; /* Adjust the width as needed */
     height: 30px; /* Adjust the height as needed */
-}
+  }
+  .background-image {
+    background-image: url('{% static "img/Background/whitered.jpg" %}');
+    /* Adjust background properties as needed */
+    background-size: cover;
+    background-position: center;
+    /* Optionally, you can set a background color in case the image doesn't load */
+    background-color: #f9f9f9; /* Light gray as a fallback */
+  }
 
+  .background-image2 {
+    background-image: url('{% static "img/Background/whitedesing.jpg" %}');
+    /* Adjust background properties as needed */
+    background-size: cover;
+    background-position: center;
+    /* Optionally, you can set a background color in case the image doesn't load */
+    background-color: #f9f9f9; /* Light gray as a fallback */
+  }
+
+  .background-image1 {
+    background-image: url('{% static "img/Background/whitered.jpg" %}');
+    /* Adjust background properties as needed */
+    background-size: cover;
+    background-position: center;
+    /* Optionally, you can set a background color in case the image doesn't load */
+    background-color: #f9f9f9; /* Light gray as a fallback */
+  }
+  .background-image3 {
+    background-image: url('{% static "img/Background/less20.png" %}');
+    /* Adjust background properties as needed */
+    background-size: 70%;
+    background-position: center;
+    /* Optionally, you can set a background color in case the image doesn't load */
+    background-color: #f9f9f9; /* Light gray as a fallback */
+  }
+  .background-image4 {
+    background-image: url('{% static "img/Background/less4.png" %}');
+    /* Adjust background properties as needed */
+    background-size: cover;
+    background-position: center;
+    /* Optionally, you can set a background color in case the image doesn't load */
+    background-color: #f9f9f9; /* Light gray as a fallback */
+  }
+  .background-image5 {
+    background-image: url('{% static "img/Background/less.png" %}');
+    /* Adjust background properties as needed */
+    background-size: 50%;
+    background-position: center;
+    /* Optionally, you can set a background color in case the image doesn't load */
+    background-color: #f9f9f9; /* Light gray as a fallback */
+  }
 </style>
 <script>
   // Function to initialize the carousel and set an interval to switch slides every 3 seconds
@@ -83,18 +132,38 @@
               >Service</a
             >
             <div class="dropdown-menu m-0">
-                <a href="{% url 'resource_library' %}" class="dropdown-item">
-                    <img src="{% static 'img\icon.png' %}" alt="Resource Library Icon" class="icon"> Resource Library
-                </a>
-                <a href="{% url 'requirement_list' %}" class="dropdown-item">
-                    <img src="{% static 'img\hm.png' %}" alt="Certifications and Standards Icon" class="icon"> Certifications and Standards
-                </a>
-                <a href="{% url 'supply_chain' %}" class="dropdown-item">
-                    <img src="{% static 'img\hand.jpg' %}" alt="Supply Chain Information Icon" class="icon"> Supply Chain Information
-                </a>
-                <a href="{% url 'company_list' %}" class="dropdown-item">
-                    <img src="{% static 'img\map.jpg' %}" alt="Interactive Maps Icon" class="icon"> Interactive Maps
-                </a>
+              <a href="{% url 'resource_library' %}" class="dropdown-item">
+                <img
+                  src="{% static 'img\icon.png' %}"
+                  alt="Resource Library Icon"
+                  class="icon"
+                />
+                Resource Library
+              </a>
+              <a href="{% url 'requirement_list' %}" class="dropdown-item">
+                <img
+                  src="{% static 'img\hm.png' %}"
+                  alt="Certifications and Standards Icon"
+                  class="icon"
+                />
+                Certifications and Standards
+              </a>
+              <a href="{% url 'supply_chain' %}" class="dropdown-item">
+                <img
+                  src="{% static 'img\hand.jpg' %}"
+                  alt="Supply Chain Information Icon"
+                  class="icon"
+                />
+                Supply Chain Information
+              </a>
+              <a href="{% url 'company_list' %}" class="dropdown-item">
+                <img
+                  src="{% static 'img\map.jpg' %}"
+                  alt="Interactive Maps Icon"
+                  class="icon"
+                />
+                Interactive Maps
+              </a>
             </div>
           </div>
           <div class="nav-item dropdown">
@@ -105,15 +174,23 @@
               >KCC</a
             >
             <div class="dropdown-menu m-0">
-                <a href="{% url 'news_all' %}" class="dropdown-item">
-                    <img src="{% static 'img/Cloud.png' %}" alt="Newsletter Subscription Icon" class="icon"> Newsletter Subscription
-                </a>
-                <a href="{% url 'news_all' %}" class="dropdown-item">
-                    <img src="{% static 'img/ZH.png' %}" alt="Industry News and Events Icon" class="icon"> Industry News and Events
-                </a>
+              <a href="{% url 'news_all' %}" class="dropdown-item">
+                <img
+                  src="{% static 'img/Cloud.png' %}"
+                  alt="Newsletter Subscription Icon"
+                  class="icon"
+                />
+                Newsletter Subscription
+              </a>
+              <a href="{% url 'news_all' %}" class="dropdown-item">
+                <img
+                  src="{% static 'img/ZH.png' %}"
+                  alt="Industry News and Events Icon"
+                  class="icon"
+                />
+                Industry News and Events
+              </a>
             </div>
-
-
           </div>
           <a href="{% url 'leaders'  %}" class="nav-item nav-link"
             >Industry Leader</a
@@ -149,7 +226,6 @@
               <h2 class="display-1 text-white mb-md-4 animated zoomIn">
                 Creative & Innovative Digital Solution
               </h2>
-              
             </div>
           </div>
         </div>
@@ -165,7 +241,6 @@
               <h1 class="display-1 text-white mb-md-4 animated zoomIn">
                 Creative & Innovative Digital Solution
               </h1>
-              
             </div>
           </div>
         </div>
@@ -222,9 +297,12 @@
     </div>
   </div>
   <!-- Full Screen Search End -->
-
+  
   <!-- News Start -->
-  <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+  <div
+    class="container-fluid py-5 wow fadeInUp background-image2"
+    data-wow-delay="0.1s"
+  >
     <div class="container py-5">
       <div class="row g-5">
         <!-- Video Section -->
@@ -236,9 +314,11 @@
           </div>
         </div>
 
-        <!-- Latest News Section -->
+        <!-- Latest News Section Start-->
         <div class="col-lg-4">
-          <div style="background-color: #c8b6a9; padding: 20px">
+          <div
+            style="background-color: #c8b6a9; width:410px; height:426px; margin-left: 5%"
+          >
             <h2>Latest News</h2>
             <div class="news-container">
               <!-- Iterate over your latest news articles -->
@@ -252,9 +332,12 @@
                 {% for article in latest_news %}
                 <a
                   href="{% url 'news_detail' article.slug %}"
-                  class="company-link "
+                  class="company-link"
                 >
-                  <p class="bi-arrow-right" style="color: black; margin-bottom: 20px">
+                  <p
+                    class="bi-arrow-right"
+                    style="color: black; margin-bottom: 20px"
+                  >
                     {{ article.title }}
                   </p>
                 </a>
@@ -266,10 +349,13 @@
       </div>
     </div>
   </div>
-  <!-- News End -->
+  <!-- Latest News Section End -->
 
   <!-- About Start -->
-  <div class="container-fluid py-3 wow fadeInUp" data-wow-delay="0.1s">
+  <div
+    class="container-fluid py-3 wow fadeInUp background-image1"
+    data-wow-delay="0.1s"
+  >
     <div class="container py-5">
       <div class="row g-5">
         <div class="col-lg-7">
@@ -330,7 +416,10 @@
   <!-- About End -->
 
   <!-- Features Start -->
-  <div class="container-fluid py-3 wow fadeInUp" data-wow-delay="0.1s">
+  <div
+    class="container-fluid py-3 wow fadeInUp background-image"
+    data-wow-delay="0.1s"
+  >
     <div class="container py-5">
       <div
         class="section-title text-center position-relative pb-3 mb-5 mx-auto"
@@ -420,7 +509,10 @@
   <!-- Features Start -->
 
   <!-- Service Start -->
-  <div class="container-fluid py-3 wow fadeInUp" data-wow-delay="0.1s">
+  <div
+    class="container-fluid py-3 wow fadeInUp background-image4"
+    data-wow-delay="0.1s"
+  >
     <div class="container py-5">
       <div
         class="section-title text-center position-relative pb-3 mb-5 mx-auto"
@@ -527,26 +619,23 @@
   </div>
   <!-- Service End -->
   <!-- Blog Start -->
-  <div class="container-fluid py-3 wow fadeInUp" data-wow-delay="0.1s">
+  <div
+    class="container-fluid py-3 wow fadeInUp background-image3"
+    data-wow-delay="0.1s"
+  >
     <div class="container py-5">
       <div
         class="section-title text-center position-relative pb-3 mb-5 mx-auto"
         style="max-width: 600px"
       >
-        <h5 class="fw-bold text-primary text-uppercase">Latest Blog</h5>
-        <h1 class="mb-0">Read The Latest Articles from Our Blog Post</h1>
+        <h3 class="fw-bold text-primary text-uppercase">Latest Blog</h3>
       </div>
-      <div class="row g-5"> 
-
-      {% for blog in blogs  %}
+      <div class="row g-5">
+        {% for blog in blogs %}
         <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
           <div class="blog-item bg-light rounded overflow-hidden">
             <div class="blog-img position-relative overflow-hidden">
-              <img
-                class="img-fluid"
-                src="{{ blog.image.url }}"
-                alt=""
-              />
+              <img class="img-fluid" src="{{ blog.image.url }}" alt="" />
               <a
                 class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4"
                 href=""
@@ -556,28 +645,37 @@
             <div class="p-4">
               <div class="d-flex mb-3">
                 <small class="me-3"
-                  ><i class="far fa-user text-primary me-2"></i>{{blog.author}}</small
+                  ><i class="far fa-user text-primary me-2"></i
+                  >{{blog.author}}</small
                 >
                 <small
-                  ><i class="far fa-calendar-alt text-primary me-2"></i>{{blog.publication_date}}</small
+                  ><i class="far fa-calendar-alt text-primary me-2"></i
+                  >{{blog.publication_date}}</small
                 >
-              </div> 
-              <a href="{% url 'blog_details' blog.slug %}" class="read-more bi "> 
-                  <h4 class="mb-3">{{blog.title}}</h4>
-              </a>               
-              <p>{{ blog.content|truncatewords:18 }}</p>            
-               <a href="{% url 'blog_details' blog.slug %}" class="read-more bi bi-arrow-right ">Read more</a>  
+              </div>
+              <a href="{% url 'blog_details' blog.slug %}" class="read-more bi">
+                <h4 class="mb-3">{{blog.title}}</h4>
+              </a>
+              <p>{{ blog.content|truncatewords:18 }}</p>
+              <a
+                href="{% url 'blog_details' blog.slug %}"
+                class="read-more bi bi-arrow-right"
+                >Read more</a
+              >
             </div>
           </div>
         </div>
-     {% endfor %}
+        {% endfor %}
       </div>
     </div>
   </div>
   <!-- Blog Start -->
 
   <!-- Quote Start -->
-  <div class="container-fluid py-3 wow fadeInUp" data-wow-delay="0.1s">
+  <div
+    class="container-fluid py-3 wow fadeInUp background-image5"
+    data-wow-delay="0.1s"
+  >
     <div class="container py-5">
       <div class="row g-5">
         <div class="col-lg-7">
@@ -679,5 +777,5 @@
   </div>
   <!-- Quote End -->
 
-  {% endblock %} 
+  {% endblock %}
 </body>

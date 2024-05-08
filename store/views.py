@@ -26,7 +26,7 @@ def company_detail(request, company_slug):
         'company': company,
         'map_url': map_url
     }
-    return render(request, 'store/company_detail.html', context) 
+    return render(request, 'store/details.html', context) 
 
 def news_article_list(request):
     all_news = NewsArticle.objects.filter(is_availble=True).order_by('-publication_date')
