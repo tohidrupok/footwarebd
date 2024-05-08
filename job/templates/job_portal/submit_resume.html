@@ -84,12 +84,12 @@
               >KCC</a
             >
             <div class="dropdown-menu m-0">
-              <a href="{% url 'news_all'  %}" class="dropdown-item"
-                >Newsletter Subscription</a
-              >
-              <a href="{% url 'news_all'  %}" class="dropdown-item"
-                >Industry News and Events</a
-              >
+                <a href="{% url 'news_all' %}" class="dropdown-item">
+                    <img src="{% static 'img/Cloud.png' %}" alt="Newsletter Subscription Icon" class="icon"> Newsletter Subscription
+                </a>
+                <a href="{% url 'news_all' %}" class="dropdown-item">
+                    <img src="{% static 'img/ZH.png' %}" alt="Industry News and Events Icon" class="icon"> Industry News and Events
+                </a>
             </div>
           </div>
           <a href="{% url 'leaders'  %}" class="nav-item nav-link">Industry Leader</a>

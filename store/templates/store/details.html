@@ -1,31 +1,43 @@
- {% extends 'index.html' %} 
+{% extends 'index.html' %} 
 {% block body%} 
 {% load static %}
 
 <style> 
-    .text-justify {
-      text-align: justify;
-    }
-    .news-image {
-        max-width: 80%;
-        height: auto;
-        border-radius: 30px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
+   
+      .cart {
+          max-height: 400px; /* Adjust the max-height as needed */
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+      }
 
-    .news-details {
-        background-color: #f9f9f9;
-        padding: 20px;
-        border-radius: 20px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      .cart .p-3 {
+          padding: 1rem;
+      }
+
+      .cart .img-fluid {
+          max-height: 200px; /* Adjust the max-height as needed */
+          max-width: 100%; /* Ensure the image doesn't exceed the cart's width */
+          object-fit: contain; /* Maintain aspect ratio and fit within the container */
+      }
+
+      .buttons {
+          margin-top: 10px; /* Adjust the margin as needed */
+      }
+
+      .buttons .btn {
+          margin-right: 5px; /* Adjust the margin between buttons as needed */
+      }
+      .text-justify {
+      text-align: justify;
     } 
       .icon {
-    width: 30px; /* Adjust the width as needed */
-    height: 30px; /* Adjust the height as needed */
-    } 
+        width: 30px; /* Adjust the width as needed */
+        height: 30px; /* Adjust the height as needed */
+    }
+      
 </style>
-
-
 <body>
 
   <!-- Spinner Start -->
@@ -88,7 +100,7 @@
                 <a href="{% url 'company_list' %}" class="dropdown-item">
                     <img src="{% static 'img\map.jpg' %}" alt="Interactive Maps Icon" class="icon"> Interactive Maps
                 </a>
-            </div> 
+            </div>
           </div>
           <div class="nav-item dropdown">
             <a
@@ -125,13 +137,13 @@
     >
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="w-100" src="{% static 'img/newsd.jpg'%}" alt="Image" />
+          <img class="w-100" src="{% static 'img/infoo.png'%}" alt="Image" />
           <div
             class="carousel-caption d-flex flex-column align-items-center justify-content-center"
           >
             <div class="p-3" style="max-width: 900px">        
              <h1 class="display-1 text-white mb-md-4 animated zoomIn">
-                Get news details instantly
+                Requirement and Informations
               </h1>
               <h6 class="text-white text-uppercase mb-3 animated slideInDown">               
                 Footware Today
@@ -140,31 +152,6 @@
             </div>
           </div>
         </div>
-        {% comment %} <div class="carousel-item">
-          <img class="w-100" src="{% static 'img/home2.jpg'%}" alt="Image" />
-          <div
-            class="carousel-caption d-flex flex-column align-items-center justify-content-center"
-          >
-            <div class="p-3" style="max-width: 900px">
-              <h5 class="text-white text-uppercase mb-3 animated slideInDown">
-                Creative & Innovative
-              </h5>
-              <h1 class="display-1 text-white mb-md-4 animated zoomIn">
-                Creative & Innovative Digital Solution
-              </h1>
-              <a
-                href=""
-                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
-                >Free Quote</a
-              >
-              <a
-                href="{% url 'contact'  %}"
-                class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight"
-                >Contact Us</a
-              >
-            </div>
-          </div>
-        </div> {% endcomment %}
       </div>
       <button
         class="carousel-control-prev"
@@ -188,23 +175,6 @@
   </div>
   <!-- Navbar & Carousel End -->
 
-
-  <!-- News Details Start -->
-  <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-    <div class="news-details">
-      <h1>{{ blog.title }}</h1>
-      <p>Publication Date: {{ blog.publication_date }}</p>
-      {% if blog.image %}
-        <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="news-image">
-      {% endif %}
-      <p>Author: {{ blog.author }}</p>
-      <p>Content: {{ blog.content }}</p>
-      {% if blog.reference_link %}
-        <p>Reference Link: <a href="{{ blog.reference_link }}">{{ blog.reference_link }}</a></p>
-      {% endif %}
-    </div>
-  </div>
-  <!-- News Details End -->
-
 {% endblock %}
-</body>
+</body> 
+
