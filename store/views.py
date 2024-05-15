@@ -1,6 +1,6 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
-from .models import Company, NewsArticle, Leaders
+from .models import Company, NewsArticle, Leaders , Factory
 
 def company_list(request):
     all_companies = Company.objects.filter(is_availble=True)
@@ -26,7 +26,25 @@ def company_detail(request, company_slug):
         'company': company,
         'map_url': map_url
     }
-    return render(request, 'store/details.html', context) 
+    return render(request, 'store/details.html', context)  
+
+def factorys_list(request): 
+    count = Factory.objects.count()
+    factorys = Factory.objects.all()  
+    paginator = Paginator(factorys, 61)  # 61 companies per page
+    page = request.GET.get('page')
+
+    try:
+        factorys = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        factorys = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        factorys = paginator.page(paginator.num_pages)
+
+    return render(request, 'store/factorys_list.html', {'factorys': factorys,'count': count})  
+
 
 def news_article_list(request):
     all_news = NewsArticle.objects.filter(is_availble=True).order_by('-publication_date')
@@ -67,4 +85,7 @@ def leaders(request):
 
 def persion_detail(request, person_slug):
     leader = Leaders.objects.get(slug=person_slug)
-    return render(request, 'leader/biography.html', {'leader': leader})
+    return render(request, 'leader/biography.html', {'leader': leader}) 
+
+
+

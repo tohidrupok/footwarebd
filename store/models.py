@@ -25,6 +25,19 @@ class Company(models.Model):
         else:
             return None 
 
+class Factory(models.Model):
+    factory_name = models.CharField(max_length=60)
+    owner_name = models.CharField(max_length=60)
+    responsibility = models.CharField(max_length=30)
+    address = models.CharField(max_length=155)
+    contact = models.CharField(max_length=50)
+    product = models.CharField(max_length=60)
+    Extra = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.factory_name
+  
+  
 
 
 class NewsArticle(models.Model):

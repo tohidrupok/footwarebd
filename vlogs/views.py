@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from store.models import NewsArticle
-from .models import Blog
+from .models import Blog 
 
 # Create your views here.
 def home(request):
@@ -26,4 +26,5 @@ def blog(request):
 
 def blog_detail(request, blog_slug):
     blog = Blog.objects.get(slug=blog_slug)
-    return render(request, 'blog_details.html', {'blog': blog}) 
+    return render(request, 'blog_details.html', {'blog': blog})  
+

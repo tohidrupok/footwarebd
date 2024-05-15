@@ -16,5 +16,6 @@ class Leadersadmin(admin.ModelAdmin):
      
 admin.site.register(Company, companyadmin)
 admin.site.register(NewsArticle, newsarticleadmin)
-admin.site.register(Leaders, Leadersadmin)
+admin.site.register(Leaders, Leadersadmin) 
+admin.site.register(Factory) 
 
