@@ -76,10 +76,35 @@
         <div class="navbar-nav ms-auto py-0">
           <a href="{% url 'about'  %}" class="nav-item nav-link active"
             >About</a
-          >
-          <a href="{% url 'company_list'  %}" class="nav-item nav-link"
-            >Directory of Factories</a
-          >
+          > 
+          
+          <div class="nav-item dropdown">
+            <a
+              href="#"
+              class="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+              >Directory of Factories</a
+            >
+            <div class="dropdown-menu m-0">
+              <a href="{% url 'company_list'  %}" class="dropdown-item">
+                <img
+                  src="{% static 'img/Cloud.png' %}"
+                  alt="Newsletter Subscription Icon"
+                  class="icon"
+                />
+                Information about Factories
+              </a>
+              <a href="{% url 'list_factory' %}" class="dropdown-item">
+                <img
+                  src="{% static 'img/ZH.png' %}"
+                  alt="Industry News and Events Icon"
+                  class="icon"
+                />
+               List of Factories
+              </a>
+            </div>
+          </div>   
+
           <div class="nav-item dropdown"> 
             <a
               href="#"
