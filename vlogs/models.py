@@ -10,6 +10,17 @@ class Blog(models.Model):
     reference_link = models.URLField(max_length = 200, blank=True, null=True)  
 
     def __str__(self):
-        return self.title        
+        return self.title 
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    subject = models.CharField(max_length=200)
+    message = models.TextField()
+
+    def __str__(self):
+        return self.name
+        
         
 

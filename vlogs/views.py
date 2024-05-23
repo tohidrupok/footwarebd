@@ -28,3 +28,80 @@ def blog_detail(request, blog_slug):
     blog = Blog.objects.get(slug=blog_slug)
     return render(request, 'blog_details.html', {'blog': blog})  
 
+
+
+# myapp/views.py
+from django.shortcuts import render
+from django.core.mail import send_mail
+from django.conf import settings
+from .forms import ContactForm
+
+# # def contact_view(request):
+#     form = ContactForm()
+#     success = False
+#     if request.method == 'POST':
+#         form = ContactForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             success = True
+#             # Send email to admin
+#             subject = form.cleaned_data['subject']
+#             message = form.cleaned_data['message']
+#             from_email = form.cleaned_data['email']
+#             name = form.cleaned_data['name']
+#             admin_email = settings.DEFAULT_FROM_EMAIL
+
+#             send_mail(
+#                 f"New contact form submission: {subject}",
+#                 f"Name: {name}\nEmail: {from_email}\n\nMessage:\n{message}",
+#                 from_email,
+#                 [admin_email],
+#                 fail_silently=False,
+#             )
+             
+#             form = ContactForm()  # Clear the form after successful submission
+
+#     return render(request, 'contact_view.html', {'form': form, 'success': success})
+
+
+from django.shortcuts import render
+from django.core.mail import send_mail
+from django.conf import settings
+from .forms import ContactForm
+import logging
+
+# Configure logging
+logger = logging.getLogger(__name__)
+
+def contact_view(request):
+    form = ContactForm()
+    success = False
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            success = True
+            
+            # Send email to admin
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            from_email = form.cleaned_data['email']  # Email provided by the user
+            name = form.cleaned_data['name']
+            admin_email = settings.DEFAULT_FROM_EMAIL  # Admin email defined in settings
+
+            try:
+                send_mail(
+                    f"New contact form submission: {subject}",
+                    f"Name: {name}\nEmail: {from_email}\n\nMessage:\n{message}",
+                    admin_email,  # Sender email, as per settings
+                    [admin_email],  # Receiver email, the admin's email
+                    fail_silently=False,
+                )
+               
+            except Exception as e:
+                logger.error(f"Error sending email: {e}")
+                success = False
+            
+            form = ContactForm()  # Clear the form after successful submission
+
+    return render(request, 'contact_view.html', {'form': form, 'success': success})
