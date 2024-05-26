@@ -4,6 +4,7 @@ class Home(models.Model):
     slide = models.ImageField(upload_to='photos/slide/')
     big_text = models.CharField(max_length=70, null=True, blank=True)
     small_text = models.CharField(max_length=120, null=True, blank=True)
+    video = models.FileField(upload_to='videos/Slide Video', null=True, blank=True)  
 
 class Blog(models.Model):
     title = models.CharField(max_length=200)
