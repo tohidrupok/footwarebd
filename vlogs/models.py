@@ -1,5 +1,10 @@
 from django.db import models
 
+class Home(models.Model):
+    slide = models.ImageField(upload_to='photos/slide/')
+    big_text = models.CharField(max_length=70, null=True, blank=True)
+    small_text = models.CharField(max_length=120, null=True, blank=True)
+
 class Blog(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=220, unique=True, blank=True, null=True)
@@ -22,5 +27,7 @@ class Contact(models.Model):
     def __str__(self):
         return self.name
         
+
+    
         
 

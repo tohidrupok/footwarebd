@@ -1,12 +1,18 @@
-from django.shortcuts import render
 from store.models import NewsArticle
-from .models import Blog 
+from .models import Blog , Home 
+from django.shortcuts import render
+from django.core.mail import send_mail
+from django.conf import settings
+from .forms import ContactForm
+import logging
 
-# Create your views here.
+
 def home(request):
+    home= Home.objects.all()
     blogs = Blog.objects.all().order_by('-id')[:6]
     latest_news = NewsArticle.objects.filter(is_availble=True).order_by('-publication_date')[:5]  
     context={
+        'home': home,
         'latest_news': latest_news ,
         'blogs': blogs
     }
@@ -29,46 +35,6 @@ def blog_detail(request, blog_slug):
     return render(request, 'blog_details.html', {'blog': blog})  
 
 
-
-# myapp/views.py
-from django.shortcuts import render
-from django.core.mail import send_mail
-from django.conf import settings
-from .forms import ContactForm
-
-# # def contact_view(request):
-#     form = ContactForm()
-#     success = False
-#     if request.method == 'POST':
-#         form = ContactForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             success = True
-#             # Send email to admin
-#             subject = form.cleaned_data['subject']
-#             message = form.cleaned_data['message']
-#             from_email = form.cleaned_data['email']
-#             name = form.cleaned_data['name']
-#             admin_email = settings.DEFAULT_FROM_EMAIL
-
-#             send_mail(
-#                 f"New contact form submission: {subject}",
-#                 f"Name: {name}\nEmail: {from_email}\n\nMessage:\n{message}",
-#                 from_email,
-#                 [admin_email],
-#                 fail_silently=False,
-#             )
-             
-#             form = ContactForm()  # Clear the form after successful submission
-
-#     return render(request, 'contact_view.html', {'form': form, 'success': success})
-
-
-from django.shortcuts import render
-from django.core.mail import send_mail
-from django.conf import settings
-from .forms import ContactForm
-import logging
 
 # Configure logging
 logger = logging.getLogger(__name__)
