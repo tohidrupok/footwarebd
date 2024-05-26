@@ -1,22 +1,23 @@
 from store.models import NewsArticle
-from .models import Blog , Home 
+from .models import Blog , Home , Video_HomePage
 from django.shortcuts import render
 from django.core.mail import send_mail
 from django.conf import settings
 from .forms import ContactForm
 import logging
 
-
 def home(request):
     home= Home.objects.all()
+    video = Video_HomePage.objects.first()
     blogs = Blog.objects.all().order_by('-id')[:6]
     latest_news = NewsArticle.objects.filter(is_availble=True).order_by('-publication_date')[:5]  
     context={
         'home': home,
+        'main_vidoe': video,
         'latest_news': latest_news ,
         'blogs': blogs
     }
-    return render(request, 'home.html',context)
+    return render(request, 'home.html', context)
 
 def contact(request):
 

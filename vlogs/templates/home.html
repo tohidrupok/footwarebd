@@ -23,7 +23,7 @@
   }
 
   .background-image2 {
-    background-image: url('{% static "img/Background/whitedesing.jpg" %}');
+    background-image: url('{% static "img/Background/whitered.jpg" %}');
     /* Adjust background properties as needed */
     background-size: cover;
     background-position: center;
@@ -40,7 +40,7 @@
     background-color: #f9f9f9; /* Light gray as a fallback */
   }
   .background-image3 {
-    background-image: url('{% static "img/Background/less20.png" %}');
+    background-image: url('{% static "img/Background/whitered.jpg" %}');
     /* Adjust background properties as needed */
     background-size: 70%;
     background-position: center;
@@ -48,7 +48,7 @@
     background-color: #f9f9f9; /* Light gray as a fallback */
   }
   .background-image4 {
-    background-image: url('{% static "img/Background/less4.png" %}');
+    background-image: url('{% static "img/Background/whitered.jpg" %}');
     /* Adjust background properties as needed */
     background-size: cover;
     background-position: center;
@@ -56,13 +56,16 @@
     background-color: #f9f9f9; /* Light gray as a fallback */
   }
   .background-image5 {
-    background-image: url('{% static "img/Background/less.png" %}');
+    background-image: url('{% static "img/Background/whitered.jpg" %}');
     /* Adjust background properties as needed */
     background-size: 50%;
     background-position: center;
     /* Optionally, you can set a background color in case the image doesn't load */
     background-color: #f9f9f9; /* Light gray as a fallback */
-  }
+  } 
+  .bg-custom-color {
+    background-color: #a4282a;
+}
 </style>
 <script>
   // Function to initialize the carousel and set an interval to switch slides every 3 seconds
@@ -319,7 +322,7 @@
         <div class="col-lg-8">
           <div class="video-section" style="margin-left: -90px">
             <video id="video" width="105%" height="auto" autoplay muted>
-              <source src="{% static 'img/demo1.mp4' %}" type="video/mp4" />
+              <source src="{{ main_vidoe.video.url }}" type="video/mp4" />
             </video>
           </div>
         </div>
@@ -346,7 +349,7 @@
                 >
                   <p
                     class="bi-arrow-right"
-                    style="color: black; margin-bottom: 20px"
+                    style="color: #f5fbff; margin-bottom: 30px"
                   >
                     {{ article.title }}
                   </p>
@@ -370,7 +373,8 @@
       <div class="row g-5">
         <div class="col-lg-7">
           <div class="section-title position-relative pb-3 mb-5">
-            <h5 class="fw-bold text-primary text-uppercase">About Us</h5>
+            <h5 class="fw-bold" style="color: #a4282a; text-transform: uppercase;">About Us</h5>
+
             <h1 class="mb-0">Comprehensive Industry Insight</h1>
           </div>
           <p class="mb-4" style="text-align: justify">
@@ -382,18 +386,20 @@
           <div class="row g-0 mb-3">
             <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
               <h5 class="mb-3">
-                <i class="fa fa-check text-primary me-3"></i>Award Winning
+
+                <i class="fa fa-check me-3" style="color: #a4282a;"></i>Award Winning
+
               </h5>
               <h5 class="mb-3">
-                <i class="fa fa-check text-primary me-3"></i>Professional Staff
+                <i class="fa fa-check me-3"style="color: #a4282a;"></i>Professional Staff
               </h5>
             </div>
             <div class="col-sm-6 wow zoomIn" data-wow-delay="0.4s">
               <h5 class="mb-3">
-                <i class="fa fa-check text-primary me-3"></i>24/7 Support
+                <i class="fa fa-check me-3"style="color: #a4282a;"></i>24/7 Support
               </h5>
               <h5 class="mb-3">
-                <i class="fa fa-check text-primary me-3"></i>Fair Prices
+                <i class="fa fa-check me-3"style="color: #a4282a;"></i>Fair Prices
               </h5>
             </div>
           </div>
@@ -404,7 +410,7 @@
             <div>
               <a
                 href="{% url 'about'  %}"
-                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
+                class="btn" style="background-color: #a4282a; color: white; py-md-3 px-md-5 me-3 animated slideInLeft"
                 >See More</a
               >
             </div>
@@ -435,7 +441,8 @@
         class="section-title text-center position-relative pb-3 mb-5 mx-auto"
         style="max-width: 600px"
       >
-        <h5 class="fw-bold text-primary text-uppercase">Why Choose Us</h5>
+        <h5 class="fw-bold" style="color: #a4282a; text-transform: uppercase;">Why Choose Us</h5>
+
         <h1 class="mb-0">We Are Here to Grow Your Business Exponentially</h1>
       </div>
       <div class="row g-5">
@@ -528,7 +535,8 @@
         class="section-title text-center position-relative pb-3 mb-5 mx-auto"
         style="max-width: 600px"
       >
-        <h5 class="fw-bold text-primary text-uppercase">Our Services</h5>
+        <h5 class="fw-bold" style="color: #a4282a; text-transform: uppercase;">Our Services</h5>
+
         <h1 class="mb-0">Footwear Today is stands for your Business Success</h1>
       </div>
       <div class="row g-5">
@@ -613,16 +621,6 @@
           </div>
         </div>
         <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">
-          <div
-            class="position-relative bg-primary rounded h-100 d-flex flex-column align-items-center justify-content-center text-center p-5"
-          >
-            <h3 class="text-white mb-3">Call Us For Quote</h3>
-            <p class="text-white mb-3">
-              Get in touch with us for a personalized quote tailored to your
-              requirements.
-            </p>
-            <h2 class="text-white mb-0">+8801671166809</h2>
-          </div>
         </div>
       </div>
     </div>
@@ -638,7 +636,8 @@
         class="section-title text-center position-relative pb-3 mb-5 mx-auto"
         style="max-width: 600px"
       >
-        <h3 class="fw-bold text-primary text-uppercase">Latest Blog</h3>
+        <h3 class="fw-bold" style="color: #a4282a; text-transform: uppercase;">Latest Blog</h3>
+
       </div>
       <div class="row g-5">
         {% for blog in blogs %}
@@ -646,20 +645,17 @@
           <div class="blog-item bg-light rounded overflow-hidden">
             <div class="blog-img position-relative overflow-hidden">
               <img class="img-fluid" src="{{ blog.image.url }}" alt="" />
-              <a
-                class="position-absolute top-0 start-0 bg-primary text-white rounded-end mt-5 py-2 px-4"
-                href=""
-                >Latest Blog</a
-              >
+              <a class="position-absolute top-0 start-0 bg-custom-color text-white rounded-end mt-5 py-2 px-4" href="">Latest Blog</a>
+
             </div>
             <div class="p-4">
               <div class="d-flex mb-3">
                 <small class="me-3"
-                  ><i class="far fa-user text-primary me-2"></i
+                  ><i class="far fa-user  me-2" style="color: #a4282a;"></i
                   >{{blog.author}}</small
                 >
                 <small
-                  ><i class="far fa-calendar-alt text-primary me-2"></i
+                  ><i class="far fa-calendar-alt  me-2"style="color: #a4282a;"></i
                   >{{blog.publication_date}}</small
                 >
               </div>
@@ -669,7 +665,7 @@
               <p>{{ blog.content|truncatewords:18 }}</p>
               <a
                 href="{% url 'blog_details' blog.slug %}"
-                class="read-more bi bi-arrow-right"
+                class="read-more bi bi-arrow-right" style="color: #a4282a;"
                 >Read more</a
               >
             </div>
@@ -690,25 +686,25 @@
       <div class="row g-5">
         <div class="col-lg-7">
           <div class="section-title position-relative pb-3 mb-5">
-            <h5 class="fw-bold text-primary text-uppercase">
+            <h5 class="fw-bold" style="color: #a4282a; text-transform: uppercase;">
               Request A Message
-            </h5>
+          </h5>
+
             <h1 class="mb-0">Please Feel Free to Contact Us</h1>
           </div>
           <div class="row gx-3">
-            <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
-              <h5 class="mb-4">
-                <i class="fa fa-reply text-primary me-3"></i>Reply within 24
-                hours
-              </h5>
-            </div>
-            <div class="col-sm-6 wow zoomIn" data-wow-delay="0.4s">
-              <h5 class="mb-4">
-                <i class="fa fa-phone-alt text-primary me-3"></i>24 hrs
-                telephone support
-              </h5>
-            </div>
+              <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
+                  <h5 class="mb-4">
+                      <i class="fa fa-reply" style="color: #a4282a;"></i>Reply within 24 hours
+                  </h5>
+              </div>
+              <div class="col-sm-6 wow zoomIn" data-wow-delay="0.4s">
+                  <h5 class="mb-4">
+                      <i class="fa fa-phone-alt" style="color: #a4282a;"></i>24 hrs telephone support
+                  </h5>
+              </div>
           </div>
+
           <p class="mb-4">
             Welcome to our website! We are dedicated to providing excellent
             service and support to our customers. Whether you have questions
@@ -726,15 +722,16 @@
             >
               <i class="fa fa-phone-alt text-white"></i>
             </div>
-            <div class="ps-4">
+            <div class="ps-4" >
               <h5 class="mb-2">Call to ask any question</h5>
-              <h4 class="text-primary mb-0">+8801671166809</h4>
+               <h4 style="color: #a4282a;">+8801671166809</h4>
+
             </div>
           </div>
         </div>
         <div class="col-lg-5">
-          <div
-            class="bg-primary rounded h-100 d-flex align-items-center p-5 wow zoomIn"
+          <div style="background-color: #a4282a;"
+            class =" rounded h-100 d-flex align-items-center p-5 wow zoomIn"
             data-wow-delay="0.9s"
           >
             <form>
@@ -756,15 +753,6 @@
                   />
                 </div>
                 <div class="col-12">
-                  <select
-                    class="form-select bg-light border-0"
-                    style="height: 55px"
-                  >
-                    <option selected>Select A Service</option>
-                    <option value="1">Service 1</option>
-                    <option value="2">Service 2</option>
-                    <option value="3">Service 3</option>
-                  </select>
                 </div>
                 <div class="col-12">
                   <textarea
