@@ -4,8 +4,8 @@
 <style>
 
   .icon {
-    width: 30px; /* Adjust the width as needed */
-    height: 30px; /* Adjust the height as needed */
+    width: 30px; 
+    height: 30px; 
 }
 
 </style>
@@ -31,7 +31,7 @@
           <!--<i class="fa fa-user-tie me-2"></i>-->
           <img
             class="w-100"
-            src="{% static 'img/logo/up_logo.png' %}"
+            src="{% static 'img/logo/xlogo' %}"
             height="100px"
             width="200px"
             alt="Image"
@@ -121,10 +121,6 @@
           <a href="{% url 'blog'  %}" class="nav-item nav-link">Blog</a>
           <a href="{% url 'contact'  %}" class="nav-item nav-link">Contact</a>
         </div>
-        <!--
-				<butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
-                <a href="https://htmlcodex.com/startup-company-website-template" class="btn btn-primary py-2 px-4 ms-3">Download Pro Version</a>
-				-->
       </div>
     </nav>
  
@@ -278,9 +274,8 @@
 
         <button type="submit" class="btn btn-secondary" style="height: 50px; width: 100px; margin: auto; display: block; margin-top: 20px;">Submit</button>
       </form>
- 
-      
-      {% else %} 
+     
+    {% else %} 
       <form method="post" enctype="multipart/form-data">
           {% csrf_token %}
           
@@ -320,13 +315,8 @@
         </div>
 
         <button type="submit" class="btn btn-secondary" style="height: 50px; width: 100px; margin: auto; display: block; margin-top: 20px;">Submit</button>
-      </form>
- 
-            
-
-     {% endif %} 
+      </form>         
+    {% endif %} 
     </div> 
-
-
 {% endblock %}
 </body> 

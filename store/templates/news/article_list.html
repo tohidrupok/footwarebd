@@ -3,8 +3,8 @@
 {% load static %}
     <style>
         .icon {
-            width: 30px; /* Adjust the width as needed */
-            height: 30px; /* Adjust the height as needed */
+            width: 30px; 
+            height: 30px; 
         }
       /* Inline CSS */
       body {
@@ -19,18 +19,18 @@
         margin: 20px auto;
         padding: 0 20px;
         display: flex;
-        flex-wrap: wrap; /* Allow items to wrap */
-        justify-content: center; /* Center items horizontally */
+        flex-wrap: wrap; 
+        justify-content: center; 
         gap: 20px;
       }
 
       .main-column,
       .latest-column {
-        flex: 1; /* Full width on mobile */
+        flex: 1; 
         background-color: #fff;
         border-radius: 5px;
         padding: 20px;
-        margin-bottom: 20px; /* Add some space between columns */
+        margin-bottom: 20px; 
       }
 
       .main-column h2,
@@ -38,7 +38,7 @@
         font-size: 24px;
         font-weight: bold;
         margin-bottom: 20px;
-        text-align: center; /* Center headings */
+        text-align: center; 
       }
 
       .news-container {
@@ -82,14 +82,12 @@
       .read-more:hover {
         text-decoration: underline;
       }
-
-      /* Style to display the image in a circle */
       .latest-column .news-item img {
-        border-radius: 50%; /* Make the image circular */
-        width: 100px; /* Adjust the width as needed */
-        height: 100px; /* Adjust the height as needed */
-        object-fit: cover; /* Maintain aspect ratio */
-        margin-right: 20px; /* Add some space to the right of the image */
+        border-radius: 50%;
+        width: 100px; 
+        height: 100px; 
+        object-fit: cover; 
+        margin-right: 20px; 
       }
 
       .latest-column .news-item {
@@ -120,8 +118,6 @@
         color: #666;
         margin-bottom: 5px;
       }
-
-      /* Pagination styles */
       .pagination {
         margin-top: 20px;
         display: flex;
@@ -153,27 +149,21 @@
         color: #fff;
         border-color: #007bff;
       }
-
-      /* Add this CSS to your stylesheet */
       #spinner {
-        display: none; /* Hide the spinner */
+        display: none; 
       }
-
-      /* Remove background from the modal content */
       .modal-content {
-        background: transparent; /* Remove any background */
+        background: transparent; 
       }
-
-      /* Media Query for Mobile Responsive */
       @media screen and (max-width: 768px) {
         .main-column,
         .latest-column {
-          flex: 100%; /* Full width on mobile */
+          flex: 100%;
         }
 
         .latest-column .news-item img {
-          width: 80px; /* Adjust image size for mobile */
-          height: 80px; /* Adjust image size for mobile */
+          width: 80px;
+          height: 80px; 
         }
       }
     </style>
@@ -195,7 +185,7 @@
           <!--<i class="fa fa-user-tie me-2"></i>-->
           <img
             class="w-100"
-            src="{% static 'img/logo/up_logo.png' %}"
+            src="{% static 'img/logo/xlogo.png' %}"
             height="100px"
             width="200px"
             alt="Image"

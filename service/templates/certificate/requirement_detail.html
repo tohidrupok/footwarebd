@@ -5,7 +5,7 @@
 <style> 
    
       .cart {
-          max-height: 400px; /* Adjust the max-height as needed */
+          max-height: 400px; 
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -17,24 +17,24 @@
       }
 
       .cart .img-fluid {
-          max-height: 200px; /* Adjust the max-height as needed */
-          max-width: 100%; /* Ensure the image doesn't exceed the cart's width */
-          object-fit: contain; /* Maintain aspect ratio and fit within the container */
+          max-height: 200px; 
+          max-width: 100%; 
+          object-fit: contain; 
       }
 
       .buttons {
-          margin-top: 10px; /* Adjust the margin as needed */
+          margin-top: 10px;
       }
 
       .buttons .btn {
-          margin-right: 5px; /* Adjust the margin between buttons as needed */
+          margin-right: 5px; 
       }
       .text-justify {
       text-align: justify;
     } 
       .icon {
-        width: 30px; /* Adjust the width as needed */
-        height: 30px; /* Adjust the height as needed */
+        width: 30px;
+        height: 30px; 
     }
       
 </style>
@@ -57,7 +57,7 @@
           <!--<i class="fa fa-user-tie me-2"></i>-->
           <img
             class="w-100"
-            src="{% static 'img/logo/up_logo.png' %}"
+            src="{% static 'img/logo/xlogo.png' %}"
             height="100px"
             width="200px"
             alt="Image"
@@ -148,10 +148,6 @@
           <a href="{% url 'blog'  %}" class="nav-item nav-link">Blog</a>
           <a href="{% url 'contact'  %}" class="nav-item nav-link">Contact</a>
         </div>
-        <!--
-				<butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
-                <a href="https://htmlcodex.com/startup-company-website-template" class="btn btn-primary py-2 px-4 ms-3">Download Pro Version</a>
-				-->
       </div>
     </nav>
  

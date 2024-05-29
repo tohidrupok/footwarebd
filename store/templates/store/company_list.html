@@ -3,56 +3,52 @@
 {% load static %}
 
 <style> 
-        <style>
-      /* Additional Custom CSS */
       body {
-        background-color: #f8f9fa; /* Light gray background */
+        background-color: #f8f9fa; 
       }
       .company-card {
         margin-bottom: 40px;
         border-radius: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         overflow: hidden;
-        background: #ffffff; /* White background */
+        background: #ffffff;
       }
       .company-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
       }
       .company-logo {
-        height: 200px; /* Adjust the height of the logo/image */
+        height: 200px; 
         object-fit: cover;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
       }
       .company-details {
         padding: 20px;
-        background-color: #f0f0f0; /* Light gray background */
+        background-color: #f0f0f0; 
       }
       .company-name {
         font-size: 20px;
-        color: #a4282a; /* Blue color for company names */
+        color: #a4282a; 
         white-space: nowrap;
       }
-
-      /* Remove background from the modal content */
       .modal-content {
-        background: transparent; /* Remove any background */
+        background: transparent; 
       } 
-      /* Container */
+
       .company-logo-container {
-        display: flex; /* Use flexbox */
-        justify-content: center; /* Center horizontally */
+        display: flex; 
+        justify-content: center;
       }
 
       /* Image */
       .company-logo {
-        width: 130px; /* Adjust the width as per your requirement */
-        height: 110px; /* To maintain the aspect ratio */
+        width: 130px; 
+        height: 110px; 
         } 
           .icon {
-            width: 30px; /* Adjust the width as needed */
-            height: 30px; /* Adjust the height as needed */
+            width: 30px; 
+            height: 30px;
         }
 </style>
 
@@ -75,7 +71,7 @@
           <!--<i class="fa fa-user-tie me-2"></i>-->
           <img
             class="w-100"
-            src="{% static 'img/logo/up_logo.png' %}"
+            src="{% static 'img/logo/xlogo.png' %}"
             height="100px"
             width="200px"
             alt="Image"
@@ -255,9 +251,7 @@
     <h2 class="mt-5 mb-4 text-center">List of Factories</h2>
 </div>
 
-     
-     
-      <div class="row">
+ <div class="row">
   {% for company in companies %}
   <div class="col-md-3">
     <a href="{% url 'company_detail' company.slug %}" class="company-link">
