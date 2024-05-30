@@ -137,12 +137,13 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
 # settings.py
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'posadcs.com'
+EMAIL_HOST = 'thefootweartoday.com'
 EMAIL_PORT = 465
-EMAIL_USE_SSL = True  # Use SSL for port 465
-EMAIL_USE_TLS = False  # Ensure TLS is disabled since we're using SSL
-EMAIL_HOST_USER = 'info@posadcs.com'
-EMAIL_HOST_PASSWORD = 'info@posadcs'  # Ensure this is the correct password
-DEFAULT_FROM_EMAIL = 'info@posadcs.com'
+EMAIL_USE_SSL = True  
+EMAIL_USE_TLS = False  
+EMAIL_HOST_USER = 'info@thefootweartoday.com'
+EMAIL_HOST_PASSWORD = 'info@today231#' 
+DEFAULT_FROM_EMAIL = 'info@thefootweartoday.com'

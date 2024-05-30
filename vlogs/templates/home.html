@@ -2,23 +2,54 @@
 {% block body%} 
 
 {% load static %}
-<style>
+
+<style> 
+  @media (max-width: 991.98px) {
+    .col-lg-8 {
+      order: 1;
+      margin-bottom: 20px;
+    }
+    .col-lg-4 {
+      order: 0;
+    }
+  } 
+
   @media screen and (max-width: 992px) {
-    #video {
-      max-width: 100%;
+    .video-section {
+      margin-left: 0;
       height: auto;
     }
-    .video-section {
-      margin-left: 0; 
+    #video {
+      width: 100%;
+      height: auto;
+    }
+    .latest-news-container {
+      width: 100%;
+      height: auto;
+      margin-left: 0;
+      padding: 20px;
+    }
+    .news-container marquee {
+      height: 300px;
     }
   }
-  .icon {
-    width: 30px; 
-    height: 30px; 
+
+  @media screen and (max-width: 768px) {
+    .video-section, .latest-news-container {
+      height: auto;
+    }
+    .latest-news-container {
+      margin-top: 20px;
+    }
   }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+
   .background-image {
     background-image: url('{% static "img/Background/whitered.jpg" %}');
-    /* Adjust background properties as needed */
     background-size: cover;
     background-position: center;
     background-color: #f9f9f9;
@@ -28,42 +59,48 @@
     background-image: url('{% static "img/Background/whitered.jpg" %}');
     background-size: cover;
     background-position: center;
-    background-color: #f9f9f9; 
+    background-color: #f9f9f9;
   }
 
   .background-image1 {
     background-image: url('{% static "img/Background/whitered.jpg" %}');
     background-size: cover;
     background-position: center;
-    background-color: #f9f9f9; 
+    background-color: #f9f9f9;
   }
+
   .background-image3 {
     background-image: url('{% static "img/Background/whitered.jpg" %}');
     background-size: 70%;
     background-position: center;
-    background-color: #f9f9f9; 
+    background-color: #f9f9f9;
   }
+
   .background-image4 {
     background-image: url('{% static "img/Background/whitered.jpg" %}');
     background-size: cover;
     background-position: center;
-    background-color: #f9f9f9; 
+    background-color: #f9f9f9;
   }
+
   .background-image5 {
     background-image: url('{% static "img/Background/whitered.jpg" %}');
     background-size: 50%;
     background-position: center;
-    background-color: #f9f9f9; 
+    background-color: #f9f9f9;
   }
+
   .bg-custom-color {
     background-color: #a4282a;
-  } 
+  }
+
   .breaking-news-icon {
-  color: #ff0000;
-  margin-right: 10px;
-  font-size: 18px; 
-}
+    color: #ff0000;
+    margin-right: 10px;
+    font-size: 18px;
+  }
 </style>
+
 <script>
   // Function to initialize the carousel and set an interval to switch slides every 3 seconds
   document.addEventListener("DOMContentLoaded", function () {
@@ -107,7 +144,7 @@
   <div
     id="spinner"
     class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
-  >
+   >
     <div class="spinner"></div>
   </div>
   <!-- Spinner End -->
@@ -329,64 +366,43 @@
   </div>
   <!-- Full Screen Search End -->
 
-  <!-- News Start -->
-  <div
-    class="container-fluid py-5 wow fadeInUp background-image2"
-    data-wow-delay="0.1s"
-  >
-    <div class="container py-5">
-      <div class="row g-5">
-        <!-- Video Section -->
-        <div class="col-lg-8">
-          <div class="video-section" style="margin-left: -90px">
-            <video id="video" width="105%" height="auto" autoplay muted>
-              <source src="{{ main_vidoe.video.url }}" type="video/mp4" />
-            </video>
-          </div>
+<!-- Video and News Section Start -->
+<div class="container-xxl py-5  background-image2">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8 col-md-12 order-1 order-md-0">
+        <div class="video-section">
+          <video id="video" width="100%" height="auto" autoplay muted>
+            <source src="{{ main_vidoe.video.url }}" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
-
-        <!-- Latest News Section Start-->
-        <div class="col-lg-4">
-          <div
-            style="
-              background-color: #c8b6a9;
-              width: 410px;
-              height: 426px;
-              margin-left: 5%;
-            "
-          >
-            <h2>Latest News</h2>
-            <div class="news-container">
-              <!-- Iterate over your latest news articles -->
-              <marquee
-                direction="up"
-                onmouseover="this.stop();"
-                onmouseout="this.start();"
-                scrollamount="2"
-                loop="1000"
-              >
-                {% for article in latest_news %}
-                <a
-                  href="{% url 'news_detail' article.slug %}"
-                  class="company-link"
-                > 
-                  <p style="color: #f5fbff; margin-bottom: 30px">
-                      <span style="color: #FC0101;">ᗔ</span> {{ article.title }}
-                  </p>
-
-                </a>
-                {% endfor %}
-              </marquee>
-            </div>
+      </div>
+      <div class="col-lg-4 col-md-12 order-0 order-md-1 mt-4 mt-md-0">
+          
+        <div class="latest-news-container" style="background-color: #c8b6a9; height: 416px;">
+          <h2>Latest News</h2>
+          <div class="news-container" style="height: calc(100% - 40px); overflow: hidden;">
+            <!-- Iterate over your latest news articles -->
+            <marquee direction="up" onmouseover="this.stop();" onmouseout="this.start();" scrollamount="2" loop="1000" style="height: 100%;">
+              {% for article in latest_news %}
+              <a href="{% url 'news_detail' article.slug %}" class="company-link">
+                <p style="color: #f5fbff; margin-bottom: 30px">
+                  <span style="color: #FC0101;">ᗔ</span> {{ article.title }}
+                </p>
+              </a>
+              {% endfor %}
+            </marquee>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- Latest News Section End -->
+</div>
+<!-- Video and News Section End --> 
 
-  <!-- About Start -->
-  <div
+<!-- About Start -->
+<div
     class="container-fluid py-3 wow fadeInUp background-image1"
     data-wow-delay="0.1s"
   >
@@ -457,14 +473,14 @@
         </div>
       </div>
     </div>
-  </div>
-  <!-- About End -->
+</div>
+<!-- About End -->
 
   <!-- Features Start -->
   <div
     class="container-fluid py-3 wow fadeInUp background-image"
     data-wow-delay="0.1s"
-  >
+   >
     <div class="container py-5">
       <div
         class="section-title text-center position-relative pb-3 mb-5 mx-auto"
@@ -560,7 +576,7 @@
   <div
     class="container-fluid py-3 wow fadeInUp background-image4"
     data-wow-delay="0.1s"
-  >
+   >
     <div class="container py-5">
       <div
         class="section-title text-center position-relative pb-3 mb-5 mx-auto"
@@ -773,7 +789,7 @@
             </div>
           </div>
         </div>
-<div class="col-lg-5">
+ <div class="col-lg-5">
   <div style="background-color: #a4282a" class="rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
     <form method="post" novalidate>
       {% csrf_token %}
