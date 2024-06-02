@@ -72,8 +72,8 @@
           <img
             class="w-100"
             src="{% static 'img/logo/xlogo.png' %}"
-            height="100px"
-            width="200px"
+            height="80px"
+            width="100px"
             alt="Image"
           />
         </h1>
@@ -101,7 +101,7 @@
             <div class="dropdown-menu m-0">
               <a href="{% url 'company_list'  %}" class="dropdown-item">
                 <img
-                  src="{% static 'img/Cloud.png' %}"
+                  src="{% static 'img/icon/information about factories.png' %}"
                   alt="Newsletter Subscription Icon"
                   class="icon"
                 />
@@ -109,16 +109,16 @@
               </a>
               <a href="{% url 'list_factory' %}" class="dropdown-item">
                 <img
-                  src="{% static 'img/ZH.png' %}"
+                  src="{% static 'img/icon/list of factorics.png' %}"
                   alt="Industry News and Events Icon"
                   class="icon"
                 />
-               List of Factories
+                List of Factories
               </a>
             </div>
-          </div>   
-          
-          <div class="nav-item dropdown"> 
+          </div>
+
+          <div class="nav-item dropdown">
             <a
               href="#"
               class="nav-link dropdown-toggle"
@@ -126,18 +126,38 @@
               >Service</a
             >
             <div class="dropdown-menu m-0">
-                <a href="{% url 'resource_library' %}" class="dropdown-item">
-                    <img src="{% static 'img\icon.png' %}" alt="Resource Library Icon" class="icon"> Resource Library
-                </a>
-                <a href="{% url 'requirement_list' %}" class="dropdown-item">
-                    <img src="{% static 'img\hm.png' %}" alt="Certifications and Standards Icon" class="icon"> Certifications and Standards
-                </a>
-                <a href="{% url 'supply_chain' %}" class="dropdown-item">
-                    <img src="{% static 'img\hand.jpg' %}" alt="Supply Chain Information Icon" class="icon"> Supply Chain Information
-                </a>
-                <a href="{% url 'company_list' %}" class="dropdown-item">
-                    <img src="{% static 'img\map.jpg' %}" alt="Interactive Maps Icon" class="icon"> Interactive Maps
-                </a>
+              <a href="{% url 'resource_library' %}" class="dropdown-item">
+                <img
+                  src="{% static 'img/icon/Factory & Tools Manufacturers Compnay List.png' %}"
+                  alt="Resource Library Icon"
+                  class="icon"
+                />
+                Resource Library
+              </a>
+              <a href="{% url 'requirement_list' %}" class="dropdown-item">
+                <img
+                  src="{% static 'img\icon\Certifications and Standards.png' %}"
+                  alt="Certifications and Standards Icon"
+                  class="icon"
+                />
+                Certifications and Standards
+              </a>
+              <a href="{% url 'supply_chain' %}" class="dropdown-item">
+                <img
+                  src="{% static 'img\icon\Supply Chain Information.png' %}"
+                  alt="Supply Chain Information Icon"
+                  class="icon"
+                />
+                Supply Chain Information
+              </a>
+              <a href="{% url 'company_list' %}" class="dropdown-item">
+                <img
+                  src="{% static 'img\icon\Industries Interactive Maps.png' %}"
+                  alt="Interactive Maps Icon"
+                  class="icon"
+                />
+                Interactive Maps
+              </a>
             </div>
           </div>
           <div class="nav-item dropdown">
@@ -147,17 +167,31 @@
               data-bs-toggle="dropdown"
               >KCC</a
             >
-           <div class="dropdown-menu m-0">
-                <a href="{% url 'news_all' %}" class="dropdown-item">
-                    <img src="{% static 'img/Cloud.png' %}" alt="Newsletter Subscription Icon" class="icon"> Newsletter Subscription
-                </a>
-                <a href="{% url 'news_all' %}" class="dropdown-item">
-                    <img src="{% static 'img/ZH.png' %}" alt="Industry News and Events Icon" class="icon"> Industry News and Events
-                </a>
+            <div class="dropdown-menu m-0">
+              <a href="{% url 'news_all' %}" class="dropdown-item">
+                <img
+                  src="{% static 'img/icon/newsletter subscription icon.png' %}"
+                  alt="Newsletter Subscription Icon"
+                  class="icon"
+                />
+                Newsletter Subscription
+              </a>
+              <a href="{% url 'news_all' %}" class="dropdown-item">
+                <img
+                  src="{% static 'img/icon/industry news and events icon.png' %}"
+                  alt="Industry News and Events Icon"
+                  class="icon"
+                />
+                Industry News and Events
+              </a>
             </div>
           </div>
-          <a href="{% url 'leaders'  %}" class="nav-item nav-link">Industry Leader</a>
-          <a href="{% url 'job_list'  %}" class="nav-item nav-link"> Job Portal</a>
+          <a href="{% url 'leaders'  %}" class="nav-item nav-link"
+            >Industry Leader</a
+          >
+          <a href="{% url 'job_list'  %}" class="nav-item nav-link">
+            Job Portal</a
+          >
           <a href="{% url 'blog'  %}" class="nav-item nav-link">Blog</a>
           <a href="{% url 'contact'  %}" class="nav-item nav-link">Contact</a>
         </div>
