@@ -6,7 +6,7 @@ class Home(models.Model):
     small_text = models.CharField(max_length=120, null=True, blank=True)
     
 class Video_HomePage(models.Model):
-    video = models.FileField(upload_to='videos/Slide Video')  
+    video = models.FileField(upload_to='videos/')  
 
 class Blog(models.Model):
     title = models.CharField(max_length=200)
