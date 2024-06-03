@@ -77,9 +77,9 @@ DATABASES = {
 # DATABASES = {
 #     'default': {
 #        "ENGINE": 'django.db.backends.mysql',
-#         "NAME": "adlyticdb",
-#         "USER": "root",
-#         "PASSWORD": '',
+#         "NAME": "footwear_db",
+#         "USER": "footwear_db",
+#         "PASSWORD": 'E0BX9FlYBV#g',
 #         "HOST": "localhost",
 #         "PORT": "3306",
 #     }
