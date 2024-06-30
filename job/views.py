@@ -20,4 +20,7 @@ def submit_resume(request, job_id):
              return render(request, 'job_portal/resume_submitted.html')
     else:
         form = ResumeForm()
-    return render(request, 'job_portal/submit_resume.html', {'form': form, 'job': job})
+    return render(request, 'job_portal/submit_resume.html', {'form': form, 'job': job})  
+
+
+    # job done for this project
