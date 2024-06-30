@@ -1,6 +1,9 @@
-{% extends 'index.html' %} {% block body%} {% load static %}
+{% extends 'index.html' %} 
+{% block body%} 
 
-<style>
+{% load static %}
+
+<style> 
   @media (max-width: 991.98px) {
     .col-lg-8 {
       order: 1;
@@ -9,7 +12,7 @@
     .col-lg-4 {
       order: 0;
     }
-  }
+  } 
 
   @media screen and (max-width: 992px) {
     .video-section {
@@ -32,8 +35,7 @@
   }
 
   @media screen and (max-width: 768px) {
-    .video-section,
-    .latest-news-container {
+    .video-section, .latest-news-container {
       height: auto;
     }
     .latest-news-container {
@@ -145,7 +147,7 @@
   <div
     id="spinner"
     class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
-  >
+   >
     <div class="spinner"></div>
   </div>
   <!-- Spinner End -->
@@ -159,7 +161,7 @@
           <img
             class="w-100"
             src="{% static 'img\logo\xlogo.png' %}"
-            height="80px"
+             height="80px"
             width="100px"
             alt="Image"
           />
@@ -176,14 +178,14 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-0">
           <a href="{% url 'about'  %}" class="nav-item nav-link active"
-            >About</a
+            >About Us</a
           >
           <div class="nav-item dropdown">
             <a
               href="#"
               class="nav-link dropdown-toggle"
               data-bs-toggle="dropdown"
-              >Directory of Factories</a
+              >Directories</a
             >
             <div class="dropdown-menu m-0">
               <a href="{% url 'company_list'  %}" class="dropdown-item">
@@ -367,60 +369,43 @@
   </div>
   <!-- Full Screen Search End -->
 
-  <!-- Video and News Section Start -->
-  <div class="container-fluid py-3 wow fadeInUp background-image2">
-    <div class="container">
-      <div class="row g-5">
-        <div class="col-lg-8 col-md-12 order-1 order-md-0">
-          <div class="video-section">
-            <video id="video" width="100%" height="auto" autoplay muted>
-              <source src="{{ main_vidoe.video.url }}" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
+<!-- Video and News Section Start -->
+<div class="container-fluid py-3 wow fadeInUp  background-image2 ">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8 col-md-12 order-1 order-md-0">
+        <div class="video-section">
+          <video id="video" width="100%" height="auto" autoplay muted>
+            <source src="{{ main_vidoe.video.url }}" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
-        <div
-          class="col-lg-4 col-md-12 order-0 order-md-1 mt-4 mt-md-0; height: 416px;"
-        >
-          <div
-            class="latest-news-container"
-            style="background-color: #c8b6a9; height: 394px"
-          >
-            <h2>Latest News</h2>
-            <div
-              class="news-container"
-              style="height: calc(100% - 40px); overflow: hidden"
-            >
-              <!-- Iterate over your latest news articles -->
-              <marquee
-                direction="up"
-                onmouseover="this.stop();"
-                onmouseout="this.start();"
-                scrollamount="2"
-                loop="1000"
-                style="height: 100%"
-              >
-                {% for article in latest_news %}
-                <a
-                  href="{% url 'news_detail' article.slug %}"
-                  class="company-link"
-                >
-                  <p style="color: #f5fbff; margin-bottom: 30px">
-                    <span style="color: #fc0101">ᗔ</span> {{ article.title }}
-                  </p>
-                </a>
-                {% endfor %}
-              </marquee>
-            </div>
+      </div>
+      <div class="col-lg-4 col-md-12 order-0 order-md-1 mt-4 mt-md-0; height: 416px;">
+          
+        <div class="latest-news-container" style="background-color: #c8b6a9; height: 394px;">
+          <h2>Latest News</h2>
+          <div class="news-container" style="height: calc(100% - 40px); overflow: hidden;">
+            <!-- Iterate over your latest news articles -->
+            <marquee direction="up" onmouseover="this.stop();" onmouseout="this.start();" scrollamount="2" loop="1000" style="height: 100%;">
+              {% for article in latest_news %}
+              <a href="{% url 'news_detail' article.slug %}" class="company-link">
+                <p style="color: #f5fbff; margin-bottom: 30px">
+                  <span style="color: #FC0101;">ᗔ</span> {{ article.title }}
+                </p>
+              </a>
+              {% endfor %}
+            </marquee>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- Video and News Section End -->
+</div>
+<!-- Video and News Section End --> 
 
-  <!-- About Start -->
-  <div
+<!-- About Start -->
+<div
     class="container-fluid py-3 wow fadeInUp background-image1"
     data-wow-delay="0.1s"
   >
@@ -491,14 +476,14 @@
         </div>
       </div>
     </div>
-  </div>
-  <!-- About End -->
+</div>
+<!-- About End -->
 
   <!-- Features Start -->
   <div
     class="container-fluid py-3 wow fadeInUp background-image"
     data-wow-delay="0.1s"
-  >
+   >
     <div class="container py-5">
       <div
         class="section-title text-center position-relative pb-3 mb-5 mx-auto"
@@ -514,31 +499,29 @@
         <div class="col-lg-4">
           <div class="row g-5">
             <div class="col-12 wow zoomIn" data-wow-delay="0.2s">
-              <div>
-                <img
+            <div > 
+              <img
                   src="{% static 'img\icon\Best In Industry.png' %}"
                   alt="Newsletter Subscription Icon"
                   class="icon2"
-                />
-              </div>
+                />       
+            </div>
               <h4>Best In Industry</h4>
               <p class="mb-0">
-                Experience the best in industry with top-tier innovation, style,
-                and performance in every product.
+              Experience the best in industry with top-tier innovation, style, and performance in every product.
               </p>
             </div>
             <div class="col-12 wow zoomIn" data-wow-delay="0.6s">
-              <div>
-                <img
+             <div > 
+              <img
                   src="{% static 'img\icon\Exclusive Support For Your Business.png' %}"
                   alt="Newsletter Subscription Icon"
                   class="icon2"
-                />
-              </div>
+                />       
+            </div>
               <h4>Logistics Support</h4>
-              <p class="mb-0">
-                Reliable logistics support for timely delivery and seamless
-                operations, ensuring your supply chain runs smoothly.
+              <p class="mb-0">              
+            Reliable logistics support for timely delivery and seamless operations, ensuring your supply chain runs smoothly.
               </p>
             </div>
           </div>
@@ -560,31 +543,29 @@
         <div class="col-lg-4">
           <div class="row g-5">
             <div class="col-12 wow zoomIn" data-wow-delay="0.4s">
-              <div>
-                <img
+              <div > 
+              <img
                   src="{% static 'img\icon\Professional Staff.png' %}"
                   alt="Newsletter Subscription Icon"
                   class="icon2"
-                />
-              </div>
+                />       
+            </div>
               <h4>Professional Staff</h4>
-              <p class="mb-0">
-                Our professional staff provides expert advice, exceptional
-                service, and personalized care for all your footwear needs.
+              <p class="mb-0">                
+              Our professional staff provides expert advice, exceptional service, and personalized care for all your footwear needs.
               </p>
             </div>
             <div class="col-12 wow zoomIn" data-wow-delay="0.8s">
-              <div>
-                <img
+             <div > 
+              <img
                   src="{% static 'img\icon\Logistics Support.png' %}"
                   alt="Newsletter Subscription Icon"
                   class="icon2"
-                />
-              </div>
+                />       
+            </div> 
               <h4>Exclusive Support For Your Business</h4>
-              <p class="mb-0">
-                Exclusive business support offers personalized solutions and
-                exceptional service tailored to your needs.
+              <p class="mb-0"> 
+              Exclusive business support offers personalized solutions and exceptional service tailored to your needs.
               </p>
             </div>
           </div>
@@ -598,7 +579,7 @@
   <div
     class="container-fluid py-3 wow fadeInUp background-image4"
     data-wow-delay="0.1s"
-  >
+   >
     <div class="container py-5">
       <div
         class="section-title text-center position-relative pb-3 mb-5 mx-auto"
@@ -615,12 +596,13 @@
           <div
             class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center"
           >
-            <div>
+            <div > 
               <img
-                src="{% static 'img/icon/Factory & Tools Manufacturers Compnay List.png' %}"
-                alt="Newsletter Subscription Icon"
-                class="icon2"
-              />
+                  src="{% static 'img/icon/Factory & Tools Manufacturers Compnay List.png' %}"
+                  alt="Newsletter Subscription Icon"
+                  class="icon2"
+                />
+          
             </div>
             <h4 class="mb-3">Resource Library</h4>
             <p class="m-0">
@@ -639,12 +621,13 @@
           <div
             class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center"
           >
-            <div>
+            <div > 
               <img
-                src="{% static 'img\icon\Certifications and Standards.png' %}"
-                alt="Newsletter Subscription Icon"
-                class="icon2"
-              />
+                  src="{% static 'img\icon\Certifications and Standards.png' %}"
+                  alt="Newsletter Subscription Icon"
+                  class="icon2"
+                />
+          
             </div>
             <h4 class="mb-3">Certifications and Standards</h4>
             <p class="m-0">
@@ -663,12 +646,13 @@
           <div
             class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center"
           >
-            <div>
+            <div > 
               <img
-                src="{% static 'img\icon\Supply Chain Information.png' %}"
-                alt="Newsletter Subscription Icon"
-                class="icon2"
-              />
+                  src="{% static 'img\icon\Supply Chain Information.png' %}"
+                  alt="Newsletter Subscription Icon"
+                  class="icon2"
+                />
+          
             </div>
             <h4 class="mb-3">Supply Chain Information</h4>
             <p class="m-0">
@@ -687,12 +671,13 @@
           <div
             class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center"
           >
-            <div>
+            <div > 
               <img
-                src="{% static 'img\icon\Industries Interactive Maps.png' %}"
-                alt="Newsletter Subscription Icon"
-                class="icon2"
-              />
+                  src="{% static 'img\icon\Industries Interactive Maps.png' %}"
+                  alt="Newsletter Subscription Icon"
+                  class="icon2"
+                />
+          
             </div>
             <h4 class="mb-3">Industries Interactive Maps</h4>
             <p class="m-0">
@@ -827,66 +812,33 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-5">
-          <div
-            style="background-color: #a4282a"
-            class="rounded h-100 d-flex align-items-center p-5 wow zoomIn"
-            data-wow-delay="0.9s"
-          >
-            <form method="post" novalidate>
-              {% csrf_token %}
-              <div class="row g-3">
-                <div class="col-xl-12">
-                  <input
-                    type="text"
-                    name="name"
-                    class="form-control bg-light border-0"
-                    placeholder="Your Name"
-                    style="height: 55px"
-                    required
-                  />
-                </div>
-                <div class="col-12">
-                  <input
-                    type="email"
-                    name="email"
-                    class="form-control bg-light border-0"
-                    placeholder="Your Email"
-                    style="height: 55px"
-                    required
-                  />
-                </div>
-                <div class="col-12">
-                  <input
-                    type="text"
-                    name="subject"
-                    class="form-control bg-light border-0"
-                    placeholder="Subject"
-                    style="height: 55px"
-                    required
-                  />
-                </div>
-                <div class="col-12">
-                  <textarea
-                    name="message"
-                    class="form-control bg-light border-0"
-                    rows="3"
-                    placeholder="Message"
-                    required
-                  ></textarea>
-                </div>
-                <div class="col-12">
-                  <button class="btn btn-dark w-100 py-3" type="submit">
-                    Request A Quote
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
+ <div class="col-lg-5">
+  <div style="background-color: #a4282a" class="rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
+    <form method="post" novalidate>
+      {% csrf_token %}
+      <div class="row g-3">
+        <div class="col-xl-12">
+          <input type="text" name="name" class="form-control bg-light border-0" placeholder="Your Name" style="height: 55px" required />
+        </div>
+        <div class="col-12">
+          <input type="email" name="email" class="form-control bg-light border-0" placeholder="Your Email" style="height: 55px" required />
+        </div>
+        <div class="col-12">
+          <input type="text" name="subject" class="form-control bg-light border-0" placeholder="Subject" style="height: 55px" required />
+        </div>
+        <div class="col-12">
+          <textarea name="message" class="form-control bg-light border-0" rows="3" placeholder="Message" required></textarea>
+        </div>
+        <div class="col-12">
+          <button class="btn btn-dark w-100 py-3" type="submit">Request A Quote</button>
         </div>
       </div>
+    </form>
     </div>
   </div>
+</div>
+</div>
+</div>
   <!-- Quote End -->
 
   <!-- The Modal -->
@@ -901,5 +853,6 @@
   <script>
     showModal();
   </script>
-  {% endif %} {% endblock %}
+  {% endif %} 
+  {% endblock %}
 </body>
