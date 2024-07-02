@@ -1,9 +1,32 @@
-{% extends 'index.html' %} {% block body%} {% load static %}
+{% extends 'index.html' %}
+{% block body%}
+{% load static %}
 <style> 
     .icon {
     width: 30px; 
     height: 30px; 
-}
+  }   
+ @media (max-width: 991.98px) {
+    .col-lg-8 {
+      order: 1;
+      margin-bottom: 20px;
+    }
+    .col-lg-4 {
+      order: 0;
+    }
+  }
+
+  .icon2 {
+    width: 100px;
+    height: 100px;
+  }
+  .background-image {
+    background-size: cover;
+    background-position: center;
+    background-color: #f9f9f9;
+  }
+
+{%comment %} mission end {% endcomment %}
 </style>
 <body>
   <!-- Spinner Start -->
@@ -226,9 +249,9 @@
   <!-- Navbar & Carousel End -->
 
   <!-- About Start -->
-  <div class="container-fluid py-5 wow fadeInUp " data-wow-delay="0.1s">
-<div class="container py-5">
-  <div class="row g-5">
+<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+   <div class="container py-5" >
+   <div class="row g-5">
     <div class="col-lg-7">
       <div class="section-title position-relative pb-3 mb-5">
         <h5 class="fw-bold text-primary text-uppercase">About Us</h5>
@@ -262,6 +285,37 @@
       </div>
     </div>
   </div>
+ 
+  </div>
+<!-- About End -->  
+<!-- Mission and Vision  Start -->
+<div class="container-fluid py-4 wow fadeInUp" data-wow-delay="0.1s" >
+    <div class="container py-5">
+        <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 800px">
+            <h2 class="mb-4">Our Mission and Vision</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="mission-vision-box bg-light p-4 h-100">
+                    <h5 class="fw-bold text-primary text-uppercase">Mission</h5>
+                    <p class="text-justify">"To provide a comprehensive and accessible platform for the Bangladesh footwear, leather, and industries leather products, facilitating growth, connectivity, and innovation."</p>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="mission-vision-box bg-light p-4 h-100">
+                    <h5 class="fw-bold text-primary text-uppercase">Vision</h5>
+                    <p class="text-justify">"To be the leading digital hub for information, collaboration, and inspiration in the Bangladesh footwear, leather, and leather products industries, fostering sustainable growth and global recognition."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  </div>
+  </div>
+<!-- Mission and Vision  End --> 
+<!-- About2 Start -->
+<div class="container-fluid py-2 wow fadeInUp " data-wow-delay="0.1s">
+   <div class="container py-2">
 
   <div class="section-title position-relative pb-3 mb-5">
     <h3 class="mb-0">Global Reach:</h3>
@@ -290,10 +344,184 @@
   <h5 class="mb-4" style="text-align: justify">
     FT recognizes and celebrates the contributions of industry leaders who drive innovation, inspire change, and make a positive impact on the footwear, bags, and allied industries in Bangladesh. By showcasing their achievements and initiatives, we aim to inspire the next generation of leaders and promote excellence within the industry.
   </h5>
-</div>
+ </div>
 
   </div>
-  <!-- About End -->
+<!-- About2 End -->  
+<!-- Features Start -->
+<div
+    class="container-fluid py-3 wow fadeInUp "
+    data-wow-delay="0.1s"
+   >
+    <div class="container py-5 background-image">
+      <div
+        class="section-title text-center position-relative pb-3 mb-5 mx-auto"
+        style="max-width: 600px"
+      >
 
+        <h1 class="mb-0"> Why Choose Us</h1>
+      </div>
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <div class="row g-5">
+            <div class="col-12 wow zoomIn" data-wow-delay="0.2s">
+              <div>
+                <img
+                  src="{% static 'img\icon\Best In Industry.png' %}"
+                  alt="Newsletter Subscription Icon"
+                  class="icon2"
+                />
+              </div>
+              <h4>Best In Industry</h4>
+              <p class="mb-0">
+                Experience the best in industry with top-tier innovation, style,
+                and performance in every product.
+              </p>
+            </div>
+            <div class="col-12 wow zoomIn" data-wow-delay="0.6s">
+              <div>
+                <img
+                  src="{% static 'img\icon\Exclusive Support For Your Business.png' %}"
+                  alt="Newsletter Subscription Icon"
+                  class="icon2"
+                />
+              </div>
+              <h4>Logistics Support</h4>
+              <p class="mb-0">
+                Reliable logistics support for timely delivery and seamless
+                operations, ensuring your supply chain runs smoothly.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-4 wow zoomIn"
+          data-wow-delay="0.9s"
+          style="min-height: 350px"
+        >
+          <div class="position-relative h-100">
+            <img
+              class="position-absolute w-100 h-100 rounded wow zoomIn"
+              data-wow-delay="0.1s"
+              src="{% static 'img/class.jpg' %}"
+              style="object-fit: cover"
+            />
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="row g-5">
+            <div class="col-12 wow zoomIn" data-wow-delay="0.4s">
+              <div>
+                <img
+                  src="{% static 'img\icon\Professional Staff.png' %}"
+                  alt="Newsletter Subscription Icon"
+                  class="icon2"
+                />
+              </div>
+              <h4>Professional Staff</h4>
+              <p class="mb-0">
+                Our professional staff provides expert advice, exceptional
+                service, and personalized care for all your footwear needs.
+              </p>
+            </div>
+            <div class="col-12 wow zoomIn" data-wow-delay="0.8s">
+              <div>
+                <img
+                  src="{% static 'img\icon\Logistics Support.png' %}"
+                  alt="Newsletter Subscription Icon"
+                  class="icon2"
+                />
+              </div>
+              <h4>Exclusive Support For Your Business</h4>
+              <p class="mb-0">
+                Exclusive business support offers personalized solutions and
+                exceptional service tailored to your needs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<!-- Features Start -->   
+<!-- Massage from management start --> 
+    <style>
+        .message-container {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .message-container img {
+            max-width: 130px;
+            border-radius: 55%;
+        }
+        .message-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .message-header img {
+            margin-right: 15px;
+        }
+        .message-title {
+            font-weight: bold;
+        }
+        .message-content {
+            text-align: justify;
+        }
+    </style>
+
+
+    <div class="container mt-5">
+        <div class="row">
+            <!-- CEO's Message -->
+            <div class="col-12">
+                <div class="message-container">
+                    <div class="message-header">
+                        <img src="{{ ceo_message.img.url }}" alt="CEO Image">
+                        <div>
+                            <div class="message-title">CEO's Message</div>
+                            <div>{{ ceo_message.name }}</div>
+                            <div>Chief Executive Officer</div>
+                        </div>
+                    </div>
+                    <div class="message-content">
+                        <p>Greetings,</p>
+                        <p>{{ ceo_message.text }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Director's Messages -->
+            <div class="col-12">
+                <div class="row">
+                    {% for message in directors_messages %}
+                    <div class="col-md-6">
+                        <div class="message-container">
+                            <div class="message-header">
+                                <img src="{{ message.img.url }}" alt="Director Image">
+                                <div>
+                                    <div class="message-title">{{message.title }}'s Message</div>
+                                    <div>{{ message.name }}</div>
+                                    <div>{{message.title }}</div>
+                                </div>
+                            </div>
+                            <div class="message-content">
+                                <p>{{ message.text }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Massage from management start --> 
   {% endblock %}
 </body>

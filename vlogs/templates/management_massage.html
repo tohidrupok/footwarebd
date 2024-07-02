@@ -1,44 +1,9 @@
-{% extends 'index.html' %} 
-{% block body%} 
-{% load static %}
-
-<style> 
-      .cart {
-          max-height: 400px;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-      }
-
-      .cart .p-3 {
-          padding: 1rem;
-      }
-
-      .cart .img-fluid {
-          max-height: 200px; 
-          max-width: 100%;
-          object-fit: contain;
-      }
-
-      .buttons {
-          margin-top: 10px; 
-      }
-
-      .buttons .btn {
-          margin-right: 5px; 
-      }
-      .text-justify {
-      text-align: justify;
-    } 
-      .icon {
-        width: 30px; 
-        height: 30px; 
-    } 
-    .icon2 {
-    width: 100px;
-    height: 100px;
-      }
+{% extends 'index.html' %} {% block body%} {% load static %}
+<style>
+    .icon {
+    width: 30px; 
+    height: 30px; 
+}
 </style>
 
 <body>
@@ -189,7 +154,7 @@
 				-->
       </div>
     </nav>
- 
+
     <div
       id="header-carousel"
       class="carousel slide carousel-fade"
@@ -197,42 +162,20 @@
     >
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="w-100" src="{% static 'img/Supply.jpg'%}" alt="Image" />
-          <div
-            class="carousel-caption d-flex flex-column align-items-center justify-content-center"
-          >
-            <div class="p-3" style="max-width: 900px"> 
-              <h1 class="display-1 text-white mb-md-4 animated zoomIn">
-                SUPPLY CHAIN INFORMATION
-              </h1>            
-            </div>
-          </div>
-        </div>
-        {% comment %} <div class="carousel-item">
-          <img class="w-100" src="{% static 'img/home2.jpg'%}" alt="Image" />
+          <img class="w-100" src="{% static 'img/aboutX.jpg'%}" alt="Image" />
           <div
             class="carousel-caption d-flex flex-column align-items-center justify-content-center"
           >
             <div class="p-3" style="max-width: 900px">
-              <h5 class="text-white text-uppercase mb-3 animated slideInDown">
-                Creative & Innovative
-              </h5>
+              <h5
+                class="text-white text-uppercase mb-3 animated slideInDown"
+              ></h5>
               <h1 class="display-1 text-white mb-md-4 animated zoomIn">
-                Creative & Innovative Digital Solution
+                Insight, Global Reach, Collaboration, Leadership
               </h1>
-              <a
-                href=""
-                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
-                >Free Quote</a
-              >
-              <a
-                href="{% url 'contact'  %}"
-                class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight"
-                >Contact Us</a
-              >
             </div>
           </div>
-        </div> {% endcomment %}
+        </div>
       </div>
       <button
         class="carousel-control-prev"
@@ -254,71 +197,85 @@
       </button>
     </div>
   </div>
-  <!-- Navbar & Carousel End -->
+<!-- Navbar & Carousel End -->
+<!-- Massage from management start --> 
+    <style>
+        .message-container {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .message-container img {
+            max-width: 130px;
+            border-radius: 55%;
+        }
+        .message-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .message-header img {
+            margin-right: 15px;
+        }
+        .message-title {
+            font-weight: bold;
+        }
+        .message-content {
+            text-align: justify;
+        }
+    </style>
 
 
-  <!-- Service Start -->
-<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-    <div class="container py-5">
-      <div
-        class="section-title text-center position-relative pb-3 mb-5 mx-auto"
-        style="max-width: 1600px"
-      >
-        <h5 class="fw-bold text-primary text-uppercase">Supply chain information:</h5>
-        <h6 class="text-justify">
-       Explore the intricate web of Bangladesh's footwear industry with our comprehensive supply chain directory. From raw materials to the final product, delve into the ecosystem that drives the local and international footwear market. Connect with key players, gather insights, and forge partnerships for a thriving industry. 
-       Raw Material Suppliers: Discover a curated list of backward-linked suppliers providing essential materials like synthetic materials, insole, outsole, non-leather, leather, machinery, rubber, fabric, adhesives, and more. 
-       Manufacturers: Gain access to a database of footwear manufacturers, ranging from small-scale workshops to large factories, specializing in various types of footwear production supply chain operations.
-       Industry Associations: Access information about industry associations and organizations working to support and promote the growth of Bangladesh's footwear sector.
-       Market Insights: Stay updated with the latest market trends, consumer preferences, and industry reports to make informed decisions and stay ahead of the competition.
-       Regulatory Guidelines: Get insights into regulatory frameworks, compliance standards, and certifications required for operating within the footwear industry in Bangladesh.
-       Networking Opportunities: Engage in networking events, trade shows, and forums aimed at fostering collaboration and business development within the footwear industry.
-       Investment Opportunities: Explore investment opportunities within Bangladesh's footwear sector, including potential partnerships, joint ventures, and funding avenues for aspiring entrepreneurs and investors
-       This section will serve as a valuable resource hub for anyone involved in or interested in the footwear industry in Bangladesh, facilitating connections, knowledge sharing, and business growth.
-        </h6>
-        <h5 class="fw-bold text-primary text-uppercase">Classification</h5>
-
-  </div>
-      <div class="row g-5">
-        {% for category in categories %}
-        <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
-          <div
-            class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center"
-          >
-            <div > 
-              <img
-                  src="{{ category.icon.url }}"
-                  alt="Newsletter Subscription Icon"
-                  class="icon2"
-                />       
+    <div class="container mt-5">
+        <div class="row">
+            <!-- CEO's Message -->
+            <div class="col-12">
+                <div class="message-container">
+                    <div class="message-header">
+                        <img src="{{ ceo_message.img.url }}" alt="CEO Image">
+                        <div>
+                            <div class="message-title">CEO's Message</div>
+                            <div>{{ ceo_message.name }}</div>
+                            <div>Chief Executive Officer</div>
+                        </div>
+                    </div>
+                    <div class="message-content">
+                        <p>Greetings,</p>
+                        <p>{{ ceo_message.text }}</p>
+                    </div>
+                </div>
             </div>
-            <h5 class="mb-3">{{ category.category_name }}</h5>
-            <p class="m-0">
-              {{ category.content }}
-            </p>
-            <a class="btn btn-lg btn-primary rounded" href="{% url 'category_list' category_slug=category.slug %}">
-              <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-       {% endfor %}
-        <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">
-         <div
-            class="position-relative rounded h-100 d-flex flex-column align-items-center justify-content-center text-center p-5"
-            style="background-color: #f48155;"
-          >
-            <h3 class="text-white mb-3">Call Us For Quote</h3>
-            <p class="text-white mb-3">
-              Get in touch with us for a personalized quote tailored to your
-              requirements.
-            </p>
-            <h2 class="text-white mb-0">+8801671166809</h2>
-          </div>
-        </div>
-         </div>
-    </div>
-  </div>
-<!-- Service End -->
 
-{% endblock %}
+            <!-- Director's Messages -->
+            <div class="col-12">
+                <div class="row">
+                    {% for message in directors_messages %}
+                    <div class="col-md-6">
+                        <div class="message-container">
+                            <div class="message-header">
+                                <img src="{{ message.img.url }}" alt="Director Image">
+                                <div>
+                                    <div class="message-title">{{message.title }}'s Message</div>
+                                    <div>{{ message.name }}</div>
+                                    <div>{{message.title }}</div>
+                                </div>
+                            </div>
+                            <div class="message-content">
+                                <p>{{ message.text }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Massage from management start --> 
+  {% endblock %}
 </body>

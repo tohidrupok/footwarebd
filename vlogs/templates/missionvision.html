@@ -1,46 +1,33 @@
-{% extends 'index.html' %} 
-{% block body%} 
+{% extends 'index.html' %}
+{% block body%}
 {% load static %}
-
 <style> 
-      .cart {
-          max-height: 400px;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-      }
+    .icon {
+    width: 30px; 
+    height: 30px; 
+  }   
+ @media (max-width: 991.98px) {
+    .col-lg-8 {
+      order: 1;
+      margin-bottom: 20px;
+    }
+    .col-lg-4 {
+      order: 0;
+    }
+  }
 
-      .cart .p-3 {
-          padding: 1rem;
-      }
-
-      .cart .img-fluid {
-          max-height: 200px; 
-          max-width: 100%;
-          object-fit: contain;
-      }
-
-      .buttons {
-          margin-top: 10px; 
-      }
-
-      .buttons .btn {
-          margin-right: 5px; 
-      }
-      .text-justify {
-      text-align: justify;
-    } 
-      .icon {
-        width: 30px; 
-        height: 30px; 
-    } 
-    .icon2 {
+  .icon2 {
     width: 100px;
     height: 100px;
-      }
-</style>
+  }
+  .background-image {
+    background-size: cover;
+    background-position: center;
+    background-color: #f9f9f9;
+  }
 
+{%comment %} mission end {% endcomment %}
+</style>
 <body>
   <!-- Spinner Start -->
   <div
@@ -189,7 +176,7 @@
 				-->
       </div>
     </nav>
- 
+
     <div
       id="header-carousel"
       class="carousel slide carousel-fade"
@@ -197,18 +184,22 @@
     >
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="w-100" src="{% static 'img/Supply.jpg'%}" alt="Image" />
+          <img class="w-100" src="{% static 'img/aboutX.jpg'%}" alt="Image" />
           <div
             class="carousel-caption d-flex flex-column align-items-center justify-content-center"
           >
-            <div class="p-3" style="max-width: 900px"> 
+            <div class="p-3" style="max-width: 900px">
+              <h5
+                class="text-white text-uppercase mb-3 animated slideInDown"
+              ></h5>
               <h1 class="display-1 text-white mb-md-4 animated zoomIn">
-                SUPPLY CHAIN INFORMATION
-              </h1>            
+                Insight, Global Reach, Collaboration, Leadership
+              </h1>
             </div>
           </div>
         </div>
-        {% comment %} <div class="carousel-item">
+        {% comment %}
+        <div class="carousel-item">
           <img class="w-100" src="{% static 'img/home2.jpg'%}" alt="Image" />
           <div
             class="carousel-caption d-flex flex-column align-items-center justify-content-center"
@@ -232,7 +223,8 @@
               >
             </div>
           </div>
-        </div> {% endcomment %}
+        </div>
+        {% endcomment %}
       </div>
       <button
         class="carousel-control-prev"
@@ -254,71 +246,68 @@
       </button>
     </div>
   </div>
-  <!-- Navbar & Carousel End -->
-
-
-  <!-- Service Start -->
-<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+<!-- Navbar & Carousel End -->
+ 
+<!-- Mission and Vision  Start -->
+<div class="container-fluid py-4 wow fadeInUp" data-wow-delay="0.1s" >
     <div class="container py-5">
-      <div
-        class="section-title text-center position-relative pb-3 mb-5 mx-auto"
-        style="max-width: 1600px"
-      >
-        <h5 class="fw-bold text-primary text-uppercase">Supply chain information:</h5>
-        <h6 class="text-justify">
-       Explore the intricate web of Bangladesh's footwear industry with our comprehensive supply chain directory. From raw materials to the final product, delve into the ecosystem that drives the local and international footwear market. Connect with key players, gather insights, and forge partnerships for a thriving industry. 
-       Raw Material Suppliers: Discover a curated list of backward-linked suppliers providing essential materials like synthetic materials, insole, outsole, non-leather, leather, machinery, rubber, fabric, adhesives, and more. 
-       Manufacturers: Gain access to a database of footwear manufacturers, ranging from small-scale workshops to large factories, specializing in various types of footwear production supply chain operations.
-       Industry Associations: Access information about industry associations and organizations working to support and promote the growth of Bangladesh's footwear sector.
-       Market Insights: Stay updated with the latest market trends, consumer preferences, and industry reports to make informed decisions and stay ahead of the competition.
-       Regulatory Guidelines: Get insights into regulatory frameworks, compliance standards, and certifications required for operating within the footwear industry in Bangladesh.
-       Networking Opportunities: Engage in networking events, trade shows, and forums aimed at fostering collaboration and business development within the footwear industry.
-       Investment Opportunities: Explore investment opportunities within Bangladesh's footwear sector, including potential partnerships, joint ventures, and funding avenues for aspiring entrepreneurs and investors
-       This section will serve as a valuable resource hub for anyone involved in or interested in the footwear industry in Bangladesh, facilitating connections, knowledge sharing, and business growth.
-        </h6>
-        <h5 class="fw-bold text-primary text-uppercase">Classification</h5>
-
-  </div>
-      <div class="row g-5">
-        {% for category in categories %}
-        <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
-          <div
-            class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center"
-          >
-            <div > 
-              <img
-                  src="{{ category.icon.url }}"
-                  alt="Newsletter Subscription Icon"
-                  class="icon2"
-                />       
+        <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 800px">
+            <h2 class="mb-4">Our Mission and Vision</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="mission-vision-box bg-light p-4 h-100">
+                    <h5 class="fw-bold text-primary text-uppercase">Mission</h5>
+                    <p class="text-justify">"To provide a comprehensive and accessible platform for the Bangladesh footwear, leather, and industries leather products, facilitating growth, connectivity, and innovation."</p>
+                </div>
             </div>
-            <h5 class="mb-3">{{ category.category_name }}</h5>
-            <p class="m-0">
-              {{ category.content }}
-            </p>
-            <a class="btn btn-lg btn-primary rounded" href="{% url 'category_list' category_slug=category.slug %}">
-              <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
+            <div class="col-lg-6 mb-4">
+                <div class="mission-vision-box bg-light p-4 h-100">
+                    <h5 class="fw-bold text-primary text-uppercase">Vision</h5>
+                    <p class="text-justify">"To be the leading digital hub for information, collaboration, and inspiration in the Bangladesh footwear, leather, and leather products industries, fostering sustainable growth and global recognition."</p>
+                </div>
+            </div>
         </div>
-       {% endfor %}
-        <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.9s">
-         <div
-            class="position-relative rounded h-100 d-flex flex-column align-items-center justify-content-center text-center p-5"
-            style="background-color: #f48155;"
-          >
-            <h3 class="text-white mb-3">Call Us For Quote</h3>
-            <p class="text-white mb-3">
-              Get in touch with us for a personalized quote tailored to your
-              requirements.
-            </p>
-            <h2 class="text-white mb-0">+8801671166809</h2>
-          </div>
-        </div>
-         </div>
     </div>
   </div>
-<!-- Service End -->
+  </div>
+  </div>
+<!-- Mission and Vision  End --> 
+<!-- About2 Start -->
+<div class="container-fluid py-2 wow fadeInUp " data-wow-delay="0.1s">
+   <div class="container py-2">
 
-{% endblock %}
+  <div class="section-title position-relative pb-3 mb-5">
+    <h3 class="mb-0">Global Reach:</h3>
+  </div>
+  <h5 class="mb-4" style="text-align: justify">
+    With a diverse community hailing from every corner of the globe, FT connects you with a worldwide network of professionals and enthusiasts. Whether you're a retailer, brand, manufacturer, or part of the backward-linked industry, FT offers a global platform to expand your reach and connect with potential partners and customers.
+  </h5>
+
+  <div class="section-title position-relative pb-3 mb-5">
+    <h3 class="mb-0">Promoting Collaboration:</h3>
+  </div>
+  <h5 class="mb-4" style="text-align: justify">
+    FT fosters a culture of collaboration and knowledge sharing among industry stakeholders. Our platform encourages dialogue and exchange of ideas between business leaders, designers, academicians, policymakers, brands, retailers, marketers, producers, workers, and footwear enthusiasts, creating opportunities for innovation and growth.
+  </h5>
+
+  <div class="section-title position-relative pb-3 mb-5">
+    <h3 class="mb-0">Supporting Industry Best Practices:</h3>
+  </div>
+  <h5 class="mb-4" style="text-align: justify">
+    We are committed to promoting industry best practices and ethical standards across the footwear, bags, and allied industries. By facilitating discussions, sharing insights, and highlighting success stories, FT aims to elevate the industry as a whole and promote sustainable growth.
+  </h5>
+
+  <div class="section-title position-relative pb-3 mb-5">
+    <h3 class="mb-0">Leadership Recognition:</h3>
+  </div>
+  <h5 class="mb-4" style="text-align: justify">
+    FT recognizes and celebrates the contributions of industry leaders who drive innovation, inspire change, and make a positive impact on the footwear, bags, and allied industries in Bangladesh. By showcasing their achievements and initiatives, we aim to inspire the next generation of leaders and promote excellence within the industry.
+  </h5>
+ </div>
+
+  </div>
+<!-- About2 End -->  
+
+  {% endblock %}
 </body>

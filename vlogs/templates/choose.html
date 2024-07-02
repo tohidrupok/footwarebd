@@ -1,0 +1,473 @@
+{% extends 'index.html' %} {% block body%} {% load static %}
+
+<style>
+  @media (max-width: 991.98px) {
+    .col-lg-8 {
+      order: 1;
+      margin-bottom: 20px;
+    }
+    .col-lg-4 {
+      order: 0;
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+    .video-section {
+      margin-left: 0;
+      height: auto;
+    }
+    #video {
+      width: 100%;
+      height: auto;
+    }
+    .latest-news-container {
+      width: 100%;
+      height: auto;
+      margin-left: 0;
+      padding: 20px;
+    }
+    .news-container marquee {
+      height: 300px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .video-section,
+    .latest-news-container {
+      height: auto;
+    }
+    .latest-news-container {
+      margin-top: 20px;
+    }
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+  .icon2 {
+    width: 100px;
+    height: 100px;
+  }
+  .background-image {
+    background-image: url('{% static "img/Background/whitered.jpg" %}');
+    background-size: cover;
+    background-position: center;
+    background-color: #f9f9f9;
+  }
+
+  .background-image2 {
+    background-image: url('{% static "img/Background/whitered.jpg" %}');
+    background-size: cover;
+    background-position: center;
+    background-color: #f9f9f9;
+  }
+
+  .background-image1 {
+    background-image: url('{% static "img/Background/whitered.jpg" %}');
+    background-size: cover;
+    background-position: center;
+    background-color: #f9f9f9;
+  }
+
+  .background-image3 {
+    background-image: url('{% static "img/Background/whitered.jpg" %}');
+    background-size: 70%;
+    background-position: center;
+    background-color: #f9f9f9;
+  }
+
+  .background-image4 {
+    background-image: url('{% static "img/Background/whitered.jpg" %}');
+    background-size: cover;
+    background-position: center;
+    background-color: #f9f9f9;
+  }
+
+  .background-image5 {
+    background-image: url('{% static "img/Background/whitered.jpg" %}');
+    background-size: 50%;
+    background-position: center;
+    background-color: #f9f9f9;
+  }
+
+  .bg-custom-color {
+    background-color: #a4282a;
+  }
+
+  .breaking-news-icon {
+    color: #ff0000;
+    margin-right: 10px;
+    font-size: 18px;
+  }
+</style>
+
+<body>
+  <!-- Spinner Start -->
+  <div
+    id="spinner"
+    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+  >
+    <div class="spinner"></div>
+  </div>
+  <!-- Spinner End -->
+
+  <!-- Navbar & Carousel Start -->
+  <div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+      <a href="{% url 'logo' %}" class="navbar-brand p-0">
+        <h1 class="m-0">
+          <!--<i class="fa fa-user-tie me-2"></i>-->
+          <img
+            class="w-100"
+            src="{% static 'img\logo\xlogo.png' %}"
+            height="80px"
+            width="100px"
+            alt="Image"
+          />
+        </h1>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse"
+      >
+        <span class="fa fa-bars"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto py-0">
+          {% comment %} <a href="{% url 'about'  %}" class="nav-item nav-link active"
+            >About Us</a
+          > {% endcomment %}
+          <div class="nav-item dropdown">
+            <a
+              href="#"
+              class="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+              >About Us</a
+            >
+            <div class="dropdown-menu m-0">
+              <a href="{% url 'about'  %}" class="dropdown-item">
+                <img
+                  src="{% static 'img/icon/information about factories.png' %}"
+                  alt="Newsletter Subscription Icon"
+                  class="icon"
+                />
+                Who We Are
+              </a>
+              <a href="{% url 'list_factory' %}" class="dropdown-item">
+                <img
+                  src="{% static 'img\icon\Industries Interactive Maps.png' %}"
+                  alt="Industry News and Events Icon"
+                  class="icon"
+                />
+                Mission and Vision
+              </a>
+              <a href="{% url 'choose' %}" class="dropdown-item">
+                <img
+                  src="{% static 'img/icon/list of factorics.png' %}"
+                  alt="Industry News and Events Icon"
+                  class="icon"
+                />
+                Why you Choose Us
+              </a>
+              <a href="{% url 'list_factory' %}" class="dropdown-item">
+                <img
+                  src="{% static 'img\icon\Supply Chain Information.png' %}"
+                  alt="Industry News and Events Icon"
+                  class="icon"
+                />
+                Message From Management
+              </a>
+            </div>
+          </div>
+
+          <div class="nav-item dropdown">
+            <a
+              href="#"
+              class="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+              >Directories</a
+            >
+            <div class="dropdown-menu m-0">
+              <a href="{% url 'company_list'  %}" class="dropdown-item">
+                <img
+                  src="{% static 'img/icon/information about factories.png' %}"
+                  alt="Newsletter Subscription Icon"
+                  class="icon"
+                />
+                Information about Factories
+              </a>
+              <a href="{% url 'list_factory' %}" class="dropdown-item">
+                <img
+                  src="{% static 'img/icon/list of factorics.png' %}"
+                  alt="Industry News and Events Icon"
+                  class="icon"
+                />
+                List of Factories
+              </a>
+            </div>
+          </div>
+
+          <div class="nav-item dropdown">
+            <a
+              href="#"
+              class="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+              >Service</a
+            >
+            <div class="dropdown-menu m-0">
+              <a href="{% url 'resource_library' %}" class="dropdown-item">
+                <img
+                  src="{% static 'img/icon/Factory & Tools Manufacturers Compnay List.png' %}"
+                  alt="Resource Library Icon"
+                  class="icon"
+                />
+                Resource Library
+              </a>
+              <a href="{% url 'requirement_list' %}" class="dropdown-item">
+                <img
+                  src="{% static 'img\icon\Certifications and Standards.png' %}"
+                  alt="Certifications and Standards Icon"
+                  class="icon"
+                />
+                Certifications and Standards
+              </a>
+              <a href="{% url 'supply_chain' %}" class="dropdown-item">
+                <img
+                  src="{% static 'img\icon\Supply Chain Information.png' %}"
+                  alt="Supply Chain Information Icon"
+                  class="icon"
+                />
+                Supply Chain Information
+              </a>
+              <a href="{% url 'company_list' %}" class="dropdown-item">
+                <img
+                  src="{% static 'img\icon\Industries Interactive Maps.png' %}"
+                  alt="Interactive Maps Icon"
+                  class="icon"
+                />
+                Interactive Maps
+              </a>
+            </div>
+          </div>
+          <div class="nav-item dropdown">
+            <a
+              href="#"
+              class="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+              >KCC</a
+            >
+            <div class="dropdown-menu m-0">
+              <a href="{% url 'news_all' %}" class="dropdown-item">
+                <img
+                  src="{% static 'img/icon/newsletter subscription icon.png' %}"
+                  alt="Newsletter Subscription Icon"
+                  class="icon"
+                />
+                Newsletter Subscription
+              </a>
+              <a href="{% url 'news_all' %}" class="dropdown-item">
+                <img
+                  src="{% static 'img/icon/industry news and events icon.png' %}"
+                  alt="Industry News and Events Icon"
+                  class="icon"
+                />
+                Industry News and Events
+              </a>
+            </div>
+          </div>
+          <a href="{% url 'leaders'  %}" class="nav-item nav-link"
+            >Industry Leader</a
+          >
+          <a href="{% url 'job_list'  %}" class="nav-item nav-link">
+            Job Portal</a
+          >
+          <a href="{% url 'blog'  %}" class="nav-item nav-link">Blog</a>
+          <a href="{% url 'contact'  %}" class="nav-item nav-link">Contact</a>
+        </div>
+        <!--
+				<butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
+                <a href="https://htmlcodex.com/startup-company-website-template" class="btn btn-primary py-2 px-4 ms-3">Download Pro Version</a>
+				-->
+      </div>
+    </nav>
+
+    <div
+      id="header-carousel"
+      class="carousel slide carousel-fade"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-inner">
+        {% for home in home %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          <img class="w-100" src="{{home.slide.url}}" alt="Image" />
+          <div
+            class="carousel-caption d-flex flex-column align-items-center justify-content-center"
+          >
+            <div class="p-3" style="max-width: 900px">
+              <h5 class="text-white text-uppercase mb-3 animated slideInDown">
+                {{home.small_text}}
+              </h5>
+              <h2 class="display-1 text-white mb-md-4 animated zoomIn">
+                {{home.big_text}}
+              </h2>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#header-carousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#header-carousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <!-- Navbar & Carousel End -->
+
+  <!-- Full Screen Search Start -->
+  <div class="modal fade" id="searchModal" tabindex="-1">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content" style="background: rgba(9, 30, 62, 0.7)">
+        <div class="modal-header border-0">
+          <button
+            type="button"
+            class="btn bg-white btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div
+          class="modal-body d-flex align-items-center justify-content-center"
+        >
+          <div class="input-group" style="max-width: 600px">
+            <input
+              type="text"
+              class="form-control bg-transparent border-primary p-3"
+              placeholder="Type search keyword"
+            />
+            <button class="btn btn-primary px-4">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Full Screen Search End -->
+
+  <!-- Features Start -->
+  <div
+    class="container-fluid py-3 wow fadeInUp background-image"
+    data-wow-delay="0.1s"
+   >
+    <div class="container py-5">
+      <div
+        class="section-title text-center position-relative pb-3 mb-5 mx-auto"
+        style="max-width: 600px"
+      >
+
+        <h1 class="mb-0"> Why Choose Us</h1>
+      </div>
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <div class="row g-5">
+            <div class="col-12 wow zoomIn" data-wow-delay="0.2s">
+              <div>
+                <img
+                  src="{% static 'img\icon\Best In Industry.png' %}"
+                  alt="Newsletter Subscription Icon"
+                  class="icon2"
+                />
+              </div>
+              <h4>Best In Industry</h4>
+              <p class="mb-0">
+                Experience the best in industry with top-tier innovation, style,
+                and performance in every product.
+              </p>
+            </div>
+            <div class="col-12 wow zoomIn" data-wow-delay="0.6s">
+              <div>
+                <img
+                  src="{% static 'img\icon\Exclusive Support For Your Business.png' %}"
+                  alt="Newsletter Subscription Icon"
+                  class="icon2"
+                />
+              </div>
+              <h4>Logistics Support</h4>
+              <p class="mb-0">
+                Reliable logistics support for timely delivery and seamless
+                operations, ensuring your supply chain runs smoothly.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-4 wow zoomIn"
+          data-wow-delay="0.9s"
+          style="min-height: 350px"
+        >
+          <div class="position-relative h-100">
+            <img
+              class="position-absolute w-100 h-100 rounded wow zoomIn"
+              data-wow-delay="0.1s"
+              src="{% static 'img/class.jpg' %}"
+              style="object-fit: cover"
+            />
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="row g-5">
+            <div class="col-12 wow zoomIn" data-wow-delay="0.4s">
+              <div>
+                <img
+                  src="{% static 'img\icon\Professional Staff.png' %}"
+                  alt="Newsletter Subscription Icon"
+                  class="icon2"
+                />
+              </div>
+              <h4>Professional Staff</h4>
+              <p class="mb-0">
+                Our professional staff provides expert advice, exceptional
+                service, and personalized care for all your footwear needs.
+              </p>
+            </div>
+            <div class="col-12 wow zoomIn" data-wow-delay="0.8s">
+              <div>
+                <img
+                  src="{% static 'img\icon\Logistics Support.png' %}"
+                  alt="Newsletter Subscription Icon"
+                  class="icon2"
+                />
+              </div>
+              <h4>Exclusive Support For Your Business</h4>
+              <p class="mb-0">
+                Exclusive business support offers personalized solutions and
+                exceptional service tailored to your needs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Features Start -->
+
+ {% endblock %}
+</body>

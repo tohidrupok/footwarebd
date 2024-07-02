@@ -8,6 +8,18 @@ class Home(models.Model):
 class Video_HomePage(models.Model):
     video = models.FileField(upload_to='videos/')  
 
+
+class Management_Massage (models.Model):
+    title = models.CharField(max_length=105)
+    name = models.CharField(max_length=255)
+    img = models.ImageField(upload_to='Admin_images/')
+    text = models.TextField(help_text="Write the CEO/Director Massage")
+    others = models.CharField(max_length=255)
+    
+    def __str__(self):
+        return self.name 
+
+
 class Blog(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=220, unique=True, blank=True, null=True)

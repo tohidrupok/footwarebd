@@ -1,5 +1,5 @@
 from store.models import NewsArticle
-from .models import Blog , Home , Video_HomePage
+from .models import Blog , Home , Video_HomePage, Management_Massage
 from django.shortcuts import render
 from django.core.mail import send_mail
 from django.conf import settings
@@ -52,11 +52,29 @@ def home(request):
         'form': form, 
         'success': success
     }
-    return render(request, 'home.html', context)
+    return render(request, 'home.html', context) 
+
 
 def about(request):
+    ceo_message = Management_Massage.objects.get(title ="CEO SMS")
+    directors_messages = Management_Massage.objects.exclude(title="CEO SMS")
+    context = {'ceo_message': ceo_message , 'directors_messages':directors_messages }  
 
-    return render(request, 'about.html')
+    return render(request, 'about.html', context) 
+
+def choose(request):
+    return render(request, 'choose.html') 
+
+def missionvision(request):
+    return render(request, 'missionvision.html')  
+
+def management_massage(request):
+    ceo_message = Management_Massage.objects.get(title ="CEO SMS")
+    directors_messages = Management_Massage.objects.exclude(title="CEO SMS")
+    context = {'ceo_message': ceo_message , 'directors_messages':directors_messages } 
+    
+    return render(request, 'Management_Massage.html', context) 
+
 
 def blog(request):
     blogs = Blog.objects.all()

@@ -4,7 +4,7 @@ from .forms import ResumeForm
 
 def job_list(request):
     jobs = Job.objects.exclude(title="Post Resume")
-    post_resume = Job.objects.filter(title="Post Resume")    # must be add upload resume model's title is:  "Post Resume" use space
+    post_resume = Job.objects.filter(title="Post Resume")    # must be add upload resume model's title is:"Post Resume". {must use space}
     context = {'jobs': jobs , 'post_resume':post_resume }
     return render(request, 'job_portal/job_list.html', context)
 
