@@ -99,7 +99,12 @@
     color: #ff0000;
     margin-right: 10px;
     font-size: 18px;
-  }
+  } 
+  .dropdown-menu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: 0;
+}
 </style>
 
 <script>
@@ -150,259 +155,148 @@
   </div>
   <!-- Spinner End -->
 
-  <!-- Navbar & Carousel Start -->
-  <div class="container-fluid position-relative p-0">
-    <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
-      <a href="{% url 'logo' %}" class="navbar-brand p-0">
-        <h1 class="m-0">
-          <!--<i class="fa fa-user-tie me-2"></i>-->
-          <img
-            class="w-100"
-            src="{% static 'img\logo\xlogo.png' %}"
-            height="80px"
-            width="100px"
-            alt="Image"
-          />
-        </h1>
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarCollapse"
-      >
-        <span class="fa fa-bars"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <div class="navbar-nav ms-auto py-0">
-          {% comment %} <a href="{% url 'about'  %}" class="nav-item nav-link active"
-            >About Us</a
-          > {% endcomment %}
-          <div class="nav-item dropdown">
-            <a
-              href="#"
-              class="nav-link dropdown-toggle"
-              data-bs-toggle="dropdown"
-              >About Us</a
-            >
-            <div class="dropdown-menu m-0">
-              <a href="{% url 'about'  %}" class="dropdown-item">
-                <img
-                  src="{% static 'img/icon/information about factories.png' %}"
-                  alt="Newsletter Subscription Icon"
-                  class="icon"
-                />
-                Who We Are
-              </a>
-              <a href="{% url 'missionvision' %}" class="dropdown-item">
-                <img
-                  src="{% static 'img\icon\Industries Interactive Maps.png' %}"
-                  alt="Industry News and Events Icon"
-                  class="icon"
-                />
-                Mission and Vision
-              </a>
-              <a href="{% url 'choose' %}" class="dropdown-item">
-                <img
-                  src="{% static 'img/icon/list of factorics.png' %}"
-                  alt="Industry News and Events Icon"
-                  class="icon"
-                />
-                Why you Choose Us
-              </a>
-              <a href="{% url 'management_massage' %}" class="dropdown-item">
-                <img
-                  src="{% static 'img\icon\Supply Chain Information.png' %}"
-                  alt="Industry News and Events Icon"
-                  class="icon"
-                />
-                Message From Management
-              </a>
-            </div>
-          </div>
-
-          <div class="nav-item dropdown">
-            <a
-              href="#"
-              class="nav-link dropdown-toggle"
-              data-bs-toggle="dropdown"
-              >Directories</a
-            >
-            <div class="dropdown-menu m-0">
-              <a href="{% url 'company_list'  %}" class="dropdown-item">
-                <img
-                  src="{% static 'img\icon\Certifications and Standards.png' %}"
-                  alt="Newsletter Subscription Icon"
-                  class="icon"
-                />
-                International Buyer
-              </a> 
-              <a href="{% url 'company_list'  %}" class="dropdown-item">
-                <img
-                  src="{% static 'img/icon/information about factories.png' %}"
-                  alt="Newsletter Subscription Icon"
-                  class="icon"
-                />
-                Core Industries
-              </a> 
-              <a href="{% url 'supply_chain' %}" class="dropdown-item">
-                <img
-                  src="{% static 'img\icon\Supply Chain Information.png' %}"
-                  alt="Newsletter Subscription Icon"
-                  class="icon"
-                />
-                Supply Chain
-              </a> 
-
-              <a href="{% url 'company_list'  %}" class="dropdown-item">
-                <img
-                  src="{% static 'img/icon/information about factories.png' %}"
-                  alt="Newsletter Subscription Icon"
-                  class="icon"
-                />
-                Information about Factories
-              </a>
-              <a href="{% url 'list_factory' %}" class="dropdown-item">
-                <img
-                  src="{% static 'img/icon/list of factorics.png' %}"
-                  alt="Industry News and Events Icon"
-                  class="icon"
-                />
-                List of Factories
-              </a>
-            </div>
-          </div>
-
-          <div class="nav-item dropdown">
-            <a
-              href="#"
-              class="nav-link dropdown-toggle"
-              data-bs-toggle="dropdown"
-              >Service</a
-            >
-            <div class="dropdown-menu m-0">
-              <a href="{% url 'resource_library' %}" class="dropdown-item">
-                <img
-                  src="{% static 'img/icon/Factory & Tools Manufacturers Compnay List.png' %}"
-                  alt="Resource Library Icon"
-                  class="icon"
-                />
-                Resource Library
-              </a>
-              <a href="{% url 'requirement_list' %}" class="dropdown-item">
-                <img
-                  src="{% static 'img\icon\Certifications and Standards.png' %}"
-                  alt="Certifications and Standards Icon"
-                  class="icon"
-                />
-                Certifications and Standards
-              </a>
-              {% comment %} <a href="{% url 'supply_chain' %}" class="dropdown-item">
-                <img
-                  src="{% static 'img\icon\Supply Chain Information.png' %}"
-                  alt="Supply Chain Information Icon"
-                  class="icon"
-                />
-                Supply Chain Information
-              </a> {% endcomment %}
-              <a href="{% url 'list_factory' %}" class="dropdown-item">
-                <img
-                  src="{% static 'img\icon\Industries Interactive Maps.png' %}"
-                  alt="Interactive Maps Icon"
-                  class="icon"
-                />
-                Interactive Maps
-              </a>
-            </div>
-          </div>
-          <div class="nav-item dropdown">
-            <a
-              href="#"
-              class="nav-link dropdown-toggle"
-              data-bs-toggle="dropdown"
-              >KCC</a
-            >
-            <div class="dropdown-menu m-0">
-              <a href="{% url 'news_all' %}" class="dropdown-item">
-                <img
-                  src="{% static 'img/icon/newsletter subscription icon.png' %}"
-                  alt="Newsletter Subscription Icon"
-                  class="icon"
-                />
-                Newsletter Subscription
-              </a>
-              <a href="{% url 'news_all' %}" class="dropdown-item">
-                <img
-                  src="{% static 'img/icon/industry news and events icon.png' %}"
-                  alt="Industry News and Events Icon"
-                  class="icon"
-                />
-                Industry News and Events
-              </a>
-            </div>
-          </div>
-          <a href="{% url 'leaders'  %}" class="nav-item nav-link"
-            >Industry Leader</a
-          >
-          <a href="{% url 'job_list'  %}" class="nav-item nav-link">
-            Job Portal</a
-          >
-          <a href="{% url 'blog'  %}" class="nav-item nav-link">Blog</a>
-          <a href="{% url 'contact'  %}" class="nav-item nav-link">Contact</a>
-        </div>
-        <!--
-				<butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
-                <a href="https://htmlcodex.com/startup-company-website-template" class="btn btn-primary py-2 px-4 ms-3">Download Pro Version</a>
-				-->
-      </div>
-    </nav>
-
-    <div
-      id="header-carousel"
-      class="carousel slide carousel-fade"
-      data-bs-ride="carousel"
-    >
-      <div class="carousel-inner">
-        {% for home in home %}
-        <div class="carousel-item {% if forloop.first %}active{% endif %}">
-          <img class="w-100" src="{{home.slide.url}}" alt="Image" />
-          <div
-            class="carousel-caption d-flex flex-column align-items-center justify-content-center"
-          >
-            <div class="p-3" style="max-width: 900px">
-              <h5 class="text-white text-uppercase mb-3 animated slideInDown">
-                {{home.small_text}}
-              </h5>
-              <h2 class="display-1 text-white mb-md-4 animated zoomIn">
-                {{home.big_text}}
-              </h2>
-            </div>
+<!-- Navbar & Carousel Start -->
+<div class="container-fluid position-relative p-0">
+  <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+    <a href="{% url 'logo' %}" class="navbar-brand p-0">
+      <h1 class="m-0">
+        <img class="w-100" src="{% static 'img/logo/xlogo.png' %}" height="80px" width="100px" alt="Image" />
+      </h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="fa fa-bars"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <div class="navbar-nav ms-auto py-0">
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">About Us</a>
+          <div class="dropdown-menu m-0">
+            <a href="{% url 'about' %}" class="dropdown-item">
+              <img src="{% static 'img/icon/information about factories.png' %}" alt="Newsletter Subscription Icon" class="icon" />
+              Who We Are
+            </a>
+            <a href="{% url 'missionvision' %}" class="dropdown-item">
+              <img src="{% static 'img/icon/Industries Interactive Maps.png' %}" alt="Industry News and Events Icon" class="icon" />
+              Mission and Vision
+            </a>
+            <a href="{% url 'choose' %}" class="dropdown-item">
+              <img src="{% static 'img/icon/list of factorics.png' %}" alt="Industry News and Events Icon" class="icon" />
+              Why you Choose Us
+            </a>
+            <a href="{% url 'management_massage' %}" class="dropdown-item">
+              <img src="{% static 'img/icon/Supply Chain Information.png' %}" alt="Industry News and Events Icon" class="icon" />
+              Message From Management
+            </a>
           </div>
         </div>
-        {% endfor %}
-      </div>
 
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#header-carousel"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#header-carousel"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Directories</a>
+          <div class="dropdown-menu m-0">
+            <a href="{% url 'InternationaCompany' %}" class="dropdown-item">
+              <img src="{% static 'img/icon/Supply Chain Information.png' %}" alt="Supply Chain Icon" class="icon" />
+              International Buyer
+            </a> 
+
+             <a href="{% url 'supply_chain' %}" class="dropdown-item">
+              <img src="{% static 'img/icon/Supply Chain Information.png' %}" alt="Supply Chain Icon" class="icon" />
+              Supply Chain
+            </a> 
+
+            <div class="dropdown">
+              <a href="#" class="dropdown-item dropdown-toggle" data-bs-toggle="dropdown">
+                <img src="{% static 'img/icon/Supply Chain Information.png' %}" alt="Supply Chain Icon" class="icon" /> 
+                Core Industries 
+              </a>
+              <div class="dropdown-menu m-0">
+                <a href="" class="dropdown-item"><img src="{% static 'img/icon/Factory & Tools Manufacturers Compnay List.png' %}" alt="Supply Chain Icon" class="icon" /> 
+                  Leather
+                </a>
+                <a href="" class="dropdown-item"><img src="{% static 'img/icon/Supply Chain Information.png' %}" alt="Supply Chain Icon" class="icon" /> 
+                  Synthetic
+                </a>
+                <a href="" class="dropdown-item"><img src="{% static 'img/icon/Factory & Tools Manufacturers Compnay List.png' %}" alt="Supply Chain Icon" class="icon" /> 
+                  Eparadice
+                </a>
+              </div>
+            </div>
+
+            <a href="{% url 'company_list' %}" class="dropdown-item">
+              <img src="{% static 'img/icon/information about factories.png' %}" alt="Information about Factories Icon" class="icon" />
+              Information about Factories
+            </a>
+            <a href="{% url 'list_factory' %}" class="dropdown-item">
+              <img src="{% static 'img/icon/list of factorics.png' %}" alt="List of Factories Icon" class="icon" />
+              List of Factories
+            </a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Service</a>
+          <div class="dropdown-menu m-0">
+            <a href="{% url 'resource_library' %}" class="dropdown-item">
+              <img src="{% static 'img/icon/Factory & Tools Manufacturers Compnay List.png' %}" alt="Resource Library Icon" class="icon" />
+              Resource Library
+            </a>
+            <a href="{% url 'requirement_list' %}" class="dropdown-item">
+              <img src="{% static 'img/icon/Certifications and Standards.png' %}" alt="Certifications and Standards Icon" class="icon" />
+              Certifications and Standards
+            </a>
+            <a href="{% url 'list_factory' %}" class="dropdown-item">
+              <img src="{% static 'img/icon/Industries Interactive Maps.png' %}" alt="Interactive Maps Icon" class="icon" />
+              Interactive Maps
+            </a>
+          </div>
+        </div>
+
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">KCC</a>
+          <div class="dropdown-menu m-0">
+            <a href="{% url 'news_all' %}" class="dropdown-item">
+              <img src="{% static 'img/icon/newsletter subscription icon.png' %}" alt="Newsletter Subscription Icon" class="icon" />
+              Newsletter Subscription
+            </a>
+            <a href="{% url 'news_all' %}" class="dropdown-item">
+              <img src="{% static 'img/icon/industry news and events icon.png' %}" alt="Industry News and Events Icon" class="icon" />
+              Industry News and Events
+            </a>
+          </div>
+        </div>
+        <a href="{% url 'leaders' %}" class="nav-item nav-link">Industry Leader</a>
+        <a href="{% url 'job_list' %}" class="nav-item nav-link">Job Portal</a>
+        <a href="{% url 'blog' %}" class="nav-item nav-link">Blog</a>
+        <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+      </div>
     </div>
+  </nav>
+
+  <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      {% for home in home %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        <img class="w-100" src="{{home.slide.url}}" alt="Image" />
+        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+          <div class="p-3" style="max-width: 900px">
+            <h5 class="text-white text-uppercase mb-3 animated slideInDown">{{home.small_text}}</h5>
+            <h2 class="display-1 text-white mb-md-4 animated zoomIn">{{home.big_text}}</h2>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
-  <!-- Navbar & Carousel End -->
+</div>
+<!-- Navbar & Carousel End -->
+
 
   <!-- Full Screen Search Start -->
   <div class="modal fade" id="searchModal" tabindex="-1">

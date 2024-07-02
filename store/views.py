@@ -1,6 +1,6 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
-from .models import Company, NewsArticle, Leaders , Factory
+from .models import Company, NewsArticle, Leaders , Factory, InternationaCompany
 
 def company_list(request):
     all_companies = Company.objects.filter(is_availble=True)
@@ -44,6 +44,23 @@ def factorys_list(request):
         factorys = paginator.page(paginator.num_pages)
 
     return render(request, 'store/factorys_list.html', {'factorys': factorys,'count': count})  
+
+def internation_company_list(request): 
+    count = InternationaCompany.objects.count()
+    company = InternationaCompany.objects.all()  
+    paginator = Paginator(company, 61)  # 61 companies per page
+    page = request.GET.get('page')
+
+    try:
+        company = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        company = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        company = paginator.page(paginator.num_pages)
+   
+    return render(request, 'store/international_company.html', {'factorys': company, 'count': count}) 
 
 
 def news_article_list(request):
