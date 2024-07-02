@@ -231,6 +231,31 @@
             <div class="dropdown-menu m-0">
               <a href="{% url 'company_list'  %}" class="dropdown-item">
                 <img
+                  src="{% static 'img\icon\Certifications and Standards.png' %}"
+                  alt="Newsletter Subscription Icon"
+                  class="icon"
+                />
+                International Buyer
+              </a> 
+              <a href="{% url 'company_list'  %}" class="dropdown-item">
+                <img
+                  src="{% static 'img/icon/information about factories.png' %}"
+                  alt="Newsletter Subscription Icon"
+                  class="icon"
+                />
+                Core Industries
+              </a> 
+              <a href="{% url 'supply_chain' %}" class="dropdown-item">
+                <img
+                  src="{% static 'img\icon\Supply Chain Information.png' %}"
+                  alt="Newsletter Subscription Icon"
+                  class="icon"
+                />
+                Supply Chain
+              </a> 
+
+              <a href="{% url 'company_list'  %}" class="dropdown-item">
+                <img
                   src="{% static 'img/icon/information about factories.png' %}"
                   alt="Newsletter Subscription Icon"
                   class="icon"
@@ -272,15 +297,15 @@
                 />
                 Certifications and Standards
               </a>
-              <a href="{% url 'supply_chain' %}" class="dropdown-item">
+              {% comment %} <a href="{% url 'supply_chain' %}" class="dropdown-item">
                 <img
                   src="{% static 'img\icon\Supply Chain Information.png' %}"
                   alt="Supply Chain Information Icon"
                   class="icon"
                 />
                 Supply Chain Information
-              </a>
-              <a href="{% url 'company_list' %}" class="dropdown-item">
+              </a> {% endcomment %}
+              <a href="{% url 'list_factory' %}" class="dropdown-item">
                 <img
                   src="{% static 'img\icon\Industries Interactive Maps.png' %}"
                   alt="Interactive Maps Icon"
