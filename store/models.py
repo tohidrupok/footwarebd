@@ -11,7 +11,7 @@ class Company(models.Model):
     managing_director_name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='photos/products', blank=True, null=True )
     logo = models.ImageField(upload_to='photos/logos',  default='photos/default.png')
-    is_availble = models.BooleanField(default = True)
+    is_availble = models.CharField( max_length=100 )
     website = models.URLField(max_length = 200, blank=True, null=True)   
     latitude = models.FloatField(blank=True, null=True)
     longitude = models.FloatField(blank=True, null=True)

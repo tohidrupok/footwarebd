@@ -3,54 +3,62 @@
 {% load static %}
 
 <style> 
-    body {
+      body {
         background-color: #f8f9fa; 
-      } 
-       .company-details {
-        padding: 20px;
-        margin: 20px auto;
-        border: 1px solid #007bff; 
-        border-radius: 10px;
-        background-color: #ffffff; 
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
       }
-      .company-details h2 {
-        color: #007bff; 
-        text-align: center;
+      .company-card {
+        margin-bottom: 40px;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        background: #ffffff;
       }
-      .company-logo-container {
-        text-align: center;
+      .company-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
       }
       .company-logo {
-        max-width: 200px; 
-        height: auto;
-        margin-bottom: 20px;
-        border-radius: 50%; 
-        border: 4px solid #007bff; 
+        height: 200px; 
+        object-fit: cover;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+      }
+      .company-details {
+        padding: 20px;
+        background-color: #f0f0f0; 
+      }
+      .company-name {
+        font-size: 20px;
+        color: #a4282a; 
+        white-space: nowrap;
+      }
+      .modal-content {
+        background: transparent; 
       } 
-      .company-info p {
-        color: #333333; 
-         text-align: left;
+
+      .company-logo-container {
+        display: flex; 
+        justify-content: center;
       }
-      .map-container {
-        width: 100%;
-        height: 300px;
-        margin-top: 20px;
-      }
-    
-      .icon {
-        width: 30px; 
-        height: 30px; 
-    }
-      
+
+      /* Image */
+      .company-logo {
+        width: 130px; 
+        height: 110px; 
+        } 
+          .icon {
+            width: 30px; 
+            height: 30px;
+        }
 </style>
+
 <body>
 
   <!-- Spinner Start -->
   <div
     id="spinner"
     class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
-   >
+  >
     <div class="spinner"></div>
   </div>
   <!-- Spinner End -->
@@ -193,7 +201,7 @@
 				-->
       </div>
     </nav>
- 
+
     <div
       id="header-carousel"
       class="carousel slide carousel-fade"
@@ -201,18 +209,27 @@
     >
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="w-100" src="{% static 'img/info2.PNG'%}" alt="Image" />
+          <img class="w-100" src="{% static 'img/apu.jpg'%}" alt="Image" />
           <div
             class="carousel-caption d-flex flex-column align-items-center justify-content-center"
           >
-            <div class="p-3" style="max-width: 900px">        
-             <h1 class="display-1 text-white mb-md-4 animated zoomIn">
-                Requirement and Informations
+            <div class="p-3" style="max-width: 900px">
+
+              <h1 class="display-1 text-white mb-md-4 animated zoomIn">
+               Factories streamline production, efficiency
               </h1>
-              <h6 class="text-white text-uppercase mb-3 animated slideInDown">               
-                Footware Today
-              </h6> 
-     
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img class="w-100" src="{% static 'img/juta.jpeg'%}" alt="Image" />
+          <div
+            class="carousel-caption d-flex flex-column align-items-center justify-content-center"
+          >
+            <div class="p-3" style="max-width: 900px">
+              <h1 class="display-1 text-white mb-md-4 animated zoomIn">
+                Factories boost efficiency, streamlined production
+              </h1>
             </div>
           </div>
         </div>
@@ -237,68 +254,94 @@
       </button>
     </div>
   </div>
-  <!-- Navbar & Carousel End --> 
+  <!-- Navbar & Carousel End -->
 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 offset-md-2">
-          <div class="company-details">
-            <div class="company-logo-container">
-              <img
-                src="{{ company.logo.url }}"
-                alt="{{ company.company_name }} Logo"
-                class="company-logo"
-              />
-              <h2>{{ company.company_name }}</h2>
-            </div>
-            <div class="company-info">
-              <p class="text-uppercase bh-primary"><strong>Type:</strong> {{ company.is_availble }}</p>
-              <p><strong>Description:</strong> {{ company.description }}</p>
-              <p>
-                <strong>Head Office Address:</strong>
-                 {{ company.head_office_address }}
-              </p>
-              <p>
-                <strong>Factory Addresses:</strong> 
-                {{ company.factory_addresses}}
-              </p>
-              <p>
-                <strong>Email:</strong> {{ company.email_addresses }}
-              </p>
-              <p><strong>Phone Number:</strong> {{ company.phone_number }}</p>
-              <p><strong>Website:</strong> <a href="{{ company.website }}">{{ company.website }}</a></p>
-              <p>
-                <strong>Managing Director Name:</strong> 
-                {{company.managing_director_name }}
-              </p>
-            </div>
-            <!-- Add more details here -->
 
-            {% if company.latitude and company.longitude %}
-            <div class="map-container">
-              <iframe
-                width="100%"
-                height="100%"
-                frameborder="0"
-                style="border: 0"
-                src="{{ company.generate_map_url }}"
-                allowfullscreen
-              ></iframe>
-            </div>
-            {% endif %}
-          </div>
+<!-- Company list-->
+<div class="container  py-5 "> 
+   <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 1600px">
+    <h5 class="fw-bold text-primary text-uppercase" style="text-align: left;">INDUSTRY OVERVIEW :</h5>
+    <h6 style="text-align: justify;">
+        USD 5 billion annual export by next few years. Leather industry is the second highest donor to national exports after
+        apparel. There has been a steady progress of the leather sector which has attained 11.93% growth in the first half of
+        current fiscal year (2016-2017). This sector exceeded the export target by 9.64%, fetching $628 million from exports
+        against the target of $572 million during July - December period. Bangladesh earned $560 million from leather and
+        leather products exports in the same period of FY 2015-16. The annual Target for the current fiscal year set at $1.22 billion
+        which is expected to exceed by June 2017. Bangladesh exported leather and leather goods worth $1.13 billion and
+        $1.16 billion respectively in FY 2014-15 and FY 2015-16.
+    </h6> 
+    <h6 style="text-align: justify;">
+        At this time, 220 tanneries, 2500 footwear manufacturing units, and 100+ large firms are involved in the leather and leather
+        goods sector. This sector is contributing 4% to the country's total export income by exporting items to more than 50
+        countries. The LFMEAB report said Japan and Germany are now the biggest markets for Bangladeshi footwear which
+        is also exported to Italy, the UK, France, Belgium, the USA, Sweden, Spain, Saudi Arabia, Taiwan, Hong Kong, Canada, and
+        Korea. Footwear exports record impressive growth During the fiscal year 2014-2015, Bangladesh exported footwear
+        worth $128.18 million to Germany, $95.22 million to Japan, $82.64 million to the USA, $57.39 million to Spain, $37.16
+        million Italy, $24.31 million to France, $14.94 million to the UK, and $7.58 million to the UAE. International brands like
+        Adidas, Aldo, Timberland, Marks & Spencer, Clarks, Espirit, ABC Mart, Nike, Wal-Mart, K-Mart Sears, and Nine West,
+        Gucci, Reebok, Michael Kors, Picard, Sportcraft, Max & Co and R.M. Williams are sourcing from Bangladesh for quality
+        and price.
+    </h6>
+    <h2 class="mt-5 mb-4 text-center">List of Factories</h2>
+</div>
+
+ <div class="row">
+  {% for company in companies %}
+  <div class="col-md-3">
+    <a href="{% url 'company_detail' company.slug %}" class="company-link">
+      <div class="company-card"> 
+        <div class="company-logo-container">
+        <img src="{{ company.logo.url }}" class="company-logo card-img-top" alt="Company Logo" />
+      </div>
+        <div class="company-details">
+         <h4 class="company-name" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ company.company_name }}</h4>
+          <!-- You can add more details about the company here if needed -->
         </div>
       </div>
-    </div>
+    </a> 
+  </div> 
+  {% endfor %}
+  </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Your custom JavaScript -->
-    <script>
-      // Add your custom JavaScript here (if needed)
-    </script>
-
+      <!-- Pagination -->
+      <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+          {% if companies.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page=1" tabindex="-1">First</a>
+          </li>
+          <li class="page-item">
+            <a
+              class="page-link"
+              href="?page={{ companies.previous_page_number }}"
+              >Previous</a
+            >
+          </li>
+          {% endif %}
+          <li class="page-item disabled">
+            <span class="page-link"
+              >Page {{ companies.number }} of {{ companies.paginator.num_pages}}</span
+            >
+          </li>
+          {% if companies.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ companies.next_page_number }}"
+              >Next</a
+            >
+          </li>
+          <li class="page-item">
+            <a
+              class="page-link"
+              href="?page={{ companies.paginator.num_pages }}"
+              >Last</a
+            >
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+      <!-- End Pagination -->
+</div>
+<!-- Company list  end-->
 
 {% endblock %}
-</body> 
-
+</body>
