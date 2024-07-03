@@ -184,8 +184,8 @@
           <a href="{% url 'contact'  %}" class="nav-item nav-link">Contact</a>
         </div>
         <!--
-				<butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
-                <a href="https://htmlcodex.com/startup-company-website-template" class="btn btn-primary py-2 px-4 ms-3">Download Pro Version</a>
+				<butaton type="button" class="btn text-danger ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton>
+                <a href="https://htmlcodex.com/startup-company-website-template" class="btn btn-danger py-2 px-4 ms-3">Download Pro Version</a>
 				-->
       </div>
     </nav>
@@ -222,7 +222,7 @@
               </h1>
               <a
                 href=""
-                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft"
+                class="btn btn-danger py-md-3 px-md-5 me-3 animated slideInLeft"
                 >Free Quote</a
               >
               <a
@@ -264,7 +264,7 @@
         class="section-title text-center position-relative pb-3 mb-5 mx-auto"
         style="max-width: 1600px"
       >
-        <h5 class="fw-bold text-primary text-uppercase">Supply chain information:</h5>
+        <h5 class="fw-bold text-danger text-uppercase">Supply chain information</h5>
         <h6 class="text-justify">
        Explore the intricate web of Bangladesh's footwear industry with our comprehensive supply chain directory. From raw materials to the final product, delve into the ecosystem that drives the local and international footwear market. Connect with key players, gather insights, and forge partnerships for a thriving industry. 
        Raw Material Suppliers: Discover a curated list of backward-linked suppliers providing essential materials like synthetic materials, insole, outsole, non-leather, leather, machinery, rubber, fabric, adhesives, and more. 
@@ -276,7 +276,7 @@
        Investment Opportunities: Explore investment opportunities within Bangladesh's footwear sector, including potential partnerships, joint ventures, and funding avenues for aspiring entrepreneurs and investors
        This section will serve as a valuable resource hub for anyone involved in or interested in the footwear industry in Bangladesh, facilitating connections, knowledge sharing, and business growth.
         </h6>
-        <h5 class="fw-bold text-primary text-uppercase">Classification</h5>
+        <h5 class="fw-bold text-danger text-uppercase">Classification</h5>
 
   </div>
       <div class="row g-5">
@@ -296,7 +296,7 @@
             <p class="m-0">
               {{ category.content }}
             </p>
-            <a class="btn btn-lg btn-primary rounded" href="{% url 'category_list' category_slug=category.slug %}">
+            <a class="btn btn-lg btn-danger rounded" href="{% url 'category_list' category_slug=category.slug %}">
               <i class="bi bi-arrow-right"></i>
             </a>
           </div>

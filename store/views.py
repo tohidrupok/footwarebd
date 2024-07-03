@@ -48,66 +48,66 @@ def factorys_list(request):
 def internation_company_list(request): 
     count = InternationaCompany.objects.count()
     company = InternationaCompany.objects.all()  
-    paginator = Paginator(company, 61)  # 61 companies per page
+    paginator = Paginator(company, 61) 
     page = request.GET.get('page')
 
     try:
         company = paginator.page(page)
     except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
+        
         company = paginator.page(1)
     except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
+        
         company = paginator.page(paginator.num_pages)
    
     return render(request, 'store/international_company.html', {'factorys': company, 'count': count}) 
 
 def lather(request):
-    lather_companies = Company.objects.filter(is_availble="lather")
+    lather_companies = Company.objects.filter(type__name="lather")
 
-    paginator = Paginator(lather_companies, 40)  # 40 companies per page
+    paginator = Paginator(lather_companies, 40) 
     page = request.GET.get('page')
 
     try:
         companies = paginator.page(page)
     except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
+     
         companies = paginator.page(1)
     except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
+       
         companies = paginator.page(paginator.num_pages)
     return render(request,'core/lather.html', {'companies': companies})
 
 
 def synthetic(request):
-    synthetic_companies = Company.objects.filter(is_availble="synthetic")
+    synthetic_companies = Company.objects.filter(type__name="synthetic")
 
-    paginator = Paginator(synthetic_companies, 40)  # 40 companies per page
+    paginator = Paginator(synthetic_companies, 40)  
     page = request.GET.get('page')
 
     try:
         companies = paginator.page(page)
     except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
+        
         companies = paginator.page(1)
     except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
+        
         companies = paginator.page(paginator.num_pages)
     return render(request,'core/lather.html', {'companies': companies})
 
 def esparadice(request):
-    esparadice_companies = Company.objects.filter(is_availble="esparadice")
+    esparadice_companies = Company.objects.filter(type__name="esparadice")
 
-    paginator = Paginator(esparadice_companies, 40)  # 40 companies per page
+    paginator = Paginator(esparadice_companies, 40) 
     page = request.GET.get('page')
 
     try:
         companies = paginator.page(page)
     except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
+   
         companies = paginator.page(1)
     except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
+       
         companies = paginator.page(paginator.num_pages)
     return render(request,'core/lather.html', {'companies': companies})
 

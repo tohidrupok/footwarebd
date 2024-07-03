@@ -1,7 +1,13 @@
 from django.db import models
 
+class type(models.Model):
+    name = models.CharField(max_length= 100) 
+    def __str__(self):
+        return self.name
+    
 class Company(models.Model):
     company_name = models.CharField( max_length=100 )
+    type = models.ForeignKey(type, on_delete=models.CASCADE, blank=True, null=True)
     slug = models.SlugField(max_length=200, unique=True)
     description = models.TextField(max_length=500)
     head_office_address = models.CharField(max_length=255)
@@ -24,6 +30,7 @@ class Company(models.Model):
             return f"https://www.google.com/maps?q={self.latitude},{self.longitude}"
         else:
             return None 
+
 
 class Factory(models.Model):
     factory_name = models.CharField(max_length=60)
@@ -63,7 +70,7 @@ class NewsArticle(models.Model):
 
     def __str__(self):
         return self.title
-   
+
 
 class Leaders(models.Model):
     name = models.CharField(max_length=100)

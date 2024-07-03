@@ -19,5 +19,6 @@ admin.site.register(NewsArticle, newsarticleadmin)
 admin.site.register(Leaders, Leadersadmin) 
 admin.site.register(Factory) 
 admin.site.register(InternationaCompany) 
+admin.site.register(type) 
 
 
