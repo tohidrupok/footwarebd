@@ -69,7 +69,25 @@ class NewsArticle(models.Model):
     reference_link = models.URLField(max_length = 200, blank=True, null=True)  
 
     def __str__(self):
-        return self.title
+        return self.title 
+    
+class Event(models.Model):
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=220, unique=True)
+    content = models.TextField()
+    publication_date = models.DateField(auto_now_add=True)
+    social_link = models.URLField(max_length = 200, blank=True, null=True)  
+    image1 = models.ImageField(upload_to='photos/events_images/', null=True, blank=True)
+    image2 = models.ImageField(upload_to='photos/events_images/', null=True, blank=True)
+    image3 = models.ImageField(upload_to='photos/events_images/', null=True, blank=True)
+    image4 = models.ImageField(upload_to='photos/events_images/', null=True, blank=True)
+    image5 = models.ImageField(upload_to='photos/events_images/', null=True, blank=True)
+    image6 = models.ImageField(upload_to='photos/events_images/', null=True, blank=True)
+
+
+    def __str__(self):
+        return self.title 
+    
 
 
 class Leaders(models.Model):

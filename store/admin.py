@@ -9,6 +9,10 @@ class newsarticleadmin(admin.ModelAdmin):
      list_display = ['title']    
      prepopulated_fields = {'slug' : ('title',)} 
 
+class eventadmin(admin.ModelAdmin): 
+     list_display = ['title']    
+     prepopulated_fields = {'slug' : ('title',)} 
+
 class Leadersadmin(admin.ModelAdmin): 
      list_display = ['name']    
      prepopulated_fields = {'slug' : ('name',)}
@@ -20,5 +24,6 @@ admin.site.register(Leaders, Leadersadmin)
 admin.site.register(Factory) 
 admin.site.register(InternationaCompany) 
 admin.site.register(type) 
+admin.site.register(Event, eventadmin) 
 
 

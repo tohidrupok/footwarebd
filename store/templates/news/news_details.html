@@ -1,38 +1,34 @@
-{% extends 'index.html' %} 
-{% block body%} 
-{% load static %}
+{% extends 'index.html' %} {% block body%} {% load static %}
 
-<style> 
-    .text-justify {
-      text-align: justify;
-    }
-    .news-image {
-        max-width: 80%;
-        height: auto;
-        border-radius: 30px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
+<style>
+  .text-justify {
+    text-align: justify;
+  }
+  .news-image {
+    max-width: 80%;
+    height: auto;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
 
-    .news-details {
-        background-color: #f9f9f9;
-        padding: 20px;
-        border-radius: 20px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
-      .icon {
-          width: 30px; 
-          height: 30px; 
-      }
+  .news-details {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
 </style>
 
-
 <body>
-
   <!-- Spinner Start -->
   <div
     id="spinner"
     class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
-   >
+  >
     <div class="spinner"></div>
   </div>
   <!-- Spinner End -->
@@ -175,7 +171,7 @@
 				-->
       </div>
     </nav>
- 
+
     <div
       id="header-carousel"
       class="carousel slide carousel-fade"
@@ -187,18 +183,18 @@
           <div
             class="carousel-caption d-flex flex-column align-items-center justify-content-center"
           >
-            <div class="p-3" style="max-width: 900px">        
-             <h1 class="display-1 text-white mb-md-4 animated zoomIn">
+            <div class="p-3" style="max-width: 900px">
+              <h1 class="display-1 text-white mb-md-4 animated zoomIn">
                 Get news details instantly
               </h1>
-              <h6 class="text-white text-uppercase mb-3 animated slideInDown">               
+              <h6 class="text-white text-uppercase mb-3 animated slideInDown">
                 Footware Today
-              </h6> 
-     
+              </h6>
             </div>
           </div>
         </div>
-        {% comment %} <div class="carousel-item">
+        {% comment %}
+        <div class="carousel-item">
           <img class="w-100" src="{% static 'img/home2.jpg'%}" alt="Image" />
           <div
             class="carousel-caption d-flex flex-column align-items-center justify-content-center"
@@ -222,7 +218,8 @@
               >
             </div>
           </div>
-        </div> {% endcomment %}
+        </div>
+        {% endcomment %}
       </div>
       <button
         class="carousel-control-prev"
@@ -246,23 +243,29 @@
   </div>
   <!-- Navbar & Carousel End -->
 
-
   <!-- News Details Start -->
   <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="news-details">
       <h1>{{ news.title }}</h1>
       <p>Publication Date: {{ news.publication_date }}</p>
       {% if news.image %}
-        <img src="{{ news.image.url }}" alt="{{ news.title }}" class="news-image">
+      <img
+        src="{{ news.image.url }}"
+        alt="{{ news.title }}"
+        class="news-image"
+      />
       {% endif %}
       <p>Author: {{ news.author }}</p>
       <p>Content: {{ news.content }}</p>
       {% if news.reference_link %}
-        <p>Reference Link: <a href="{{ news.reference_link }}">{{ news.reference_link }}</a></p>
+      <p>
+        Reference Link:
+        <a href="{{ news.reference_link }}">{{ news.reference_link }}</a>
+      </p>
       {% endif %}
     </div>
   </div>
   <!-- News Details End -->
 
-{% endblock %}
+  {% endblock %}
 </body>
