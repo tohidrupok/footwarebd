@@ -1,0 +1,229 @@
+
+{% extends 'index.html' %} 
+{% block body%} 
+{% load static %}
+<style>
+  .text-justify {
+    text-align: justify;
+  }
+
+  .news-image {
+    max-width: 80%;
+    height: auto;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .news-details {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+  } 
+
+  /* General styling */
+  .img_container {
+    max-width: 900px;
+    margin: auto;
+  }
+
+  .event-details {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .event-images-masonry {
+    column-count: 3;
+    column-gap: 15px;
+  }
+
+  .event-image-item {
+    margin-bottom: 15px;
+    break-inside: avoid;
+  }
+
+  .event-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+  }
+
+  .gallery-video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+</style>
+<body>
+  <!-- Spinner Start -->
+  <div
+    id="spinner"
+    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
+  >
+    <div class="spinner"></div>
+  </div>
+  <!-- Spinner End -->
+
+ <!-- Navbar & Carousel Start -->
+<div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+        <a href="{% url 'home' %}" class="navbar-brand p-0">
+            <h1 class="m-0">
+                <img class="w-100" src="{% static 'img/logo/xlogo.png' %}" height="80px" width="100px" alt="Image" />
+            </h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0">
+                <a href="{% url 'about'  %}" class="nav-item nav-link active">About</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Directory of Factories</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="{% url 'company_list'  %}" class="dropdown-item">
+                            <img src="{% static 'img/icon/information about factories.png' %}" alt="Newsletter Subscription Icon" class="icon" />
+                            Information about Factories
+                        </a>
+                        <a href="{% url 'list_factory' %}" class="dropdown-item">
+                            <img src="{% static 'img/icon/list of factorics.png' %}" alt="Industry News and Events Icon" class="icon" />
+                            List of Factories
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Service</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="{% url 'resource_library' %}" class="dropdown-item">
+                            <img src="{% static 'img/icon/Factory & Tools Manufacturers Compnay List.png' %}" alt="Resource Library Icon" class="icon" />
+                            Resource Library
+                        </a>
+                        <a href="{% url 'requirement_list' %}" class="dropdown-item">
+                            <img src="{% static 'img/icon/Certifications and Standards.png' %}" alt="Certifications and Standards Icon" class="icon" />
+                            Certifications and Standards
+                        </a>
+                        <a href="{% url 'supply_chain' %}" class="dropdown-item">
+                            <img src="{% static 'img/icon/Supply Chain Information.png' %}" alt="Supply Chain Information Icon" class="icon" />
+                            Supply Chain Information
+                        </a>
+                        <a href="{% url 'company_list' %}" class="dropdown-item">
+                            <img src="{% static 'img/icon/Industries Interactive Maps.png' %}" alt="Interactive Maps Icon" class="icon" />
+                            Interactive Maps
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">KCC</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="{% url 'news_all' %}" class="dropdown-item">
+                            <img src="{% static 'img/icon/newsletter subscription icon.png' %}" alt="Newsletter Subscription Icon" class="icon" />
+                            Newsletter Subscription
+                        </a>
+                        <a href="{% url 'news_all' %}" class="dropdown-item">
+                            <img src="{% static 'img/icon/industry news and events icon.png' %}" alt="Industry News and Events Icon" class="icon" />
+                            Industry News and Events
+                        </a>
+                    </div>
+                </div>
+                <a href="{% url 'leaders'  %}" class="nav-item nav-link">Industry Leader</a>
+                <a href="{% url 'job_list'  %}" class="nav-item nav-link">Job Portal</a>
+                <a href="{% url 'blog'  %}" class="nav-item nav-link">Blog</a>
+                <a href="{% url 'contact'  %}" class="nav-item nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="w-100" src="{% static 'img/leaders2.jpeg'%}" alt="Image" />
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 900px">
+                        <h1 class="display-1 text-white mb-md-4 animated zoomIn">Explore Footwear Collection Today</h1>
+                    </div>
+                </div>
+            </div>
+            <!-- Additional carousel items can be added here -->
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<!-- Navbar & Carousel End -->
+
+<!-- Gallery Start -->
+<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px">
+            <h1 class="mb-0"> Gallery</h1>
+        </div>
+        <div class="row g-5">
+            {% for gallery in galleries %}
+                <div class="col-md-6">
+                    <div class="event-details">
+                        <h2>{{ gallery.title }}</h2>
+                        <p class="text-justify">{{ gallery.description }}</p>
+                        <div class="img_container">
+                            <div class="event-images-masonry">
+                                {% for image in gallery.images.all %}
+                                    {% if image.image %}
+                                        <div class="event-image-item">
+                                            <img src="{{ image.image.url }}" alt="{{ gallery.title }}" class="event-image">
+                                        </div>
+                                    {% endif %}
+                                    {% if image.image2 %}
+                                        <div class="event-image-item">
+                                            <img src="{{ image.image2.url }}" alt="{{ gallery.title }}" class="event-image">
+                                        </div>
+                                    {% endif %}
+                                    {% if image.image3 %}
+                                        <div class="event-image-item">
+                                            <img src="{{ image.image3.url }}" alt="{{ gallery.title }}" class="event-image">
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <h3>Videos:</h3>
+                        <div class="img_container">
+                            {% for video in gallery.videos.all %}
+                                {% if video.video %}
+                                    <video controls class="gallery-video">
+                                        <source src="{{ video.video.url }}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                {% endif %}
+                                {% if video.video2 %}
+                                    <video controls class="gallery-video">
+                                        <source src="{{ video.video2.url }}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Gallery End -->
+
+{% endblock %}
+</body>

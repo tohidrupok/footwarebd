@@ -9,7 +9,7 @@ from django.shortcuts import render
 
 
 def publications_list(request):
-    publications = Publication.objects.all()
+    publications = Publication.objects.order_by('-id')
 
     # Iterate through publications and generate URLs for the first page
     for publication in publications:

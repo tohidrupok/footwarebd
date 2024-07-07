@@ -25,5 +25,8 @@ admin.site.register(Factory)
 admin.site.register(InternationaCompany) 
 admin.site.register(type) 
 admin.site.register(Event, eventadmin) 
+admin.site.register(Gallery) 
+admin.site.register(Image) 
+admin.site.register(Video) 
 
 

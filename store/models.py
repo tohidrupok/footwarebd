@@ -88,6 +88,32 @@ class Event(models.Model):
     def __str__(self):
         return self.title 
     
+# Gallery start
+
+class Gallery(models.Model):
+    title = models.CharField(max_length=200, help_text='Title of the gallery')
+    description = models.TextField(blank=True, help_text='Description of the gallery')
+
+    def __str__(self):
+        return self.title
+
+class Image(models.Model):
+    gallery = models.ForeignKey(Gallery, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='gallery/images/', null=True, blank=True)
+    image2 = models.ImageField(upload_to='gallery/images2/', null=True, blank=True)
+    image3 = models.ImageField(upload_to='gallery/images3/', null=True, blank=True)
+
+    def __str__(self):
+        return f"Image in {self.gallery.title}"
+
+class Video(models.Model):
+    gallery = models.ForeignKey(Gallery, related_name='videos', on_delete=models.CASCADE)
+    video = models.FileField(upload_to='gallery/videos/')
+    video2 = models.FileField(upload_to='gallery/videos2/', null=True, blank=True)
+
+    def __str__(self):
+        return f"Video in {self.gallery.title}"
+ 
 
 
 class Leaders(models.Model):

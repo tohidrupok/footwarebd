@@ -1,6 +1,6 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
-from .models import Company, NewsArticle, Leaders , Factory, InternationaCompany, Event
+from .models import Company, NewsArticle, Leaders , Factory, InternationaCompany, Event, Gallery
 
 def company_list(request):
     all_companies = Company.objects.all()
@@ -153,14 +153,10 @@ def event_detail(request, event_slug):
     event = Event.objects.get(slug=event_slug)
     return render(request, 'event/event_details.html', {'event': event})  
 
-# def blog(request):
-#     blogs = Blog.objects.all()
-#     return render(request, 'blog.html', {'blogs': blogs}) 
 
-# def blog_detail(request, blog_slug):
-#     blog = Blog.objects.get(slug=blog_slug)
-#     return render(request, 'blog_details.html', {'blog': blog})  
-
+def gallery_list(request):
+    galleries = Gallery.objects.prefetch_related('images', 'videos')
+    return render(request, 'gallery/list.html', {'galleries': galleries})
 
 def leaders(request):
     leaders = Leaders.objects.all()
