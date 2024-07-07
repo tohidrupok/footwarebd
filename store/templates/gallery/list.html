@@ -172,7 +172,8 @@
     <div class="container py-5">
         <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px">
             <h1 class="mb-0"> Gallery</h1>
-        </div>
+        </div> 
+                                <h3>Photos:</h3>
         <div class="row g-5">
             {% for gallery in galleries %}
                 <div class="col-md-6">
@@ -200,7 +201,18 @@
                                 {% endfor %}
                             </div>
                         </div>
+                    </div>
+                </div>
+            {% endfor %} 
                         <h3>Videos:</h3>
+            {% for gallery in galleries %}
+                <div class="col-md-6">
+                    <div class="event-details">
+                        <h2>{{ gallery.title }}</h2>
+                        <p class="text-justify">{{ gallery.description }}</p>
+                        <div class="img_container">
+                        </div>
+
                         <div class="img_container">
                             {% for video in gallery.videos.all %}
                                 {% if video.video %}
@@ -220,6 +232,7 @@
                     </div>
                 </div>
             {% endfor %}
+
         </div>
     </div>
 </div>

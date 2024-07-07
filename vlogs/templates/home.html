@@ -108,7 +108,21 @@
     top: 0;
     left: 100%;
     margin-top: 0;
-  }
+  }  
+
+  {% comment %} body,
+ h1, h2, h3, h4, h5, h6,
+p,
+.btn,
+.navbar-brand,
+.section-title,
+.bi,
+.form-control,
+.input-group,
+.btn-square {
+    font-family: 'Roboto', sans-serif !important;
+}  {% endcomment %}
+
 </style>
 
 <script>
@@ -477,8 +491,35 @@
               Your browser does not support the video tag.
             </video>
           </div>
+        </div>  
+
+
+          <div class="col-lg-4 col-md-12" style="background-color: #c8b6a9" >
+        <div class="latest-news-container">
+          <div class="news-container" style="height: 300px; overflow: hidden;">
+            <marquee direction="up"
+                onmouseover="this.stop();"
+                onmouseout="this.start();"
+                scrollamount="2"
+                loop="1000"
+                style="height: 100%">
+              <div class="news-item">
+                {% for article in latest_news %}
+                <a
+                  href="{% url 'news_detail' article.slug %}"
+                  class="company-link"
+                >
+                  <p style="color: #f5fbff; margin-bottom: 30px">
+                    <span style="color: #fc0101">ᗔ</span> {{ article.title }}
+                  </p>
+                </a>
+                {% endfor %}
+              </div>
+            </marquee>
+          </div>
         </div>
-        <div
+       </div>
+        {% comment %} <div
           class="col-lg-4 col-md-12 order-0 order-md-1 mt-4 mt-md-0; height: 416px;"
         >
           <div
@@ -511,7 +552,7 @@
               </marquee>
             </div>
           </div>
-        </div>
+        </div> {% endcomment %}
       </div>
     </div>
   </div>
