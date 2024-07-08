@@ -7,7 +7,7 @@ from .forms import ContactForm
 import logging
 
 def home(request):
-    home= Home.objects.all()
+    home= Home.objects.filter(status = True).order_by('-id')
     video = Video_HomePage.objects.first()
     blogs = Blog.objects.all().order_by('-id')[:6]
     latest_news = NewsArticle.objects.filter(is_availble=True).order_by('-publication_date')[:5]  

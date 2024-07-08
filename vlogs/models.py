@@ -2,8 +2,11 @@ from django.db import models
 
 class Home(models.Model):
     slide = models.ImageField(upload_to='photos/slide/')
+    status = models.BooleanField(default=True)
     big_text = models.CharField(max_length=70, null=True, blank=True)
-    small_text = models.CharField(max_length=120, null=True, blank=True)
+    small_text = models.CharField(max_length=120, null=True, blank=True) 
+
+
     
 class Video_HomePage(models.Model):
     video = models.FileField(upload_to='videos/')  
