@@ -1,6 +1,7 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
-from .models import Company, NewsArticle, Leaders , Factory, InternationaCompany, Event, Gallery
+from .models import Company, NewsArticle, Leaders , Factory, InternationaCompany, Event, Gallery 
+from django.db.models import Q
 
 def company_list(request):
     all_companies = Company.objects.all()
@@ -156,7 +157,21 @@ def event_detail(request, event_slug):
 
 def gallery_list(request):
     galleries = Gallery.objects.prefetch_related('images', 'videos')
-    return render(request, 'gallery/list.html', {'galleries': galleries})
+    return render(request, 'gallery/list.html', {'galleries': galleries}) 
+
+def gallery_list(request):
+    query = request.GET.get('q')  # Get the search term from the request
+    if query:
+        # Filter galleries based on the search term (case-insensitive)
+        galleries = Gallery.objects.filter(
+            Q(title__icontains=query) | Q(description__icontains=query)
+        ).prefetch_related('images', 'videos')
+    else:
+        # Get all galleries if no search term is provided
+        galleries = Gallery.objects.prefetch_related('images', 'videos')
+    
+    # Render the list.html template with galleries and the search query
+    return render(request, 'gallery/list.html', {'galleries': galleries, 'query': query}) 
 
 def leaders(request):
     leaders = Leaders.objects.all()
